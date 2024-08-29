@@ -3,6 +3,7 @@ import Pop from "../Pop";
 import Hero from "../Hero";
 import GetStarted from "../GetStarted";
 import Discover from "../Discover";
+import World from "../World";
 
 const Layout = () => {
   return (
@@ -11,6 +12,7 @@ const Layout = () => {
       <Hero />
       <GetStarted />
       <Discover />
+      <World />
     </div>
   );
 };

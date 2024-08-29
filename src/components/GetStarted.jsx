@@ -6,7 +6,7 @@ import bigLogo from '../assets/bigLogo.png'
 
 const GetStarted = () => {
   return (
-    <div className='flex border py-8 relative flex-col justify-center items-center'>
+    <div className='flex py-8 relative flex-col justify-center items-center'>
         <div className='absolute top-[-80px] left-[-150px]'>
         <img src={bigLogo} alt="home" className=" z-20" />
         </div>
