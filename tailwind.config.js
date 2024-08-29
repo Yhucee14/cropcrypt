@@ -11,7 +11,6 @@ export default {
         blue: '#1B6392',
         white: '#FFFFFF',
         black: '#000000',
-        grey: '#736D6D',
       },
       screens: {
         xx: "320px",
