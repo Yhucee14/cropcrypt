@@ -6,9 +6,9 @@ import bigLogo from '../assets/bigLogo.png'
 
 const GetStarted = () => {
   return (
-    <div className='flex py-8 relative flex-col justify-center items-center'>
-        <div className='absolute top-[-80px] left-[-150px]'>
-        <img src={bigLogo} alt="home" className=" z-20" />
+    <div className='flex py-10 relative flex-col justify-center items-center'>
+        <div className='absolute md:top-[-10px] lg:top-[-20px] md:left-[-130px] lg:left-[-100px]'>
+        <img src={bigLogo} alt="home" className="w-56 h-50 z-20" />
         </div>
        <div className='flex flex-row font-bold text-4xl py-5'>
         <p className='px-1 '>Get Started with</p>
