@@ -27,7 +27,7 @@ const Layout = () => {
         <Discover />
       </div>
 
-      <div className="md:px-8 lg:px-36">
+      <div className="md:px-14 lg:px-36">
         <World />
       </div>
 
