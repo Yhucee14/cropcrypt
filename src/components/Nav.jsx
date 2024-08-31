@@ -4,7 +4,7 @@ import logo from "../assets/logo.png";
 import invest from "../assets/invest.png";
 import mint from "../assets/mint.png";
 import profile from "../assets/profile.png";
-import asset from "../assets/asset.png";
+import blue from "../assets/blue.png";
 import settings from "../assets/settings.png";
 import down from "../assets/down.png";
 
@@ -68,7 +68,7 @@ const Nav = () => {
         </div>
 
         <div className="flex justify-center gap-2 items-center">
-          <img src={asset} alt="home" className="w-10 z-20 h-10" />
+          <img src={blue} alt="home" className="w-10 z-20 h-10" />
 
           <button className="flex flex-row ml-[-34px] border-2 border-grey bg-green-100 rounded-2xl py-1 px-5 text-deepgreen justify-center items-center">
             <div className="px-3 font-bold">Asset Chain</div>

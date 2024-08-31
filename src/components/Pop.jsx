@@ -12,7 +12,7 @@ const Pop = () => {
           </p>
         </div>
 
-        <div>
+        <div className="lg:py-2 py-2">
           <p className="leading-5 text-sm py-1 px-1  text-white font-thin">
             Diversity your agricultural investments with our cutting-edge
             blockchain technology and stay ahead of the market curve.
@@ -20,7 +20,7 @@ const Pop = () => {
         </div>
 
         <div className="py-1">
-          <button className="flex bg-green-600 rounded-lg py-1 px-4 text-white justify-center items-center">
+          <button className="flex bg-green-600 lg:mt-4 rounded-lg py-1 px-4 text-white justify-center items-center">
             <div className="px-3 font-bold">Invest Now!</div>
           </button>
         </div>

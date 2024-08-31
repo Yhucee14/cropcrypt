@@ -11,7 +11,13 @@ body {
     font-family: 'DM Sans', sans-serif;
   }
   
-/* index.css */
+
 .bg-gradient-invest {
   background: linear-gradient(270deg, #359A35 0%, #123412 100%);
 }
+
+.bg-gradient-chain {
+  background: linear-gradient(309.01deg, #359A35 2.87%, #5FAE5F 13.73%, #FFFFFF 36%, #FFFFFF 58.44%, #FFFFFF 79.94%);
+}
+
+
