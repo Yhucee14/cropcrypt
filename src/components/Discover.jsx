@@ -11,7 +11,7 @@ const Discover = () => {
       </div>
 
       <div className="flex gap-2 flex-row py-3">
-        <div className="flex flex-col md:w-52 lg:w-64  px-3 py-4 bg-gray-100 rounded-2xl border border-gray-400">
+        <div className="flex flex-col md:w-52 lg:w-64  px-3 py-4 bg-[#F4F4F4] rounded-2xl border border-gray-400">
           <p className="font-bold text-2xl"> Invest stable coins with ease</p>
           <p className="py-5 md:mt-12 lg:mt-11">
             Invest in any assets of your choice with an ease by using{" "}
@@ -22,7 +22,7 @@ const Discover = () => {
           </div>
         </div>
 
-        <div className="flex flex-col md:w-52 lg:w-64  px-3 py-4 bg-gray-100 rounded-2xl border border-gray-400">
+        <div className="flex flex-col md:w-52 lg:w-64  px-3 py-4 bg-[#F4F4F4] rounded-2xl border border-gray-400">
           <p className="font-bold text-2xl">
             Explore inventories & manage assets
           </p>
@@ -31,7 +31,7 @@ const Discover = () => {
           </p>
         </div>
 
-        <div className="flex flex-col md:w-52 lg:w-64 px-2 py-4 bg-gray-100 rounded-2xl border border-gray-400">
+        <div className="flex flex-col md:w-52 lg:w-64 px-2 py-4 bg-[#F4F4F4] rounded-2xl border border-gray-400">
           <p className="font-bold text-2xl">
             Connect with farmers and investors
           </p>
@@ -41,7 +41,7 @@ const Discover = () => {
           </p>
         </div>
 
-        <div className="flex flex-col md:w-52 lg:w-64 px-3 py-2 justify-center items-center bg-gray-100 rounded-2xl border border-gray-400">
+        <div className="flex flex-col md:w-52 lg:w-64 px-3 py-2 justify-center items-center bg-[#F4F4F4] rounded-2xl border border-gray-400">
           <p className="font-bold mt-[-0px] text-2xl">
             Earn rewards & build your portfolio
           </p>

@@ -20,4 +20,8 @@ body {
   background: linear-gradient(309.01deg, #359A35 2.87%, #5FAE5F 13.73%, #FFFFFF 36%, #FFFFFF 58.44%, #FFFFFF 79.94%);
 }
 
+.bg-gradient-green {
+  background: linear-gradient(90deg, #359A35 0%, #123412 48.02%, #133713 53%, #123612 75.07%);
+}
+
 
