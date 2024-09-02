@@ -1,5 +1,6 @@
 import React from "react";
 import phone from "../assets/phone.png";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -18,9 +19,12 @@ const Hero = () => {
         </div>
         <div className="flex gap-2 flex-row">
           <div className="py-1 mt-0.5">
+            <Link to='/dashboard'>
             <button className="flex bg-gradient-invest rounded-3xl py-2 px-1 text-white justify-center items-center">
               <div className="px-3 font-bold">Invest Now!</div>
             </button>
+            </Link>
+           
           </div>
 
           <div className="py-1">

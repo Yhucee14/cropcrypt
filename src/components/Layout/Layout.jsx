@@ -10,10 +10,12 @@ import Wallet from "../Wallet";
 import Unlock from "../Unlock";
 import Benefits from "../Benefits";
 import Footer from "../Footer";
+import Nav from "../Nav";
 
 const Layout = () => {
   return (
     <div className="flex flex-col justify-center ">
+        <Nav />
       <div className="md:px-36 lg:px-40">
         <Pop />
       </div>
