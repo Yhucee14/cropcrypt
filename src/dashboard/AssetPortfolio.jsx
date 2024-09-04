@@ -6,6 +6,10 @@ import leftarrow from "../assets/leftarrow.png";
 import rightarrow from "../assets/rightarrow.png";
 import share from "../assets/share.png";
 import cube from "../assets/cube.png";
+import pie from "../assets/pie.png";
+import greenbox from "../assets/greenbox.png";
+import blackbox from "../assets/blackbox.png";
+import yellowbox from "../assets/yellowbox.png";
 
 const AssetPortfolio = () => {
   return (
@@ -91,6 +95,72 @@ const AssetPortfolio = () => {
 
       <div className=" py-4 px-[20%] h-1">
         <hr />
+      </div>
+
+      <div className="flex px-8 py-7 flex-row gap-4">
+        <div className="flex flex-col px-1 py-3 w-[50%] h-full border shadow-xl rounded-2xl">
+          <p className="px-3 py-4 font-bold text-2xl">Owner Details</p>
+          <p className="px-3 py-2 border-b-2 text-[#736D6D]">Name: Musa Ladipo</p>
+          <p className="px-3 py-2 text-[#736D6D] border-b-2">
+            Price: <b className="text-black text-lg">2.344</b> <b className="text-[#359A35]">($13.00)</b>
+          </p>
+          <p className="px-3 py-3 text-[#736D6D] border-b-2">
+            Created Date: <b className="text-black text-lg">Apr 12, 2023; 12:09 GMT +1</b>
+          </p>
+          <p className="px-3 text-[#736D6D] border-b-2">
+            Contract Address: <b className="text-[#2210F4]">0xc0...d1ce95BossesCrosses</b>
+          </p>
+          <p className="px-3 text-[#736D6D] border-b-2 py-3">
+            Country of origin: <b className="font-bold text-black">Kano State, Nigeria</b>
+          </p>
+          <p className="px-3 text-[#736D6D] border-b-2 py-3">
+            Token Address: <b className="text-[#2210F4]">0xc0...d1ce95BossesCrosses</b>
+          </p>
+          <p className="px-3 text-[#736D6D] border-b-2 py-3">
+            Asset ID: <b className="font-bold text-black">#0X3364B</b>
+          </p>
+          <p className="px-3 text-[#736D6D] py-4">
+            Harvest Duration: <b className="font-bold text-black">5 Years</b>
+          </p>
+        </div>
+        <div className="py-4 md:px-2 lg:px-4 flex flex-col md:h-[300px] lg:h-full border shadow-xl rounded-2xl">
+          <p className="px-4 flex justify-center font-bold md:text-xl lg:text-2xl">
+            Asset Analytic Title
+          </p>
+          <div className="flex flex-col">
+            <div className="flex flex-row">
+              <div>
+                <img
+                  src={pie}
+                  alt="home"
+                  className="md:w-[250px] lg:w-full z-20"
+                />
+              </div>
+              <div className="flex flex-col justify-between">
+                <div className="md:mt-12 lg:mt-28">
+                  <div className="flex flex-row px-2 py-2 gap-2">
+                    <img src={greenbox} alt="home" className=" z-20" />
+                    <p>112 Listed Assets</p>
+                  </div>
+                  <div className="flex flex-row px-2 py-2 gap-2">
+                    <img src={blackbox} alt="home" className=" z-20" />
+                    <p>205 Share Holders</p>
+                  </div>
+                  <div className="flex flex-row px-2 py-2 gap-2">
+                    <img src={yellowbox} alt="home" className=" z-20" />
+                    <p>205 Share Holders</p>
+                  </div>
+                </div>
+
+                <div className="flex justify-end z-50 py-5">
+                  <button className="flex text-white rounded-3xl hover:bg-white hover:text-[#359A35] hover:border-2 hover:border-[#359A35] transiton-all duration-300  bg-[#359A35] py-2 px-1 justify-center items-center">
+                    <div className="px-2  font-semibold">Connect Wallet</div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
