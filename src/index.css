@@ -24,4 +24,7 @@ body {
   background: linear-gradient(90deg, #359A35 0%, #123412 48.02%, #133713 53%, #123612 75.07%);
 }
 
+.bg-footer-gradient {
+  background: linear-gradient(94.31deg, #000000 33.92%, #252525 41.83%, #1D1D1D 51.41%, #383838 67.5%, #359A35 99.59%);
 
+}

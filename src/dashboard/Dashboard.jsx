@@ -3,6 +3,7 @@ import Nav from "../components/Nav";
 import SectionOne from "./SectionOne";
 import SectionTwo from "./SectionTwo";
 import SectionThree from "./SectionThree";
+import GreenFooter from "./GreenFooter";
 
 const Dashboard = () => {
   return (
@@ -13,6 +14,7 @@ const Dashboard = () => {
         <SectionOne />
         <SectionTwo />
         <SectionThree />
+        <GreenFooter />
       </div>
     </div>
   );

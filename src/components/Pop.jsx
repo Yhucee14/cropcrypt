@@ -1,5 +1,6 @@
 import React from "react";
 import bag from "../assets/bag.png";
+import { Link } from "react-router-dom";
 
 const Pop = () => {
   return (
@@ -20,9 +21,11 @@ const Pop = () => {
         </div>
 
         <div className="py-1">
-          <button className="flex bg-green-600 lg:mt-4 rounded-lg py-1 px-4 text-white justify-center items-center">
-            <div className="px-3 font-bold">Invest Now!</div>
-          </button>
+          <Link to="/dashboard">
+            <button className="flex bg-green-600 lg:mt-4 rounded-lg py-1 px-4 text-white justify-center items-center">
+              <div className="px-3 font-bold">Invest Now!</div>
+            </button>
+          </Link>
         </div>
       </div>
 

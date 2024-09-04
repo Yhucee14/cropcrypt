@@ -7,6 +7,7 @@ import profile from "../assets/profile.png";
 import blue from "../assets/blue.png";
 import settings from "../assets/settings.png";
 import down from "../assets/down.png";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
@@ -34,9 +35,11 @@ const Nav = () => {
             <img src={invest} alt="home" className="w-5 h-5" />
           </div>
 
-          <div className="px-2 text-grey mt-0.5 flex justify-center items-center">
-            Invest
-          </div>
+          <Link to='/dashboard' className="px-2 text-grey mt-0.5 flex justify-center items-center">
+            <div >
+              Invest
+            </div>
+          </Link>
         </div>
 
         <div className="flex px-2">

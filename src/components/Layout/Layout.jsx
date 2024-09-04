@@ -11,6 +11,7 @@ import Unlock from "../Unlock";
 import Benefits from "../Benefits";
 import Footer from "../Footer";
 import Nav from "../Nav";
+import GreenFooter from "../../dashboard/GreenFooter";
 
 const Layout = () => {
   return (
@@ -56,6 +57,10 @@ const Layout = () => {
 
       <div className="md:px-36 lg:px-40">
         <Footer />
+      </div>
+
+      <div className="md:px-36 lg:px-40">
+        <GreenFooter />
       </div>
     </div>
   );
