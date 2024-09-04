@@ -22,7 +22,7 @@ const Pop = () => {
 
         <div className="py-1">
           <Link to="/dashboard">
-            <button className="flex bg-green-600 lg:mt-4 rounded-lg py-1 px-4 text-white justify-center items-center">
+            <button className="flex hover:bg-white hover:text-[#359A35] transition-all duration-300 bg-green-600 lg:mt-4 rounded-lg py-2 px-4 text-white justify-center items-center">
               <div className="px-3 font-bold">Invest Now!</div>
             </button>
           </Link>

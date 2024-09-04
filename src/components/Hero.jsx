@@ -28,7 +28,7 @@ const Hero = () => {
           </div>
 
           <div className="py-1">
-            <button className="flex border-2 border-[#359A35] rounded-3xl text-[#359A35] bg-white py-2 px-1 justify-center items-center">
+            <button className="flex hover:bg-[#359A35] hover:text-white transition-all duration-300 border-2 border-[#359A35] rounded-3xl text-[#359A35] bg-white py-2 px-1 justify-center items-center">
               <div className="px-2 font-semibold">Connect Wallet</div>
             </button>
           </div>
