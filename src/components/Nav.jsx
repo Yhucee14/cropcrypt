@@ -43,15 +43,15 @@ const Nav = () => {
           </Link>
         </div>
 
-        <div className="flex px-2">
+        <Link to="/createAsset" className="flex px-2">
           <div className="flex justify-center items-center">
             <img src={mint} alt="home" className="w-5 h-5" />
           </div>
 
           <div className="px-2 text-grey  mt-0.5 flex justify-center items-center">
-            Mint Assets
+           Create Assets
           </div>
-        </div>
+        </Link>
 
         <div className="flex px-2">
           <div className="flex justify-center items-center">

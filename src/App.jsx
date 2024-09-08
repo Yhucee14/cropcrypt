@@ -6,6 +6,7 @@ import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AssetPortfolio from "./dashboard/AssetPortfolio";
 import SectionThree from "./dashboard/SectionThree";
+import CreateAsset from "./components/CreateAsset";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/asset" element={<AssetPortfolio />} />
-        {/* <Route path="/sectionthree" element={<SectionThree />} /> */}
+        <Route path="/createAsset" element={<CreateAsset />} />
       </Routes>
       
     </BrowserRouter>

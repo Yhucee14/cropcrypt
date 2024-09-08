@@ -59,9 +59,9 @@ const Layout = () => {
         <Footer />
       </div>
 
-      <div className="md:px-36 lg:px-40">
+   
         <GreenFooter />
-      </div>
+    
     </div>
   );
 };
