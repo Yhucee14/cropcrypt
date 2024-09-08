@@ -18,6 +18,11 @@ import denton from "../assets/denton.png";
 import redworld from "../assets/redworld.png";
 import uba from "../assets/uba.png";
 import people from "../assets/people.png";
+import Modal from "../components/Modal";
+import goat from "../assets/goat.png";
+import usdt from "../assets/usdt.png";
+import downarrow from "../assets/downarrow.png";
+import plus from "../assets/plus.png";
 
 const AssetPortfolio = () => {
   const tableData = [
@@ -105,8 +110,47 @@ const AssetPortfolio = () => {
     },
   ];
 
+  const [selectedCrypto, setSelectedCrypto] = useState("USDT");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 2; // Number of rows per page
+  const [showModal, setShowModal] = useState(false);
+  const [numberOfShares, setNumberOfShares] = useState(0);
+
+  const cryptoOptions = [
+    { name: "Bitcoin", icon: usdt },
+    { name: "Ethereum", icon: usdt },
+    { name: "Litecoin", icon: usdt },
+    { name: "Ripple", icon: usdt },
+    { name: "Dogecoin", icon: usdt },
+  ];
+
+  const increment = () => {
+    setNumberOfShares((prev) => prev + 1);
+  };
+
+  const decrement = () => {
+    if (numberOfShares > 0) {
+      setNumberOfShares((prev) => prev - 1);
+    }
+  };
+
+  const handleDropdownToggle = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const handleCryptoSelect = (crypto) => {
+    setSelectedCrypto(crypto.name);
+    setIsDropdownOpen(false);
+  };
+
+  const handleBuyClick = () => {
+    setShowModal(true); // Show modal on click
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false); // Hide modal
+  };
 
   // Calculate total pages
   const totalPages = Math.ceil(tableData.length / rowsPerPage);
@@ -168,7 +212,10 @@ const AssetPortfolio = () => {
                 </div>
               </div>
               <div className="flex flex-row gap-2">
-                <button className="bg-[#359A35] z-50 hover:bg-white hover:text-[#359A35] hover:border-2 hover:border-[#359A35] transiton-all duration-300 rounded-xl py-2 px-6 font-bold text-2xl w-[300px] text-white">
+                <button
+                  onClick={handleBuyClick}
+                  className="bg-[#359A35] z-50 hover:bg-white hover:text-[#359A35] hover:border-2 hover:border-[#359A35] transiton-all duration-300 rounded-xl py-2 px-6 font-bold text-2xl w-[300px] text-white"
+                >
                   BUY
                 </button>
 
@@ -184,6 +231,163 @@ const AssetPortfolio = () => {
           </div>
         </div>
       </div>
+
+      {showModal && (
+        <Modal onClose={handleCloseModal}>
+          <div className="flex flex-col">
+            <div className="flex flex-row">
+              <div>
+                <img src={goat} alt="home" className=" z-20" />
+              </div>
+
+              <div className="flex flex-col">
+                <p className="text-[#000000] py-2 px-2">
+                  <b className="text-[#359a35]"> Category:</b> Livestock
+                </p>
+                <p className="text-[#000000] py-2 px-2">
+                  <b className="text-[#359a35]"> From:</b> MUSA CATTLE FARM
+                  #3239
+                </p>
+                <p className="text-[#000000] py-2 px-2">
+                  <b className="text-[#359a35]"> Asset ID:</b> #0X3364B
+                </p>
+                <p className="text-[#000000] py-2 px-2">
+                  <b className="text-[#0500FF]"> Recipient address: </b>
+                  0xc0...d1ce95BossesCrosses
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col px-2 py-3 shadow-xl rounded-xl">
+              <div className="flex flex-row px-3 py-3 justify-between">
+                <p>Pay with: </p>
+                <div className="relative">
+                  <div
+                    className="flex flex-row py-2 px-1 justify-between shadow-md gap-2 cursor-pointer"
+                    onClick={handleDropdownToggle}
+                  >
+                    <div className="flex flex-row gap-2">
+                      <img
+                        src={
+                          selectedCrypto === "USDT"
+                            ? usdt
+                            : cryptoOptions.find(
+                                (c) => c.name === selectedCrypto
+                              )?.icon
+                        }
+                        alt={selectedCrypto}
+                        className="w-5"
+                      />
+                      <p>{selectedCrypto}</p>
+                    </div>
+                    <div className="px-2 flex items-center">
+                      <img src={downarrow} alt="dropdown arrow" />
+                    </div>
+                  </div>
+
+                  {isDropdownOpen && (
+                    <div className="absolute top-full mt-2 w-[140px] bg-white border shadow-lg rounded-xl">
+                      {cryptoOptions.map((crypto) => (
+                        <div
+                          key={crypto.name}
+                          className="flex flex-row px-2 py-2 gap-2 items-center cursor-pointer hover:bg-gray-100"
+                          onClick={() => handleCryptoSelect(crypto)}
+                        >
+                          <img
+                            src={crypto.icon}
+                            alt={crypto.name}
+                            className="w-6 h-6"
+                          />
+                          <p>{crypto.name}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="flex flex-row px-2 py-3 justify-between">
+                <p>Price per share: </p>
+                <div className="flex flex-col">
+                  <div className="flex flex-row gap-2">
+                    <p> 2.344</p>
+                    <p className="">{selectedCrypto}</p>
+                  </div>
+
+                  <div className="flex justify-end">($13.19)</div>
+                </div>
+              </div>
+
+              <div className="flex flex-row px-2 py-3 justify-between">
+                <p>Number of shares: </p>
+                <div className="flex flex-row gap-2">
+                  <button
+                    className="cursor-pointer font-bold rounded-md h-6 mt-1 px-2 text-2xl text-white bg-red-600"
+                    onClick={decrement}
+                  >
+                    <p className="mt-[-4px]"> - </p>
+                  </button>
+
+                  <div className="mt-1 px-1 ml-2 flex justify-center">
+                    {numberOfShares}
+                  </div>
+
+                  <button
+                    className="cursor-pointer mt-[-2px] "
+                    onClick={increment}
+                  >
+                    <img src={plus} alt="increment" className="w-12" />
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex flex-row px-2 py-3 justify-between">
+                <p>You earn (Invest Return): </p>
+                <div className="flex flex-col">
+                  <div className="flex flex-row gap-2 text-[#2210F4]">
+                    <p> 7.344</p>
+                    <p className="">{selectedCrypto}</p>
+                  </div>
+
+                  <div className="flex justify-end">($13.19)</div>
+                </div>
+              </div>
+
+              <div className="flex flex-row px-2 py-3 justify-between">
+                <p>Commission Fee (2%): </p>
+                <div className="flex flex-row gap-2">
+                  <p>$1.03</p>
+                  <p className="">{selectedCrypto}</p>
+                </div>
+              </div>
+
+              <div className="flex flex-row px-2 py-4 justify-between">
+                <p>Network Fee: </p>
+                <div className="flex gap-2 flex-row">
+                  <p>(20 RWA)</p>
+                  <p className="">0.807</p>
+                  <p className="">{selectedCrypto}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="py-5 px-4 flex flex-row justify-between">
+            <div className="font-bold text-xl">You Pay</div>
+            <div className="flex flex-row gap-2">
+              <p className="font-bold text-xl">1588.931</p>
+              <p className="text-lg">{selectedCrypto}</p>
+            </div>
+          </div>
+
+          <div className="py-2 px-2">
+            <button
+              className="bg-[#359A35] z-50 hover:bg-white hover:text-[#359A35] hover:border-2 hover:border-[#359A35] transiton-all duration-300 rounded-xl py-2 px-6 font-semibold text-xl w-full text-white"
+            >
+              Connect wallet to buy
+            </button>
+          </div>
+        </Modal>
+      )}
 
       <div className="px-8 py-4">
         <p className="font-bold py-2 text-2xl">Description</p>
