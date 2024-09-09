@@ -3,6 +3,8 @@ import Nav from "./Nav";
 import { Link } from "react-router-dom";
 import leftarrow from "../assets/leftarrow.png";
 import cloud from "../assets/cloud.png";
+import tick from "../assets/tick.png";
+import GreenFooter from "../dashboard/GreenFooter";
 
 const CreateAsset = () => {
   const [assetName, setAssetName] = useState("");
@@ -10,6 +12,16 @@ const CreateAsset = () => {
   const [pricePerShare, setPricePerShare] = useState("");
   const [farmType, setFarmType] = useState("");
   const [image, setImage] = useState(null);
+
+  // New State Variables
+  const [investmentAmount, setInvestmentAmount] = useState("");
+  const [expectedROI, setExpectedROI] = useState("");
+  const [investmentPurpose, setInvestmentPurpose] = useState("");
+  const [investmentTimeline, setInvestmentTimeline] = useState("");
+  const [annualAppreciation, setAnnualAppreciation] = useState("");
+  const [availableShares, setAvailableShares] = useState("");
+  const [annualRevenue, setAnnualRevenue] = useState("");
+  const [farmSize, setFarmSize] = useState("");
 
   const handleImageUpload = (e) => {
     setImage(e.target.files[0]);
@@ -22,6 +34,14 @@ const CreateAsset = () => {
       assetDescription,
       pricePerShare,
       farmType,
+      investmentAmount,
+      expectedROI,
+      investmentPurpose,
+      investmentTimeline,
+      annualAppreciation,
+      availableShares,
+      annualRevenue,
+      farmSize,
       image,
     });
   };
@@ -115,7 +135,9 @@ const CreateAsset = () => {
                 onChange={(e) => setFarmType(e.target.value)}
                 className=" bg-[#736D6D1A] text-black rounded-md border border-[#00000080] p-3 w-full"
               >
-                <option value="">eg. crop farming, conventional, livestock,....</option>
+                <option value="">
+                  eg. crop farming, conventional, livestock,....
+                </option>
                 <option value="crop">Crop farming</option>
                 <option value="livestock">Horticultural farming</option>
                 <option value="poultry">Conventional farming</option>
@@ -125,16 +147,288 @@ const CreateAsset = () => {
                 <option value="aquaculture">Aquacultural farming</option>
               </select>
             </div>
-
-            {/* <button
-              onClick={handleSubmit}
-              className="mt-4 bg-blue-500 text-white py-2 px-4 rounded"
-            >
-              Mint Asset
-            </button> */}
           </div>
         </div>
       </div>
+
+      <div className="px-8">
+        <div className="py-4 font-bold text-2xl">
+          <div>Investment Highlights</div>
+        </div>
+        <div className="flex flex-row gap-4">
+          <div className="w-full flex flex-col">
+            <div>
+              <label className="block font-bold mb-2">
+                Amount of Investment Sought
+              </label>
+              <input
+                type="number"
+                value={investmentAmount}
+                onChange={(e) => setInvestmentAmount(e.target.value)}
+                className="bg-[#736D6D1A] border border-[#00000080] p-2 rounded-lg w-full"
+              />
+            </div>
+
+            <div className="py-5">
+              <label className="block font-bold mb-2">
+                Expected Return on Investment (%)
+              </label>
+              <input
+                type="number"
+                value={expectedROI}
+                onChange={(e) => setExpectedROI(e.target.value)}
+                className="bg-[#736D6D1A] border border-[#00000080] p-2 rounded-lg w-full"
+              />
+            </div>
+
+            <div className="py-5">
+              <label className="block font-bold mb-2">
+                Purpose of Investment
+              </label>
+              <select
+                value={investmentPurpose}
+                onChange={(e) => setInvestmentPurpose(e.target.value)}
+                className="bg-[#736D6D1A] border border-[#00000080] p-3 rounded-lg w-full"
+              >
+                <option value="">Select purpose</option>
+                <option value="expansion">Farm Expansion</option>
+                <option value="infrastructure">
+                  Infrastructure Development
+                </option>
+                <option value="technology">Technology Improvement</option>
+                <option value="research">Research and Development</option>
+              </select>
+            </div>
+
+            <div className="py-5">
+              <label className="block font-bold mb-2">
+                Investment Timeline
+              </label>
+              <select
+                value={investmentTimeline}
+                onChange={(e) => setInvestmentTimeline(e.target.value)}
+                className="bg-[#736D6D1A] border border-[#00000080] p-2 rounded-lg w-full"
+              >
+                <option value="">Select timeline</option>
+                <option value="1">1 Year</option>
+                <option value="3">3 Years</option>
+                <option value="5">5 Years</option>
+                <option value="10">10 Years</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="flex flex-col w-full">
+            <div>
+              <label className="block font-bold mb-2">
+                Annual Appreciation (%)
+              </label>
+              <input
+                type="number"
+                value={annualAppreciation}
+                onChange={(e) => setAnnualAppreciation(e.target.value)}
+                className="bg-[#736D6D1A] border border-[#00000080] p-2 rounded-lg w-full"
+              />
+            </div>
+
+            <div className="py-5">
+              <label className="block font-bold mb-2">
+                Available Units of Shares to Onboard
+              </label>
+              <input
+                type="number"
+                value={availableShares}
+                onChange={(e) => setAvailableShares(e.target.value)}
+                className="bg-[#736D6D1A] border border-[#00000080] p-2 rounded-lg w-full"
+              />
+            </div>
+
+            <div className="py-5">
+              <label className="block font-bold mb-2">
+                Current Annual Revenue
+              </label>
+              <input
+                type="number"
+                value={annualRevenue}
+                onChange={(e) => setAnnualRevenue(e.target.value)}
+                className="bg-[#736D6D1A] border border-[#00000080] p-2 rounded-lg w-full"
+              />
+            </div>
+
+            <div className="py-5">
+              <label className="block font-bold mb-2">
+                Farm Size (in acres)
+              </label>
+              <input
+                type="number"
+                value={farmSize}
+                onChange={(e) => setFarmSize(e.target.value)}
+                className="bg-[#736D6D1A] border border-[#00000080] p-2 rounded-lg w-full"
+              />
+            </div>
+          </div>
+        </div>{" "}
+      </div>
+
+      <div className="px-8">
+        <div className="py-6 font-bold">
+          <div className="py-5 text-2xl">Certification and Licenses</div>
+
+          <div className="flex flex-row gap-4">
+            <div className="w-full flex flex-col gap-4">
+              <div className="flex py-3 flex-col">
+                <p className="text-md">
+                  Proof of Farm Ownership or Operation Documentation?:
+                </p>
+                <p className="text-sm py-2">
+                  kindly upload your verified documents
+                </p>
+
+                <div className="w-full h-[170px] rounded-lg flex flex-col justify-center items-center bg-[#736D6D1A] border border-[#00000080]">
+                  <div className="items-center">
+                    <img src={cloud} alt="home" className=" z-20" />
+                  </div>
+
+                  <input
+                    type="file"
+                    id="imageUpload"
+                    onChange={handleImageUpload}
+                    className="hidden"
+                  />
+
+                  <label
+                    htmlFor="imageUpload"
+                    className="cursor-pointer text-[#0000009f] font-bold py-2 px-4 rounded"
+                  >
+                    {image ? image.name : "Upload Document"}
+                  </label>
+
+                  <div className="text-[#00000080] flex flex-col justify-center items-center">
+                    <p>Kindly upload only your proof of farm ownership</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex py-3 flex-col">
+                <p>Letter of Credit from Bank</p>
+                <p className="text-sm py-2">
+                  kindly upload your verified documents
+                </p>
+
+                <div className="w-full h-[170px] rounded-lg flex flex-col justify-center items-center bg-[#736D6D1A] border border-[#00000080]">
+                  <div className="items-center">
+                    <img src={cloud} alt="home" className=" z-20" />
+                  </div>
+
+                  <input
+                    type="file"
+                    id="imageUpload"
+                    onChange={handleImageUpload}
+                    className="hidden"
+                  />
+
+                  <label
+                    htmlFor="imageUpload"
+                    className="cursor-pointer text-[#0000009f] font-bold py-2 px-4 rounded"
+                  >
+                    {image ? image.name : "Upload Document"}
+                  </label>
+
+                  <div className="text-[#00000080] flex flex-col justify-center items-center">
+                    <p>
+                      Kindly upload only your letter of credit from your bank
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="w-full flex flex-col">
+              <div className="flex py-3 flex-col">
+                <p>Affidavit of Insurance Documentation?:</p>
+                <p className="text-sm py-2">
+                  kindly upload your verified documents
+                </p>
+
+                <div className="w-full h-[170px] rounded-lg flex flex-col justify-center items-center bg-[#736D6D1A] border border-[#00000080]">
+                  <div className="items-center">
+                    <img src={cloud} alt="home" className=" z-20" />
+                  </div>
+
+                  <input
+                    type="file"
+                    id="imageUpload"
+                    onChange={handleImageUpload}
+                    className="hidden"
+                  />
+
+                  <label
+                    htmlFor="imageUpload"
+                    className="cursor-pointer text-[#0000009f] font-bold py-2 px-4 rounded"
+                  >
+                    {image ? image.name : "Upload Document"}
+                  </label>
+
+                  <div className="text-[#00000080] flex flex-col text-sm justify-center items-center">
+                    <p>
+                      Kindly upload only your affidavit of insurance document
+                      here!
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex py-6 flex-col">
+                <p>Chamber of Commerce Certification</p>
+                <p className="text-sm py-2">
+                  kindly upload your verified documents
+                </p>
+
+                <div className="w-full h-[170px] rounded-lg flex flex-col justify-center items-center bg-[#736D6D1A] border border-[#00000080]">
+                  <div className="items-center">
+                    <img src={cloud} alt="home" className=" z-20" />
+                  </div>
+
+                  <input
+                    type="file"
+                    id="imageUpload"
+                    onChange={handleImageUpload}
+                    className="hidden"
+                  />
+
+                  <label
+                    htmlFor="imageUpload"
+                    className="cursor-pointer text-[#0000009f] font-bold py-2 px-4 rounded"
+                  >
+                    {image ? image.name : "Upload Document"}
+                  </label>
+
+                  <div className="text-[#00000080] text-sm flex flex-col justify-center items-center">
+                    <p>
+                      Kindly upload only your chamber of commerce certification
+                      here!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex justify-end py-6 px-8">
+        <button
+          onClick={handleSubmit}
+          className="mt-4 bg-[#359A35] hover:bg-white hover:text-[#359A35] hover:border-2 hover:border-[#359A35] transition-all duration-300 flex flex-row gap-2 text-white py-2 px-6 rounded-3xl"
+        >
+        <div className="hover:text-[#359A35]">
+        <img src={tick} alt="home" className="mt-0.5  z-20" />
+        </div>
+         <p>Onboard Now</p>
+        </button>
+      </div>
+
+      <GreenFooter />
     </div>
   );
 };
