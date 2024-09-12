@@ -5,7 +5,7 @@ import Dashboard from "./dashboard/Dashboard";
 import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AssetPortfolio from "./dashboard/AssetPortfolio";
-import SectionThree from "./dashboard/SectionThree";
+import Profile from "./components/Profile";
 import CreateAsset from "./components/CreateAsset";
 
 function App() {
@@ -17,6 +17,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/asset/:_id" element={<AssetPortfolio />} />
         <Route path="/createAsset" element={<CreateAsset />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
       
     </BrowserRouter>

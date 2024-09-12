@@ -7,12 +7,16 @@ import profile from "../assets/profile.png";
 import blue from "../assets/blue.png";
 import settings from "../assets/settings.png";
 import down from "../assets/down.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Nav = () => {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const [isAssetChainDropdownVisible, setAssetChainDropdownVisible] =
     useState(false);
+
+  const location = useLocation();
+  const isActive = (path) =>
+    location.pathname === path ? "text-green-500" : "text-black";
 
   return (
     <div className="flex px-2 py-4 justify-between cursor-pointer">
@@ -24,48 +28,50 @@ const Nav = () => {
           </div>
         </Link>
 
-        <Link to='/' className="flex md:px-1 lg:px-2">
+        <Link to="/" className={`flex md:px-1 font-medium lg:px-2 ${isActive("/")}`}>
           <div className="flex justify-center items-center">
             <img src={home} alt="home" className="w-5 h-5" />
           </div>
-
-          <div className="px-2 text-black mt-0.5 flex justify-center items-center">
+          <div className="px-2 mt-0.5 flex justify-center items-center">
             Home
           </div>
         </Link>
 
-        <div className="flex md:px-1 lg:px-2">
+        <Link
+          to="/dashboard"
+          className={`flex md:px-1 font-medium lg:px-2 ${isActive("/dashboard")}`}
+        >
           <div className="flex justify-center items-center">
-            <img src={invest} alt="home" className="w-5 h-5" />
+            <img src={invest} alt="invest" className="w-5 h-5" />
           </div>
+          <div className="px-2 mt-0.5 flex justify-center items-center">
+            Invest
+          </div>
+        </Link>
 
-          <Link
-            to="/dashboard"
-            className="px-2 text-grey mt-0.5 flex justify-center items-center"
-          >
-            <div>Invest</div>
-          </Link>
-        </div>
-
-        <Link to="/createAsset" className="flex px-2">
+        <Link
+          to="/createAsset"
+          className={`flex md:px-1 font-medium lg:px-2 ${isActive("/createAsset")}`}
+        >
           <div className="flex justify-center items-center">
-            <img src={mint} alt="home" className="w-5 h-5" />
+            <img src={mint} alt="createAsset" className="w-5 h-5" />
           </div>
-
-          <div className="px-2 text-grey  mt-0.5 flex justify-center items-center">
+          <div className="px-2 mt-0.5 flex justify-center items-center">
             Create Assets
           </div>
         </Link>
 
-        <div className="flex px-2">
+        <Link
+          to="/profile"
+          className={`flex md:px-1 font-medium lg:px-2 ${isActive("/profile")}`}
+        >
           <div className="flex justify-center items-center">
-            <img src={profile} alt="home" className="w-5 h-5" />
+            <img src={profile} alt="profile" className="w-5 h-5" />
           </div>
-
-          <div className="px-2 text-grey  mt-0.5 flex justify-center items-center">
+          <div className="px-2 mt-0.5 flex justify-center items-center">
             Profile
           </div>
-        </div>
+        </Link>
       </div>
 
       {/* <div className="px-10"></div> */}
