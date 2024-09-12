@@ -15,7 +15,7 @@ function App() {
         <Route path="/" element={<Layout />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/asset" element={<AssetPortfolio />} />
+        <Route path="/asset/:_id" element={<AssetPortfolio />} />
         <Route path="/createAsset" element={<CreateAsset />} />
       </Routes>
       
