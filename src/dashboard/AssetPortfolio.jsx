@@ -31,6 +31,7 @@ const AssetPortfolio = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [numberOfShares, setNumberOfShares] = useState(0);
+  const [documentation, setDocumentation] = useState([]);
 
   useEffect(() => {
     const fetchAsset = async () => {
@@ -315,22 +316,22 @@ const AssetPortfolio = () => {
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {assetDocs.map((doc, index) => (
+                {documentation.map((asset) => (
                   <div
-                    key={index}
+                    key={asset}
                     className="border p-4 shadow-md flex flex-col gap-2 rounded-lg"
                   >
-                    <p className="text-lg font-bold">{doc.title}</p>
+                    <p className="text-lg font-bold">{asset.dof || 'Verification' }</p>
                     <div className="flex flex-row gap-4 p-2">
                       <div>
-                        <img src={doc.logo} alt="loader" className="ml-2" />
+                        <img src={asset.image} alt="loader" className="ml-2" />
                       </div>
                       <div className="flex flex-col">
                         <p className="py-2 text-gray-600 font-bold">
-                          {doc.description}
+                        {asset.dof || 'Verification' }
                         </p>
-                        <p className="text-gray-500">{doc.issuedBy}</p>
-                        <p className="text-gray-500">{doc.issueDate}</p>
+                        <p className="text-gray-500">{asset.dof || 'Verification' }</p>
+                        <p className="text-gray-500">{asset.dof || 'Verification' }</p>
                         <div className="pt-4">
                           <button className="flex py-1 px-3 rounded-2xl flex-row items-center text-white bg-black font-semibold">
                             <p>Show Credential</p>
