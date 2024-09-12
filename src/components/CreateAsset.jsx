@@ -159,7 +159,7 @@ const CreateAsset = () => {
         <div className="flex flex-col">
           <Link to="/" className="flex py-5 flex-row gap-4">
             <img src={leftarrow} alt="home" className="h-6 z-20" />
-            <p className="font-bold text-xl">Mint Asset</p>
+            <p className="font-bold text-xl">Create Asset</p>
           </Link>
 
           <p className="w-[550px] text-[#00000080]">
