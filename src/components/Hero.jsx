@@ -19,7 +19,7 @@ const Hero = () => {
         </div>
         <div className="flex gap-2 flex-row">
           <div className="py-1 mt-0.5">
-            <Link to='/dashboard'>
+            <Link to='/invest'>
             <button className="flex bg-gradient-invest rounded-3xl py-2 px-1 text-white justify-center items-center">
               <div className="px-3 font-bold">Invest Now!</div>
             </button>

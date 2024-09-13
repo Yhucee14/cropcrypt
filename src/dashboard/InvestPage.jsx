@@ -42,7 +42,7 @@ const Invest = () => {
       ) : (
         <div className="px-8">
           {/*section one*/}
-          <div className="flex flex-row justify-between rounded-lg py-4 text-white bg-[#1B6909]">
+          <div className="flex px-2 flex-row justify-between rounded-lg py-4 text-white bg-[#1B6909]">
             <div className="flex flex-col justify-center">
               <div className="flex flex-row">
                 <p className="font-bold  text-lg">Total asset portfolio</p>
@@ -94,7 +94,7 @@ const Invest = () => {
           </div>
 
           {/*section two*/}
-          <div className="flex py-5 mt-3 border flex-row justify-between">
+          <div className="flex py-5 px-2 mt-3 border flex-row justify-between">
             <div className="flex flex-row justify-between ">
               <button className="border-b-4 border-b-[#359A35] flex justify-center items-center font-semibold text-lg text-[#359A35] ">
                 <div className="px-14">Invest</div>
@@ -130,7 +130,7 @@ const Invest = () => {
           </div>
 
           {/*section three*/}
-          <div className="py-5 flex flex-col">
+          <div className="py-5 px-2 flex flex-col">
             <div className="font-bold py-2 text-2xl px-2">
               Agricultural Holdings
             </div>
@@ -138,7 +138,7 @@ const Invest = () => {
               <Link
                 to={`/asset/${asset._id}`}
                 key={asset._id}
-                className="hover:bg-[#a8a4a479] transition-all duration-300 rounded-lg"
+                className="hover:bg-[#a8a4a479] px-3 transition-all duration-300 rounded-lg"
               >
                 <div className="flex py-4 flex-col border-b-2 border-b-[#A8A4A4] justify-center">
                   <div className="flex flex-row md:justify-between lg:justify-between gap-4">

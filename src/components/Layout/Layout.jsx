@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Pop from "../Pop";
 import Hero from "../Hero";
 import GetStarted from "../GetStarted";
@@ -14,54 +14,26 @@ import Nav from "../Nav";
 import GreenFooter from "../../dashboard/GreenFooter";
 
 const Layout = () => {
+
   return (
     <div className="flex flex-col justify-center ">
-        <Nav />
+      <Nav />
+      
       <div className="md:px-36 lg:px-40">
         <Pop />
-      </div>
-
-      <div className="md:px-36 lg:px-40">
         <Hero />
-      </div>
-
-      <div className="md:px-36 lg:px-40">
         <GetStarted />
-      </div>
-
-      <div className="md:px-36 lg:px-40">
         <Discover />
-      </div>
-
-      <div className="md:px-28 lg:px-36">
         <World />
-      </div>
-
-      <div className="md:px-36 lg:px-40">
         <Lock />
-      </div>
-
-      <Chain />
-
-      <div className="md:px-36 lg:px-40">
+        <Chain />
         <Wallet />
-      </div>
-
-      <div className="md:px-36 lg:px-40">
         <Unlock />
-      </div>
-
-      <div className="md:px-36 lg:px-40">
         <Benefits />
-      </div>
-
-      <div className="md:px-36 lg:px-40">
         <Footer />
       </div>
 
-   
-        <GreenFooter />
-    
+      <GreenFooter />
     </div>
   );
 };
