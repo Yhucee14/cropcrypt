@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 const SectionThree = () => {
   const [assets, setAssets] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchAssets = async () => {
@@ -18,6 +19,8 @@ const SectionThree = () => {
           "Error fetching assets:",
           error.response?.data || error.message
         );
+      }finally {
+        setIsLoading(false); 
       }
     };
 

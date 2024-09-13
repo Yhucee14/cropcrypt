@@ -38,7 +38,7 @@ const Nav = () => {
         </Link>
 
         <Link
-          to="/dashboard"
+          to="/invest"
           className={`flex md:px-1 font-medium lg:px-2 ${isActive("/dashboard")}`}
         >
           <div className="flex justify-center items-center">

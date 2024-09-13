@@ -48,6 +48,8 @@ const AssetPortfolio = () => {
         }
       } catch (error) {
         console.error("Error fetching asset data:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -81,11 +83,17 @@ const AssetPortfolio = () => {
 
   const handleCloseModal = () => setShowModal(false);
 
-  if (!asset) return <p>Loading...</p>; // Loading state
+  if (!asset)
+    return (
+      <div className="flex justify-center items-center h-64">
+        <div className="w-14 h-14 border-4 border-t-4 border-gray-200 rounded-full animate-spin border-t-green-500"></div>
+      </div>
+    );
 
   return (
     <div className="relative">
       <Nav />
+
       <div className="flex flex-col px-8">
         <Link to="/dashboard" className="flex py-5 flex-row gap-4">
           <img src={leftarrow} alt="home" className="h-6 mt-0.5 z-20" />
