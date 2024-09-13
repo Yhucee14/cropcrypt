@@ -114,8 +114,8 @@ const CreateAsset = () => {
 
       // Construct the form data
       const assetFormData = {
-        userId: "qwe4r5t6yuytrewqa", // Static value for now
-        image: imageUrl || "www.image.com", // Fallback if image is not uploaded
+        userId: "", 
+        image: imageUrl || "www.image.com",
         name,
         description,
         type: farmType,
@@ -218,7 +218,7 @@ const CreateAsset = () => {
               ></textarea>
             </div>
 
-            <div className="">
+            {/* <div className="">
               <label className="block font-bold text-lg mb-2">
                 Price per Share
               </label>
@@ -228,7 +228,7 @@ const CreateAsset = () => {
                 onChange={(e) => setAmount(e.target.value)}
                 className=" bg-[#736D6D1A] text-black rounded-md border border-[#00000080] p-2 w-full"
               />
-            </div>
+            </div> */}
 
             <div className="py-6">
               <label className="block font-bold text-lg mb-2">
@@ -281,9 +281,9 @@ const CreateAsset = () => {
                 type="number"
                 value={roi}
                 onChange={(e) => setRoi(e.target.value)}
-                className="bg-[#736D6D1A] border border-[#00000080] p-2 rounded-lg w-full"
+                className="bg-[#736D6D1A] border border-[#00000080] px-2 py-2 rounded-lg w-full"
               />
-            </div>
+            </div> 
 
             <div className="py-5">
               <label className="block font-bold mb-2">
@@ -360,11 +360,12 @@ const CreateAsset = () => {
 
             <div className="py-5">
               <label className="block font-bold mb-2">
-                Farm Size (in acres)
+                Farm Size
               </label>
               <input
                 type="text"
                 value={size}
+                placeholder="big or small"
                 onChange={(e) => setSize(e.target.value)}
                 className="bg-[#736D6D1A] border border-[#00000080] p-2 rounded-lg w-full"
               />

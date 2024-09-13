@@ -2,14 +2,14 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="py-10 flex flex-col justify-center items-center">
-      <div>
-        <p className="py-1 text-xl font-bold">
+    <div className="sm:py-10 px-2 flex flex-col justify-center items-center">
+      <div className="">
+        <p className="py-2 text-xl  font-bold">
           Be up to date with our freshest news when you sign up
         </p>
       </div>
 
-      <div className="py-3">
+      <div className="py-4">
         <form className="flex flex-row justify-between gap-2  w-[400px]">
           <input
             type="email"

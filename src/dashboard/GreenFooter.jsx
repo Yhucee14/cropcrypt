@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 const GreenFooter = () => {
   return (
-    <div className="flex flex-row py-14 px-14 justify-between bg-footer-gradient">
+    <div className="flex xx:flex-col sm:flex-row py-4 sm:py-14 sm:px-14 px-4 justify-between bg-footer-gradient">
       <div className="flex flex-col">
         <div className="flex ">
           <img src={logo} alt="logo" />
@@ -39,7 +39,7 @@ const GreenFooter = () => {
           </a>
         </div>
 
-        <div className="text-[#FFFFFF99] ">
+        <div className="text-[#FFFFFF99] py-2">
           <p>2024-2025 Cropcrypt. All rights reserved.</p>
         </div>
       </div>

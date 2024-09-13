@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <div className="flex py-4 flex-row justify-between items-center">
-      <div className="flex flex-col">
+    <div className="flex py-4 xx:flex-col sm:flex-row justify-between items-center">
+      <div className="flex px-4 flex-col">
         <div className="font-bold text-2xl text py-1 text-[#0F2816]">
           <p>Empowering Sustainable</p>
           <p> Agriculture through</p>

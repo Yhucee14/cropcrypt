@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 const Pop = () => {
   return (
-    <div className="py-3 flex flex-row justify-between rounded-lg px-3 bg-[#1B6909]">
+    <div className="py-3 flex xx:flex-col sm:flex-row justify-between rounded-lg px-3 bg-[#1B6909]">
       <div className="flex justify-center flex-col">
-        <div className="py-1 flex flex-row text-2xl">
+        <div className="py-1 flex xx:flex-col sm:flex-row xx text-2xl">
           <p className=" px-1 text-white font-bold">Enjoy 2.30% APY</p>
           <p className="px-1 text-[#48F548] font-bold ">
             on your first Investment!
@@ -29,7 +29,7 @@ const Pop = () => {
         </div>
       </div>
 
-      <div className="flex justify-center items-center">
+      <div className=" hidden sm:visible justify-center items-center">
         <img src={bag} alt="home" className=" z-20" />
       </div>
     </div>

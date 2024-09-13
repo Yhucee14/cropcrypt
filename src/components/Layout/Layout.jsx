@@ -19,7 +19,7 @@ const Layout = () => {
     <div className="flex flex-col justify-center ">
       <Nav />
       
-      <div className="md:px-36 lg:px-40">
+      <div className="xx:px-1 md:px-36 lg:px-40">
         <Pop />
         <Hero />
         <GetStarted />

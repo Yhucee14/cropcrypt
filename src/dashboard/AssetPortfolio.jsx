@@ -170,7 +170,7 @@ const AssetPortfolio = () => {
                     </p>
                     <p className="text-[#000000] py-2 px-2">
                       <b className="text-[#359a35]"> Asset ID:</b>{" "}
-                      {asset.id || "Asset ID"}
+                      {asset._id || "Asset ID"}
                     </p>
                     <p className="text-[#000000] py-2 px-2">
                       <b className="text-[#0500FF]"> Recipient address: </b>
@@ -199,7 +199,7 @@ const AssetPortfolio = () => {
             <hr />
           </div>
 
-          <div className="flex px-8 py-7 flex-row gap-4">
+          <div className="flex px-8 py-7 flex-row gap-2 lg:gap-4">
             <div className="flex flex-col px-1 py-3 w-[50%] h-full border shadow-xl rounded-2xl">
               <p className="px-3 py-4 font-bold text-2xl">Owner Details</p>
               <p className="px-3 py-2 border-b-2 text-[#736D6D]">
@@ -233,7 +233,7 @@ const AssetPortfolio = () => {
                 <b className="font-bold text-black">{asset.timeline}</b>
               </p>
             </div>
-            <div className="py-4 md:px-2 lg:px-4 flex flex-col md:h-[300px] lg:h-full border shadow-xl rounded-2xl">
+            <div className="py-4 md:px-3 lg:px-4 flex flex-col md:h-[300px] lg:h-full border shadow-xl rounded-2xl">
               <p className="px-4 flex justify-center font-bold md:text-xl lg:text-2xl">
                 Asset Analytic Title
               </p>
@@ -243,20 +243,20 @@ const AssetPortfolio = () => {
                     <img
                       src={pie}
                       alt="home"
-                      className="md:w-[250px] lg:w-full z-20"
+                      className="md:w-[240px] lg:w-full z-20"
                     />
                   </div>
                   <div className="flex flex-col justify-between">
                     <div className="md:mt-12 lg:mt-28">
-                      <div className="flex flex-row px-2 py-2 gap-2">
+                      <div className="flex flex-row  py-2 gap-2">
                         <img src={greenbox} alt="home" className=" z-20" />
                         <p>112 Listed Assets</p>
                       </div>
-                      <div className="flex flex-row px-2 py-2 gap-2">
+                      <div className="flex flex-row py-2 gap-2">
                         <img src={blackbox} alt="home" className=" z-20" />
                         <p>205 Share Holders</p>
                       </div>
-                      <div className="flex flex-row px-2 py-2 gap-2">
+                      <div className="flex flex-row py-2 gap-2">
                         <img src={yellowbox} alt="home" className=" z-20" />
                         <p>205 Share Holders</p>
                       </div>

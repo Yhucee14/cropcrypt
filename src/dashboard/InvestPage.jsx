@@ -153,7 +153,7 @@ const Invest = () => {
                       <div className="flex flex-col py-2">
                         <p className="font-bold py-2 text-3xl">{asset.name}</p>
                         <div className="text-[#359A35] flex flex-row gap-2 font-extrabold text-2xl">
-                          <p>{asset.amount}</p>
+                          <p>{asset.amount/asset.shares}</p>
                           <p className="text-[#A8A4A4] flex items-center text-xl">
                             USDT
                           </p>

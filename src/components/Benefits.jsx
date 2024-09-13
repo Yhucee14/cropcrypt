@@ -3,15 +3,15 @@ import logo from "../assets/logo.png";
 
 const Benefits = () => {
   return (
-    <div className="flex py-5 flex-row gap-2 justify-between">
-      <div className="flex flex-col   py-9">
+    <div className="flex py-5 xx:flex-col sm:flex-row gap-2 justify-between">
+      <div className="flex flex-col px-2  sm:py-9">
         <p className="text-2xl font-bold">Benefits</p>
         <p className="py-1 text-xl font-bold">
           <b className="text-[#1B6909]">Made for mass </b> adoption
         </p>
       </div>
 
-      <div className="flex w-1/2 py-5 flex-col">
+      <div className="flex sm:w-1/2 sm:py-5 px-1 flex-col">
         <div className="flex flex-row md:w-[400px] lg:w-[450px] py-4  gap-4">
           <div className="px-1">
             <img src={logo} alt="logo" className="w-32 h-7" />
