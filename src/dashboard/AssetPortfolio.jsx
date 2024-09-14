@@ -14,10 +14,6 @@ import lineloader from "../assets/lineloader.png";
 import smallarrowleft from "../assets/smallarrowleft.png";
 import smallarrowright from "../assets/smallarrowright.png";
 import boxarrow from "../assets/boxarrow.png";
-import denton from "../assets/denton.png";
-import redworld from "../assets/redworld.png";
-import uba from "../assets/uba.png";
-import people from "../assets/people.png";
 import Modal from "../components/Modal";
 import goat from "../assets/goat.png";
 import usdt from "../assets/usdt.png";
@@ -32,6 +28,57 @@ const AssetPortfolio = () => {
   const [showModal, setShowModal] = useState(false);
   const [numberOfShares, setNumberOfShares] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [message, setMessage] = useState("");
+  const [showMessage, setShowMessage] = useState(false);
+  const [isTransactionLoading, setIsTransactionLoading] = useState(false);
+
+  const handleBuyShares = async () => {
+    if (!asset) return;
+    setIsTransactionLoading(true);
+
+    try {
+      const payload = {
+        assetId: asset._id,
+        userId: asset.userId,
+        shares: numberOfShares,
+      };
+
+      const response = await fetch(
+        "https://crop-crypt.vercel.app/api/v1/asset/buy-shares",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      const result = await response.json();
+
+      if (response.ok) {
+        // Show success message or handle success
+        setMessage("Purchase successful!");
+        console.log("Purchase successful:", result.message);
+        console.log("Asset details:", result.data.asset);
+        console.log("Transaction details:", result.data.transaction);
+      } else {
+        // Show error message or handle failure
+        setMessage(`Purchase failed: ${result.message}`);
+        console.error("Purchase failed:", result.message);
+      }
+    } catch (error) {
+      setMessage("Error during purchase.");
+      console.error("Error during purchase:", error);
+    } finally {
+      setIsTransactionLoading(false); // Stop loading after transaction completes
+      setShowMessage(true); // Show the message popup
+    }
+  };
+
+  const handleCloseMessage = () => {
+    setShowMessage(false); // Close the message popup
+  };
 
   useEffect(() => {
     const fetchAsset = async () => {
@@ -83,8 +130,6 @@ const AssetPortfolio = () => {
   const handleBuyClick = () => setShowModal(true);
 
   const handleCloseModal = () => setShowModal(false);
-
-
 
   return (
     <div className="relative">
@@ -151,36 +196,177 @@ const AssetPortfolio = () => {
               </div>
             </div>
           </div>
+
           {showModal && (
             <Modal onClose={handleCloseModal}>
               <div className="flex flex-col">
                 <div className="flex flex-row">
-                  <div>
-                    <img src={goat} alt="home" className=" z-20" />
+                  <div className="w-[200px]">
+                    <img src={asset.image} alt="home" className="z-20" />
                   </div>
 
                   <div className="flex flex-col">
-                    <p className="text-[#000000] py-2 px-2">
-                      <b className="text-[#359a35]"> Category:</b>{" "}
+                    <p className="text-[#359a35] py-2 px-2">
+                      <b className="text-[#000000]">Category:</b>{" "}
                       {asset.category || "Category"}
                     </p>
-                    <p className="text-[#000000] py-2 px-2">
-                      <b className="text-[#359a35]"> From:</b>{" "}
+                    <p className="text-[#359a35] py-2 px-2">
+                      <b className="text-[#000000]">From:</b>{" "}
                       {asset.farm || "Farm Name"}
                     </p>
-                    <p className="text-[#000000] py-2 px-2">
-                      <b className="text-[#359a35]"> Asset ID:</b>{" "}
+                    <p className="text-[#359a35] py-2 px-2">
+                      <b className="text-[#000000]">Asset ID:</b>{" "}
                       {asset._id || "Asset ID"}
                     </p>
-                    <p className="text-[#000000] py-2 px-2">
-                      <b className="text-[#0500FF]"> Recipient address: </b>
+                    <p className="text-[#0500FF] py-2 px-2">
+                      <b className="text-[#000000]">Recipient address:</b>{" "}
                       {asset.recipientAddress || "Address"}
                     </p>
                   </div>
                 </div>
+
+                <div className="flex flex-col px-2 py-2 border rounded-xl">
+                  <div className="flex flex-row px-2 py-2 justify-between">
+                    <p>Pay with:</p>
+                    <div className="relative">
+                      <div
+                        className="flex flex-row py-2 px-1 justify-between shadow-md gap-2 cursor-pointer"
+                        onClick={handleDropdownToggle}
+                      >
+                        <div className="flex flex-row gap-2">
+                          <img
+                            src={
+                              selectedCrypto === "USDT"
+                                ? usdt
+                                : cryptoOptions.find(
+                                    (c) => c.name === selectedCrypto
+                                  )?.icon
+                            }
+                            alt={selectedCrypto}
+                          />
+                          <p>{selectedCrypto}</p>
+                        </div>
+                        <div>{isDropdownOpen ? "▲" : "▼"}</div>
+                      </div>
+
+                      {isDropdownOpen && (
+                        <div className="absolute top-full mt-2 w-full bg-white border shadow-lg rounded-xl">
+                          {cryptoOptions.map((crypto) => (
+                            <div
+                              key={crypto.name}
+                              className="flex flex-row px-1 py-2 gap-2 items-center cursor-pointer hover:bg-gray-100"
+                              onClick={() => handleCryptoSelect(crypto)}
+                            >
+                              <img
+                                src={crypto.icon}
+                                alt={crypto.name}
+                                className="w-5 h-5"
+                              />
+                              <p>{crypto.name}</p>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="flex flex-row px-2 py-2 justify-between">
+                    <p>Price per share:</p>
+                    <div className="flex flex-col">
+                      <div className="flex flex-row gap-2">
+                        <p>{(asset.amount / asset.shares).toFixed(2)}</p>
+                        <p>{selectedCrypto}</p>
+                      </div>
+                      <div className="flex justify-end">($13.19)</div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-row px-2 py-2 justify-between">
+                    <p>Number of shares:</p>
+                    <div className="flex flex-row gap-2 items-center">
+                      <button
+                        className="flex mt-[-4px] items-center cursor-pointer text-lg text-white rounded-sm py-2 px-2 bg-red-600 h-7 font-bold"
+                        onClick={decrement}
+                      >
+                        -
+                      </button>
+                      <div className="pl-2">{numberOfShares}</div>
+                      <button className="cursor-pointer" onClick={increment}>
+                        <img src={plus} alt="increment" className="w-12 h-12" />
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-row px-2 py-3 justify-between">
+                    <p>You earn (Invest Return):</p>
+                    <div className="flex flex-col">
+                      <div className="flex flex-row gap-2 text-[#2210F4]">
+                        <p className="text-xl font-bold">7.344</p>
+                        <p className="text-md mt-1">{selectedCrypto}</p>
+                      </div>
+                      <div className="flex justify-end">($13.19)</div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-row px-2 py-3 justify-between">
+                    <p>Commission Fee (2%):</p>
+                    <div className="flex flex-row gap-2">
+                      <p className="text-xl font-bold">$1.03</p>
+                      <p className="text-md mt-1">{selectedCrypto}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-row px-2 py-4 justify-between">
+                    <p>Network Fee:</p>
+                    <div className="flex gap-2 flex-row">
+                      <p className="font-bold">(20 RWA)</p>
+                      <p className="font-bold">0.807</p>
+                      <p>{selectedCrypto}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
+
+              <div className="py-5 px-4 flex flex-row justify-between">
+                <div className="font-bold text-xl">You Pay</div>
+                <div className="flex flex-row gap-2">
+                  <p className="font-bold text-xl">1588.931</p>
+                  <p className="text-lg">{selectedCrypto}</p>
+                </div>
+              </div>
+
+              <div className="py-2 px-2">
+                <button
+                  onClick={handleBuyShares}
+                  className="bg-[#359A35] z-50 hover:bg-white hover:text-[#359A35] hover:border-2 hover:border-[#359A35] transiton-all duration-300 rounded-xl py-2 px-6 font-semibold text-xl w-full text-white"
+                >
+                  {isTransactionLoading ? (
+                    <div className="flex justify-center items-center ">
+                      <div className="w-14 h-14 border-4 border-t-4 border-gray-200 rounded-full animate-spin border-t-green-500"></div>
+                    </div>
+                  ) : (
+                    "Connect wallet to buy"
+                  )}
+                </button>
+              </div>
+
+              {/* Message Popup modal */}
+              {showMessage && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                  <div className="bg-white p-6 rounded-lg shadow-lg">
+                    <p>{message}</p>
+                    <button
+                      className="bg-[#359A35] mt-4 text-white py-2 px-4 rounded-lg"
+                      onClick={handleCloseMessage}
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              )}
             </Modal>
           )}
+
           <div className="px-8 py-4">
             <p className="font-bold py-2 text-2xl">Description</p>
 

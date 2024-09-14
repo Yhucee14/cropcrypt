@@ -24,6 +24,7 @@ const CreateAsset = () => {
   const [timeline, setTimeline] = useState("");
   const [shares, setShares] = useState("");
   const [size, setSize] = useState("");
+  const [location, setLocation] = useState("");
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
@@ -114,7 +115,7 @@ const CreateAsset = () => {
 
       // Construct the form data
       const assetFormData = {
-        userId: "", 
+        userId: "qwe4r5t6yuytrewqa", 
         image: imageUrl || "www.image.com",
         name,
         description,
@@ -346,26 +347,27 @@ const CreateAsset = () => {
               />
             </div>
 
-            {/* <div className="py-5">
+             <div className="py-5">
               <label className="block font-bold mb-2">
-                Current Annual Revenue
+               Farm location
               </label>
               <input
-                type="number"
-                value={annualRevenue}
-                onChange={(e) => setAnnualRevenue(e.target.value)}
+                type="text"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
                 className="bg-[#736D6D1A] border border-[#00000080] p-2 rounded-lg w-full"
               />
-            </div> */}
+            </div> 
+          
 
             <div className="py-5">
               <label className="block font-bold mb-2">
                 Farm Size
               </label>
               <input
-                type="text"
+                type="number"
                 value={size}
-                placeholder="big or small"
+                placeholder="in acres"
                 onChange={(e) => setSize(e.target.value)}
                 className="bg-[#736D6D1A] border border-[#00000080] p-2 rounded-lg w-full"
               />
