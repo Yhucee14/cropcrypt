@@ -173,23 +173,23 @@ const AssetPortfolio = () => {
                       {asset.amount || "N/A"}
                     </p>
                     <p className="text-[#A8A4A4] font-bold mt-2.5">
-                      ({asset.priceInUSD || "N/A"})
+                      (${asset.amount / 1600 || "N/A"})
                     </p>
                   </div>
                 </div>
                 <div className="flex flex-row gap-2">
                   <button
                     onClick={handleBuyClick}
-                    className="bg-[#359A35] z-50 hover:bg-white hover:text-[#359A35] hover:border-2 hover:border-[#359A35] transiton-all duration-300 rounded-xl py-2 px-6 font-bold text-2xl w-[300px] text-white"
+                    className="bg-[#359A35] z-40 hover:bg-white hover:text-[#359A35] hover:border-2 hover:border-[#359A35] transiton-all duration-300 rounded-xl py-2 px-6 font-bold text-2xl w-[300px] text-white"
                   >
                     BUY
                   </button>
 
-                  <div className="absolute right-0 bottom-[-70px]">
-                    <img src={cube} alt="home" className=" z-20" />
+                  <div className="absolute right-0 top-[220px]">
+                    <img src={cube} alt="home" className=" z-50" />
                   </div>
 
-                  <div className="bg-white z-50 hover:bg-[#A8A4A4] transiton-all duration-300 rounded-xl">
+                  <div className="bg-white z-40 hover:bg-[#A8A4A4] transiton-all duration-300 rounded-xl">
                     <img src={share} alt="home" className=" " />
                   </div>
                 </div>
@@ -393,7 +393,7 @@ const AssetPortfolio = () => {
               </p>
               <p className="px-3 py-2 text-[#736D6D] border-b-2">
                 Price: <b className="text-black text-lg">{asset.amount}</b>{" "}
-                <b className="text-[#359A35]">${asset.amount}</b>
+                <b className="text-[#359A35]">${asset.amount / 1600}</b>
               </p>
               <p className="px-3 py-3 text-[#736D6D] border-b-2">
                 Created Date:{" "}
@@ -493,7 +493,7 @@ const AssetPortfolio = () => {
                     Share Price: ${asset.amount}
                   </p>
                   <p className="py-1 font-bold text-[#00000090]">
-                    Available Shares: ${asset.shares}
+                    Available Shares: {asset.shares}
                   </p>
                 </div>
                 <div>
@@ -505,174 +505,222 @@ const AssetPortfolio = () => {
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
 
-              <div className=" py-4 px-[20%] h-1">
-                <hr />
-              </div>
+          <div className=" py-4 px-[20%] h-1">
+            <hr />
+          </div>
 
-              <div>
-                <p className="font-bold text-3xl py-5">
-                  Assets Documentation's (legally)
-                </p>
+          {/* Table structure */}
+          <div className="py-4">
+            <table className=" table-auto border-collapse border border-gray-300">
+              <thead>
+                <tr className="bg-[#f1f1f1]">
+                  <th className="px-2 py-2 border border-gray-300 text-center">
+                    Token Name
+                  </th>
+                  <th className="px-2 py-2 border border-gray-300 text-center">
+                    Price/Share (USDT)
+                  </th>
+                  <th className="px-2 py-2 border border-gray-300 text-center">
+                    From
+                  </th>
+                  <th className="px-2 py-2 border border-gray-300 text-center">
+                    QTY of Shares
+                  </th>
+                  <th className="px-2 py-2 border border-gray-300 text-center">
+                    Date
+                  </th>
+                  <th className="px-2 py-2 border border-gray-300 text-center">
+                    To
+                  </th>
+                  <th className="px-2 py-2 border border-gray-300 text-center">
+                    APR (%)
+                  </th>
+                  <th className="px-2 py-2 border border-gray-300 text-center">
+                    Annual Return
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="hover:bg-gray-100">
+                  <td className="px-2 py-2 border text-center border-gray-300">
+                    {asset.name}
+                  </td>
+                  <td className="px-2 py-2 border border-gray-300">
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {asset.pofoUrl && (
-                    <div className="border p-4 shadow-md flex flex-col gap-2 rounded-lg">
-                      <p className="font-bold text-lg">
-                        Declaration of Ownership
+                    <div className="flex flex-row gap-2">
+                      <p className="font-semibold">
+                      {asset.amount}
                       </p>
-                      <div className="flex flex-row gap-4 p-2">
-                        <div>
-                          <img
-                            src={asset.pofoUrl}
-                            alt="POFO"
-                            className="w-full h-auto"
-                          />
-                        </div>
-                        <div className="flex flex-col">
-                          <p className="py-2 text-gray-600 font-bold">
-                            Verification of Asset ownership
-                          </p>
-                          <p className="text-gray-500">
-                            {asset.issuedBy || "isuued by?"}
-                          </p>
-                          <p className="text-gray-500">
-                            {asset.issueDate || "isuued on?"}
-                          </p>
-                          <div className="pt-4">
-                            <button className="flex py-1 px-3 rounded-2xl flex-row items-center text-white bg-black font-semibold">
-                              <p>Show Credential</p>
-                              <div>
-                                <img
-                                  src={boxarrow}
-                                  alt="loader"
-                                  className="ml-2"
-                                />
-                              </div>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  {asset.aoiUrl && (
-                    <div className="border p-4 shadow-md flex flex-col gap-2 rounded-lg">
-                      <p className="font-bold text-lg">
-                        Affidavit of insurance
+                      <p className="text-[#A8A4A4] text-sm mt-0.5">
+                        (${asset.amount / asset.shares})
                       </p>
-                      <div className="flex flex-row gap-4 p-2">
-                        <div>
-                          <img
-                            src={asset.aoiUrl}
-                            alt="aoi"
-                            className="w-full h-auto"
-                          />
-                        </div>
-                        <div className="flex flex-col">
-                          <p className="py-2 text-gray-600 font-bold">
-                            Farmers insurance policy
-                          </p>
-                          <p className="text-gray-500">
-                            {asset.issuedBy || "isuued by?"}
-                          </p>
-                          <p className="text-gray-500">
-                            {asset.issueDate || "isuued on?"}
-                          </p>
-                          <div className="pt-4">
-                            <button className="flex py-1 px-3 rounded-2xl flex-row items-center text-white bg-black font-semibold">
-                              <p>Show Credential</p>
-                              <div>
-                                <img
-                                  src={boxarrow}
-                                  alt="loader"
-                                  className="ml-2"
-                                />
-                              </div>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
                     </div>
-                  )}
+                  </td>
+                  <td className="px-2 py-2 border text-[#2210F2] font-semibold border-gray-300">
+                    0xc0...d1ce95Bosses
+                  </td>
+                  <td className="px-2 py-2 border text-center border-gray-300">
+                    {asset.shares}
+                  </td>
+                  <td className="px-2 py-2 border border-gray-300">
+                    {asset.createdAt}
+                  </td>
+                  <td className="px-2 py-2 border text-[#2210F2] font-semibold border-gray-300">
+                    0xc0...d1ce95Bosses
+                  </td>
+                  <td className="px-2 py-2 border text-center border-gray-300">
+                    {asset.roi}
+                  </td>
+                  <td className="px-2 py-2 border border-gray-300">$300.33</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-                  {asset.locUrl && (
-                    <div className="border p-4 shadow-md flex flex-col gap-2 rounded-lg">
-                      <p className="font-bold text-lg">Letter of credit</p>
-                      <div className="flex flex-row gap-4 p-2">
-                        <div>
-                          <img
-                            src={asset.locUrl}
-                            alt="aoi"
-                            className="w-full h-auto"
-                          />
-                        </div>
-                        <div className="flex flex-col">
-                          <p className="py-2 text-gray-600 font-bold">
-                            Financial guarantee statement
-                          </p>
-                          <p className="text-gray-500">
-                            {asset.issuedBy || "isuued by?"}
-                          </p>
-                          <p className="text-gray-500">
-                            {asset.issueDate || "isuued on?"}
-                          </p>
-                          <div className="pt-4">
-                            <button className="flex py-1 px-3 rounded-2xl flex-row items-center text-white bg-black font-semibold">
-                              <p>Show Credential</p>
-                              <div>
-                                <img
-                                  src={boxarrow}
-                                  alt="loader"
-                                  className="ml-2"
-                                />
-                              </div>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
+          <div>
+            <p className="font-bold text-3xl py-5">
+              Assets Documentation's (legally)
+            </p>
 
-                  {asset.cocUrl && (
-                    <div className="border p-4 shadow-md flex flex-col gap-2 rounded-lg">
-                      <p className="font-bold text-lg">Voter Endorsement</p>
-                      <div className="flex flex-row gap-4 p-2">
-                        <div>
-                          <img
-                            src={asset.cocUrl}
-                            alt="aoi"
-                            className="w-full h-auto"
-                          />
-                        </div>
-                        <div className="flex flex-col">
-                          <p className="py-2 text-gray-600 font-bold">
-                            Voter Endorsement
-                          </p>
-                          <p className="text-gray-500">
-                            {asset.issuedBy || "isuued by?"}
-                          </p>
-                          <p className="text-gray-500">
-                            {asset.issueDate || "isuued on?"}
-                          </p>
-                          <div className="pt-4">
-                            <button className="flex py-1 px-2 rounded-2xl flex-row items-center text-white bg-black font-semibold">
-                              <p>Show Credential</p>
-                              <div>
-                                <img
-                                  src={boxarrow}
-                                  alt="loader"
-                                  className="ml-2"
-                                />
-                              </div>
-                            </button>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {asset.pofoUrl && (
+                <div className="border p-4 shadow-md flex flex-col gap-2 rounded-lg">
+                  <p className="font-bold text-lg">Declaration of Ownership</p>
+                  <div className="flex flex-row gap-4 p-2">
+                    <div>
+                      <img
+                        src={asset.pofoUrl}
+                        alt="POFO"
+                        className="w-full h-auto"
+                      />
+                    </div>
+                    <div className="flex flex-col">
+                      <p className="py-2 text-gray-600 font-bold">
+                        Verification of Asset ownership
+                      </p>
+                      <p className="text-gray-500">
+                        {asset.issuedBy || "isuued by?"}
+                      </p>
+                      <p className="text-gray-500">
+                        {asset.issueDate || "isuued on?"}
+                      </p>
+                      <div className="pt-4">
+                        <button className="flex py-1 px-3 rounded-2xl flex-row items-center text-white bg-black font-semibold">
+                          <p>Show Credential</p>
+                          <div>
+                            <img src={boxarrow} alt="loader" className="ml-2" />
                           </div>
-                        </div>
+                        </button>
                       </div>
                     </div>
-                  )}
+                  </div>
                 </div>
-              </div>
+              )}
+
+              {asset.aoiUrl && (
+                <div className="border p-4 shadow-md flex flex-col gap-2 rounded-lg">
+                  <p className="font-bold text-lg">Affidavit of insurance</p>
+                  <div className="flex flex-row gap-4 p-2">
+                    <div>
+                      <img
+                        src={asset.aoiUrl}
+                        alt="aoi"
+                        className="w-full h-auto"
+                      />
+                    </div>
+                    <div className="flex flex-col">
+                      <p className="py-2 text-gray-600 font-bold">
+                        Farmers insurance policy
+                      </p>
+                      <p className="text-gray-500">
+                        {asset.issuedBy || "isuued by?"}
+                      </p>
+                      <p className="text-gray-500">
+                        {asset.issueDate || "isuued on?"}
+                      </p>
+                      <div className="pt-4">
+                        <button className="flex py-1 px-3 rounded-2xl flex-row items-center text-white bg-black font-semibold">
+                          <p>Show Credential</p>
+                          <div>
+                            <img src={boxarrow} alt="loader" className="ml-2" />
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {asset.locUrl && (
+                <div className="border p-4 shadow-md flex flex-col gap-2 rounded-lg">
+                  <p className="font-bold text-lg">Letter of credit</p>
+                  <div className="flex flex-row gap-4 p-2">
+                    <div>
+                      <img
+                        src={asset.locUrl}
+                        alt="aoi"
+                        className="w-full h-auto"
+                      />
+                    </div>
+                    <div className="flex flex-col">
+                      <p className="py-2 text-gray-600 font-bold">
+                        Financial guarantee statement
+                      </p>
+                      <p className="text-gray-500">
+                        {asset.issuedBy || "isuued by?"}
+                      </p>
+                      <p className="text-gray-500">
+                        {asset.issueDate || "isuued on?"}
+                      </p>
+                      <div className="pt-4">
+                        <button className="flex py-1 px-3 rounded-2xl flex-row items-center text-white bg-black font-semibold">
+                          <p>Show Credential</p>
+                          <div>
+                            <img src={boxarrow} alt="loader" className="ml-2" />
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {asset.cocUrl && (
+                <div className="border p-4 shadow-md flex flex-col gap-2 rounded-lg">
+                  <p className="font-bold text-lg">Voter Endorsement</p>
+                  <div className="flex flex-row gap-4 p-2">
+                    <div>
+                      <img
+                        src={asset.cocUrl}
+                        alt="aoi"
+                        className="w-full h-auto"
+                      />
+                    </div>
+                    <div className="flex flex-col">
+                      <p className="py-2 text-gray-600 font-bold">
+                        Voter Endorsement
+                      </p>
+                      <p className="text-gray-500">
+                        {asset.issuedBy || "isuued by?"}
+                      </p>
+                      <p className="text-gray-500">
+                        {asset.issueDate || "isuued on?"}
+                      </p>
+                      <div className="pt-4">
+                        <button className="flex py-1 px-2 rounded-2xl flex-row items-center text-white bg-black font-semibold">
+                          <p>Show Credential</p>
+                          <div>
+                            <img src={boxarrow} alt="loader" className="ml-2" />
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

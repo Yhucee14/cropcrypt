@@ -40,7 +40,7 @@ const Invest = () => {
           <div className="w-14 h-14 border-4 border-t-4 border-gray-200 rounded-full animate-spin border-t-green-500"></div>
         </div>
       ) : (
-        <div className="px-8">
+        <div className="px-6">
           {/*section one*/}
           <div className="flex px-2 flex-row justify-between rounded-lg py-4 text-white bg-[#1B6909]">
             <div className="flex flex-col justify-center">
@@ -141,16 +141,16 @@ const Invest = () => {
                 className="hover:bg-[#a8a4a479] px-3 transition-all duration-300 rounded-lg"
               >
                 <div className="flex py-4 flex-col border-b-2 border-b-[#A8A4A4] justify-center">
-                  <div className="flex flex-row md:justify-between lg:justify-between gap-4">
-                    <div className="md:w-[500px]  ">
+                  <div className="flex flex-row md:justify-between lg:justify-between lg:gap-4">
+                    <div className="md:w-[450px]  ">
                       <img
                         src={asset.image || ivoryimg}
                         alt={asset.name}
                         className="z-20 md:h-[330px] w-full"
                       />
                     </div>
-                    <div className="flex px-5 py-5 flex-row justify-between md:gap-14 lg:gap-8">
-                      <div className="flex flex-col py-2">
+                    <div className="flex py-5 flex-row justify-between md:gap-2 lg:gap-8">
+                      <div className="flex flex-col px-4 py-2">
                         <p className="font-bold py-2 text-3xl">{asset.name}</p>
                         <div className="text-[#359A35] flex flex-row gap-2 font-extrabold text-2xl">
                           <p>{asset.amount/asset.shares}</p>
@@ -171,16 +171,16 @@ const Invest = () => {
                           </p>
                         </div>
                       </div>
-                      <div className="flex flex-col gap-20 py-5">
+                      <div className="flex flex-col gap-20 px-1 py-5">
                         <div className="flex flex-row gap-2">
                           <div>
-                            <img src={share} alt="share" className="z-20" />
+                            <img src={share} alt="share" className="z-20 " />
                           </div>
                           <button className="bg-[#359A35] rounded-xl py-2 px-6 font-bold text-white">
                             BUY
                           </button>
                         </div>
-                        <div>
+                        <div className="flex flex-col">
                           <p className="py-3 text-md">
                             Share Price: ${asset.amount || "N/A"}
                           </p>
