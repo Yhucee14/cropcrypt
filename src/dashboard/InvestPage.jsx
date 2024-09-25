@@ -10,6 +10,7 @@ import search from "../assets/search.png";
 const Invest = () => {
   const [assets, setAssets] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [activeSection, setActiveSection] = useState("Invest");
 
   useEffect(() => {
     const fetchAssets = async () => {
@@ -30,6 +31,10 @@ const Invest = () => {
 
     fetchAssets();
   }, []);
+
+  const handleSectionChange = (section) => {
+    setActiveSection(section); // Update the active section
+  };
 
   return (
     <div className="flex flex-col">
@@ -95,13 +100,27 @@ const Invest = () => {
 
           {/*section two*/}
           <div className="flex py-5 px-2 mt-3 border flex-row justify-between">
-            <div className="flex flex-row justify-between ">
-              <button className="border-b-4 border-b-[#359A35] flex justify-center items-center font-semibold text-lg text-[#359A35] ">
-                <div className="px-14">Invest</div>
+            <div className="flex flex-row justify-between gap-2">
+              <button
+                className={`border-b-4 flex justify-center items-center font-semibold text-lg px-14 ${
+                  activeSection === "Invest"
+                    ? "border-b-[#359A35] text-[#359A35]"
+                    : "border-b-[#736D6D] text-[#736D6D]"
+                }`}
+                onClick={() => handleSectionChange("Invest")}
+              >
+                Invest
               </button>
 
-              <button className="border-b-4 border-b-[#736D6D] flex justify-center items-center text-[#736D6D] font-semibold text-lg  ">
-                <div className="px-14">Inventory</div>
+              <button
+                className={`border-b-4 flex justify-center items-center font-semibold text-lg px-14 ${
+                  activeSection === "Inventory"
+                    ? "border-b-[#359A35] text-[#359A35]"
+                    : "border-b-[#736D6D] text-[#736D6D]"
+                }`}
+                onClick={() => handleSectionChange("Inventory")}
+              >
+                Inventory
               </button>
             </div>
 
@@ -129,72 +148,81 @@ const Invest = () => {
             </div>
           </div>
 
-          {/*section three*/}
-          <div className="py-5 px-2 flex flex-col">
-            <div className="font-bold py-2 text-2xl px-2">
-              Agricultural Holdings
-            </div>
-            {assets.map((asset) => (
-              <Link
-                to={`/asset/${asset._id}`}
-                key={asset._id}
-                className="hover:bg-[#a8a4a479] px-3 transition-all duration-300 rounded-lg"
-              >
-                <div className="flex py-4 flex-col border-b-2 border-b-[#A8A4A4] justify-center">
-                  <div className="flex flex-row md:justify-between lg:justify-between lg:gap-4">
-                    <div className="md:w-[450px]  ">
-                      <img
-                        src={asset.image || ivoryimg}
-                        alt={asset.name}
-                        className="z-20 md:h-[330px] w-full"
-                      />
-                    </div>
-                    <div className="flex py-5 flex-row justify-between md:gap-2 lg:gap-8">
-                      <div className="flex flex-col px-4 py-2">
-                        <p className="font-bold py-2 text-3xl">{asset.name}</p>
-                        <div className="text-[#359A35] flex flex-row gap-2 font-extrabold text-2xl">
-                          <p>{asset.amount/asset.shares}</p>
-                          <p className="text-[#A8A4A4] flex items-center text-xl">
-                            USDT
-                          </p>
-                        </div>
-                        <p className="text-[#A8A4A4] font-bold text-lg">
-                          Price per 1 share
-                        </p>
-                        <div className="mt-9">
-                          <p className="py-3 text-md">
-                            Annual Return: {asset.roi || "N/A"}%
-                          </p>
-                          <p className="text-md">
-                            Annual Appreciation:{" "}
-                            {asset.annualAppreciation || "N/A"}%
-                          </p>
-                        </div>
+          {activeSection === "Invest" ? (
+            <div className="py-5 px-2 flex flex-col">
+              <div className="font-bold py-2 text-2xl px-2">
+                Agricultural Holdings
+              </div>
+              {assets.map((asset) => (
+                <Link
+                  to={`/asset/${asset._id}`}
+                  key={asset._id}
+                  className="hover:bg-[#a8a4a479] px-3 transition-all duration-300 rounded-lg"
+                >
+                  <div className="flex py-4 flex-col border-b-2 border-b-[#A8A4A4] justify-center">
+                    <div className="flex flex-row md:justify-between lg:justify-between lg:gap-4">
+                      <div className="md:w-[450px]  ">
+                        <img
+                          src={asset.image || ivoryimg}
+                          alt={asset.name}
+                          className="z-20 md:h-[330px] w-full"
+                        />
                       </div>
-                      <div className="flex flex-col gap-20 px-1 py-5">
-                        <div className="flex flex-row gap-2">
-                          <div>
-                            <img src={share} alt="share" className="z-20 " />
+                      <div className="flex py-5 flex-row justify-between md:gap-2 lg:gap-8">
+                        <div className="flex flex-col px-4 py-2">
+                          <p className="font-bold py-2 text-3xl">
+                            {asset.name}
+                          </p>
+                          <div className="text-[#359A35] flex flex-row gap-2 font-extrabold text-2xl">
+                            <p>{asset.amount / asset.shares}</p>
+                            <p className="text-[#A8A4A4] flex items-center text-xl">
+                              USDT
+                            </p>
                           </div>
-                          <button className="bg-[#359A35] rounded-xl py-2 px-6 font-bold text-white">
-                            BUY
-                          </button>
+                          <p className="text-[#A8A4A4] font-bold text-lg">
+                            Price per 1 share
+                          </p>
+                          <div className="mt-9">
+                            <p className="py-3 text-md">
+                              Annual Return: {asset.roi || "N/A"}%
+                            </p>
+                            <p className="text-md">
+                              Annual Appreciation:{" "}
+                              {asset.annualAppreciation || "N/A"}%
+                            </p>
+                          </div>
                         </div>
-                        <div className="flex flex-col">
-                          <p className="py-3 text-md">
-                            Share Price: ${asset.amount || "N/A"}
-                          </p>
-                          <p className="text-md">
-                            Available shares: {asset.shares}
-                          </p>
+                        <div className="flex flex-col gap-20 px-1 py-5">
+                          <div className="flex flex-row gap-2">
+                            <div>
+                              <img src={share} alt="share" className="z-20 " />
+                            </div>
+                            <button className="bg-[#359A35] rounded-xl py-2 px-6 font-bold text-white">
+                              BUY
+                            </button>
+                          </div>
+                          <div className="flex flex-col">
+                            <p className="py-3 text-md">
+                              Share Price: ${asset.amount || "N/A"}
+                            </p>
+                            <p className="text-md">
+                              Available shares: {asset.shares}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <div className="py-5 px-2 flex flex-col">
+              <div className="font-bold py-2 text-2xl px-2">
+                NFT Inventory Marketplace
+              </div>
+            </div>
+          )}
         </div>
       )}
 
