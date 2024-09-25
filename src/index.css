@@ -28,3 +28,9 @@ body {
   background: linear-gradient(94.31deg, #000000 33.92%, #252525 41.83%, #1D1D1D 51.41%, #383838 67.5%, #359A35 99.59%);
 
 }
+
+.text-gradient-invest {
+  background: linear-gradient(270deg, #359A35 0%, #123412 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
