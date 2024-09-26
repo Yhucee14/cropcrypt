@@ -279,10 +279,10 @@ const Invest = () => {
               </div>
 
               {/* Table structure */}
-              <div className="py-4 flex justify-center">
-                <table className=" table-auto border-collapse border border-gray-300">
+              <div className="py-4  flex justify-center">
+                <table className=" table-auto rounded-lg border-collapse border border-gray-300">
                   <thead>
-                    <tr className="bg-[#f1f1f1]">
+                    <tr className="bg-[#359A351A]">
                       <th className="px-4 py-2 border border-gray-300 flex justify-start">
                         # Collections
                       </th>
@@ -306,60 +306,62 @@ const Invest = () => {
                       </th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr className="hover:bg-gray-100">
-                      <td className="px-2 py-2 border border-gray-300">
-                        <div className="flex flex-row py-2 gap-2">
-                          <p className="font-semibold flex justify-center items-center px-2">
-                            1
-                          </p>
-                          <div className="flex flex-row gap-2">
-                            <div className="rounded-full">
-                              <img
-                                src={tomato}
-                                alt="home"
-                                className="w-10 h-10 "
-                              />
-                            </div>
 
-                            <div className="flex flex-col">
-                              <p className="font-bold">BIMF</p>
-                              <p>From: Bimbo maize farm</p>
+                  <tbody className="">
+                      <tr className="hover:bg-[#359A351A] cursor-pointer"
+                      onClick={() => window.location.href = '/nft'} >
+                        <td className="px-2 py-2 border border-gray-300">
+                          <div className="flex flex-row py-2 gap-2">
+                            <p className="font-semibold flex justify-center items-center px-2">
+                              1
+                            </p>
+                            <div className="flex flex-row gap-2">
+                              <div className="rounded-full">
+                                <img
+                                  src={tomato}
+                                  alt="home"
+                                  className="w-10 h-10 "
+                                />
+                              </div>
+
+                              <div className="flex flex-col">
+                                <p className="font-bold">BIMF</p>
+                                <p>From: Bimbo maize farm</p>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </td>
+                        </td>
 
-                      <td className="px-2 py-2 gap-2 text-center flex flex-row items-center border-gray-300">
-                        <div className="font-bold flex justify-center text-center">
-                          <p className="mt-[-14px]">33.02K</p>
-                        </div>
-                        <div className="flex flex-col">
-                          <p className="mt-3 text-sm">USDT</p>
-                          <p className="text-sm">($3.07)</p>
-                        </div>
-                      </td>
+                        <td className="px-2 py-2 gap-2 text-center flex flex-row items-center border-gray-300">
+                          <div className="font-bold flex justify-center text-center">
+                            <p className="mt-[-14px]">33.02K</p>
+                          </div>
+                          <div className="flex flex-col">
+                            <p className="mt-3 text-sm">USDT</p>
+                            <p className="text-sm">($3.07)</p>
+                          </div>
+                        </td>
 
-                      <td className="px-2 py-2 text-[#359A35] border font-bold text-center border-gray-300">
-                        <p>4.35%</p>
-                      </td>
+                        <td className="px-2 py-2 text-[#359A35] border font-bold text-center border-gray-300">
+                          <p>4.35%</p>
+                        </td>
 
-                      <td className="px-2 py-2 border font-bold border-gray-300">
-                        $90.270 USDT
-                      </td>
+                        <td className="px-2 py-2 border font-bold border-gray-300">
+                          $90.270 USDT
+                        </td>
 
-                      <td className="px-2 py-2 text-[#2210F2]  text-center items-center font-semibold border-gray-300">
-                        100
-                      </td>
+                        <td className="px-2 py-2 text-[#2210F2]  text-center items-center font-semibold border-gray-300">
+                          100
+                        </td>
 
-                      <td className="px-2 py-2 border text-center font-semibold border-gray-300">
-                        307
-                      </td>
+                        <td className="px-2 py-2 border text-center font-semibold border-gray-300">
+                          307
+                        </td>
 
-                      <td className="px-2 py-2 border text-center font-semibold border-gray-300">
-                        20
-                      </td>
-                    </tr>
+                        <td className="px-2 py-2 border text-center font-semibold border-gray-300">
+                          20
+                        </td>
+                      </tr>
                   </tbody>
                 </table>
               </div>

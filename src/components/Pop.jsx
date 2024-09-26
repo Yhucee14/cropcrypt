@@ -29,7 +29,7 @@ const Pop = () => {
         </div>
       </div>
 
-      <div className=" hidden sm:visible justify-center items-center">
+      <div className=" hidden sm:flex justify-center items-center">
         <img src={bag} alt="home" className=" z-20" />
       </div>
     </div>
