@@ -25,6 +25,7 @@ import math from "../assets/math.png";
 import tokenpocket from "../assets/tokenpocket.png";
 import menu from "../assets/menu.png";
 import close from "../assets/close.png";
+import { ConnectButton, RainbowKitProvider, lightTheme } from "@rainbow-me/rainbowkit";
 
 const Nav = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -55,7 +56,13 @@ const Nav = () => {
   };
 
   return (
-    <div className="flex px-2 py-4 justify-between cursor-pointer">
+    <RainbowKitProvider
+    theme={lightTheme({
+      accentColor: "#359A35", // Set your preferred green color here
+      accentColorForeground: "white",
+    })}
+  >
+  <div className="flex px-2 py-4 justify-between cursor-pointer">
       <div className="md:hidden flex flex-row ">
         <Link to="/" className="flex ">
           <img src={logo} alt="logo" />
@@ -220,13 +227,13 @@ const Nav = () => {
 
               <div className="relative">
                 <button
-                  onClick={handleBuyClick}
-                  className="flex flex-row text-white rounded-3xl hover:bg-white hover:text-[#359A35] hover:border-2 hover:border-[#359A35] transition-all duration-300 bg-[#359A35] py-2 px-3 justify-center items-center"
+                  // onClick={handleBuyClick}
+                  // className="flex flex-row text-white rounded-3xl hover:bg-white hover:text-[#359A35] hover:border-2 hover:border-[#359A35] transition-all duration-300 bg-[#359A35] py-2 px-3 justify-center items-center"
                 >
-                  <div className="font-medium">Connect Wallet</div>
+                  <ConnectButton />
                 </button>
 
-                {showModal && (
+                {/* {showModal && (
                   <div
                     onClose={handleCloseModal}
                     className="fixed inset-0 bg-gray-600 bg-opacity-50 p-4 md:p-20 z-50 border flex flex-col justify-center items-center"
@@ -244,7 +251,8 @@ const Nav = () => {
                       <div className="flex flex-row ">
                         <div className="md:w-[60%]">
                           <div className="px-9  text-xl font-bold border-b-2 py-5 mt-7 ">
-                            Connect Wallet
+                          <ConnectButton />
+
                           </div>
                           <div className="py-2 px-9">
                             <p className="text-[#00000080] font-medium">
@@ -420,13 +428,15 @@ const Nav = () => {
                       </div>
                     </div>
                   </div>
-                )}
+                )} */}
               </div>
             </div>
           </div>
         </div>
       )}
     </div>
+</RainbowKitProvider>
+
   );
 };
 

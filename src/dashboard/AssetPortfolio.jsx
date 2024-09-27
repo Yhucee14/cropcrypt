@@ -19,6 +19,7 @@ import goat from "../assets/goat.png";
 import usdt from "../assets/usdt.png";
 import downarrow from "../assets/downarrow.png";
 import plus from "../assets/plus.png";
+import { ConnectButton, RainbowKitProvider, lightTheme } from "@rainbow-me/rainbowkit";
 
 const AssetPortfolio = () => {
   const { _id } = useParams(); // Get asset ID from URL
@@ -44,7 +45,7 @@ const AssetPortfolio = () => {
       };
 
       const response = await fetch(
-        "https://crop-crypt.vercel.app/api/v1/asset/buy-shares",
+        `${import.meta.env.VITE_BUY_SHARES}`,
         {
           method: "POST",
           headers: {
@@ -84,7 +85,7 @@ const AssetPortfolio = () => {
     const fetchAsset = async () => {
       try {
         const response = await fetch(
-          `https://crop-crypt.vercel.app/api/v1/asset/${_id}`
+          `${import.meta.env.VITE_FETCH_AN_ASSET}/${_id}`
         );
         const data = await response.json();
 
@@ -132,7 +133,14 @@ const AssetPortfolio = () => {
   const handleCloseModal = () => setShowModal(false);
 
   return (
-    <div className="relative">
+    <RainbowKitProvider
+    theme={lightTheme({
+      accentColor: "#359A35", // Set your preferred green color here
+      accentColorForeground: "white",
+      
+    })}
+  >
+  <div className="relative">
       <Nav />
 
       {isLoading ? (
@@ -726,6 +734,8 @@ const AssetPortfolio = () => {
         </div>
       )}
     </div>
+    </RainbowKitProvider>
+  
   );
 };
 

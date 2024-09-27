@@ -2,7 +2,7 @@ import Nav from "../components/Nav";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import share from "../assets/share.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import GreenFooter from "./GreenFooter";
 import eye from "../assets/eye.png";
 import search from "../assets/search.png";
@@ -18,11 +18,13 @@ const Invest = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [activeSection, setActiveSection] = useState("Invest");
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     const fetchAssets = async () => {
       try {
         const response = await axios.get(
-          "https://crop-crypt.vercel.app/api/v1/asset"
+          `${import.meta.env.VITE_ASSET}`
         );
         setAssets(response.data.data || []);
       } catch (error) {
@@ -49,7 +51,7 @@ const Invest = () => {
       {isLoading ? (
         <div className="flex justify-center items-center h-64">
           <div className="w-14 h-14 border-4 border-t-4 border-gray-200 rounded-full animate-spin border-t-green-500"></div>
-        </div>
+        </div> 
       ) : (
         <div className="px-6">
           {/*section one*/}
@@ -309,7 +311,7 @@ const Invest = () => {
 
                   <tbody className="">
                       <tr className="hover:bg-[#359A351A] cursor-pointer"
-                      onClick={() => window.location.href = '/nft'} >
+                     onClick={() => navigate('/nft')} >
                         <td className="px-2 py-2 border border-gray-300">
                           <div className="flex flex-row py-2 gap-2">
                             <p className="font-semibold flex justify-center items-center px-2">

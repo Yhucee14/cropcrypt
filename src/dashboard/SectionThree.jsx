@@ -11,7 +11,7 @@ const SectionThree = () => {
     const fetchAssets = async () => {
       try {
         const response = await axios.get(
-          "https://crop-crypt.vercel.app/api/v1/asset"
+          import.meta.env.VITE_ASSET
         );
         setAssets(response.data.data || []);
       } catch (error) {

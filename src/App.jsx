@@ -17,9 +17,9 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/invest" element={<InvestPage />} />
         <Route path="/asset/:_id" element={<AssetPortfolio />} />
-        <Route path="/nft" element={<NftPortfolio />} />
         <Route path="/createAsset" element={<CreateAsset />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/nft" element={<NftPortfolio />} />
       </Routes>
       
     </BrowserRouter>

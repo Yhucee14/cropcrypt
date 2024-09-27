@@ -72,7 +72,7 @@ const CreateAsset = () => {
 
     try {
       const response = await axios.post(
-        "https://crop-crypt.vercel.app/api/v1/upload/images",
+        `${import.meta.env.VITE_UPLOAD_IMAGE}`,
         formData
       );
       console.log("Upload response:", response.data);
@@ -134,7 +134,7 @@ const CreateAsset = () => {
 
       // Sending form data to API
       const response = await axios.post(
-        "https://crop-crypt.vercel.app/api/v1/asset",
+        `${import.meta.env.VITE_ASSET}`,
         assetFormData,
         // {
         //   headers: {
