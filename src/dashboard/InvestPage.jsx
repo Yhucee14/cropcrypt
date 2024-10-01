@@ -196,7 +196,7 @@ const Invest = () => {
                             </p>
                             <p className="text-md">
                               Annual Appreciation:{" "}
-                              {asset.annualAppreciation || "N/A"}%
+                              {asset.roi || "N/A"}%
                             </p>
                           </div>
                         </div>

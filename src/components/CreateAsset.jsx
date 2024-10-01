@@ -5,6 +5,7 @@ import leftarrow from "../assets/leftarrow.png";
 import cloud from "../assets/cloud.png";
 import tick from "../assets/tick.png";
 import GreenFooter from "../dashboard/GreenFooter";
+import greentick from "../assets/greentick.png";
 import axios from "axios";
 
 const CreateAsset = () => {
@@ -17,6 +18,8 @@ const CreateAsset = () => {
   const [aoi, setAoi] = useState(null);
   const [loc, setLoc] = useState(null);
   const [coc, setCoc] = useState(null);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
 
   // New State Variables
   const [roi, setRoi] = useState("");
@@ -78,7 +81,10 @@ const CreateAsset = () => {
       console.log("Upload response:", response.data);
       return response.data.data[0] || "";
     } catch (error) {
-      console.error("Error uploading file:", error.response?.data || error.message);
+      console.error(
+        "Error uploading file:",
+        error.response?.data || error.message
+      );
       return null;
     }
   };
@@ -97,25 +103,25 @@ const CreateAsset = () => {
         console.log("Image URL:", imageUrl);
       }
 
-      if (pofo){
+      if (pofo) {
         pofoUrl = await uploadFile(pofo);
       }
 
       if (loc) {
         locUrl = await uploadFile(loc);
-      } 
+      }
 
-      if (aoi){
+      if (aoi) {
         aoiUrl = await uploadFile(aoi);
-      } 
+      }
 
-      if (coc){
+      if (coc) {
         cocUrl = await uploadFile(coc);
-      } 
+      }
 
       // Construct the form data
       const assetFormData = {
-        userId: "qwe4r5t6yuytrewqa", 
+        userId: "qwe4r5t6yuytrewqa",
         image: imageUrl || "www.image.com",
         name,
         description,
@@ -135,14 +141,12 @@ const CreateAsset = () => {
       // Sending form data to API
       const response = await axios.post(
         `${import.meta.env.VITE_ASSET}`,
-        assetFormData,
-        // {
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        // }
+        assetFormData
       );
 
+      // Trigger success modal
+      setModalMessage("Asset created successfully!");
+      setIsSuccess(true);
       console.log("Asset created successfully:", response.data);
     } catch (error) {
       console.error(
@@ -284,7 +288,7 @@ const CreateAsset = () => {
                 onChange={(e) => setRoi(e.target.value)}
                 className="bg-[#736D6D1A] border border-[#00000080] px-2 py-2 rounded-lg w-full"
               />
-            </div> 
+            </div>
 
             <div className="py-5">
               <label className="block font-bold mb-2">
@@ -310,7 +314,14 @@ const CreateAsset = () => {
               <label className="block font-bold mb-2">
                 Investment Timeline
               </label>
-              <select
+              <input
+                type="text"
+                value={timeline}
+                placeholder="Input duration of investment"
+                onChange={(e) => setTimeline(e.target.value)}
+                className="bg-[#736D6D1A] border border-[#00000080] p-2 rounded-lg w-full"
+              />
+              {/* <select
                 value={timeline}
                 onChange={(e) => setTimeline(e.target.value)}
                 className="bg-[#736D6D1A] border border-[#00000080] p-2 rounded-lg w-full"
@@ -318,7 +329,7 @@ const CreateAsset = () => {
                 <option value="">Select timeline</option>
                 <option value="Short-term">Short - term</option>
                 <option value="Long-term">Long - term</option>
-              </select>
+              </select> */}
             </div>
           </div>
 
@@ -347,23 +358,18 @@ const CreateAsset = () => {
               />
             </div>
 
-             <div className="py-5">
-              <label className="block font-bold mb-2">
-               Farm location
-              </label>
+            <div className="py-5">
+              <label className="block font-bold mb-2">Farm location</label>
               <input
                 type="text"
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
                 className="bg-[#736D6D1A] border border-[#00000080] p-2 rounded-lg w-full"
               />
-            </div> 
-          
+            </div>
 
             <div className="py-5">
-              <label className="block font-bold mb-2">
-                Farm Size
-              </label>
+              <label className="block font-bold mb-2">Farm Size</label>
               <input
                 type="number"
                 value={size}
@@ -398,6 +404,7 @@ const CreateAsset = () => {
                   <input
                     type="file"
                     id="pofo"
+                    // accept="image/*,application/pdf"
                     onChange={handlePofo}
                     className="hidden"
                   />
@@ -533,6 +540,30 @@ const CreateAsset = () => {
           <p>Onboard Now</p>
         </button>
       </div>
+
+      {/* Success Modal */}
+      {isSuccess && (
+        <div
+          onClose={() => setIsSuccess(false)}
+          className="fixed inset-0 flex items-center  justify-center bg-black bg-opacity-60"
+        >
+          <div className="bg-white px-5 py-5 w-[500px] rounded-lg text-center">
+            <p className="text-lg text-black py-2 px-5 font-bold">{modalMessage}</p>
+
+            <img src={greentick} alt="home" className=" mt-1 z-20" />
+
+            <div className="flex py-4 justify-center">
+              <Link
+                to="/invest"
+                className="flex py-2 px-2 border hover:bg-[#359A35] transition-all duration-300 hover:text-white rounded-xl flex-row gap-2"
+              >
+                <img src={leftarrow} alt="home" className="h-5 mt-1 z-20" />
+                <p className="font-bold text-lg">View Asset</p>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
 
       <GreenFooter />
     </div>

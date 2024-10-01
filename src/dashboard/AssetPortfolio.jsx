@@ -178,7 +178,7 @@ const AssetPortfolio = () => {
                   <p className="font-bold text-xl py-2">Price</p>
                   <div className="flex flex-row gap-2">
                     <p className="font-bold text-3xl">
-                      {asset.amount || "N/A"}
+                    {asset.amount || "N/A"}
                     </p>
                     <p className="text-[#A8A4A4] font-bold mt-2.5">
                       (${asset.amount / 1600 || "N/A"})
@@ -495,7 +495,11 @@ const AssetPortfolio = () => {
                   <p className="py-1 font-bold text-[#00000090]">
                     Annual Return: {asset.roi}%
                   </p>
+                  <p className="py-1 font-bold text-[#00000090]">
+                    Annual Appreciation: {asset.roi}%
+                  </p>
                 </div>
+                
                 <div>
                   <p className="py-1 font-bold text-[#00000090]">
                     Share Price: ${asset.amount}
@@ -616,7 +620,7 @@ const AssetPortfolio = () => {
                         {asset.issueDate || "isuued on?"}
                       </p>
                       <div className="pt-4">
-                        <button className="flex py-1 px-3 rounded-2xl flex-row items-center text-white bg-black font-semibold">
+                        <button  onClick={() => window.open(asset.pofoUrl, '_blank')} className="flex py-1 px-3 rounded-2xl flex-row items-center text-white bg-black font-semibold">
                           <p>Show Credential</p>
                           <div>
                             <img src={boxarrow} alt="loader" className="ml-2" />
@@ -650,7 +654,7 @@ const AssetPortfolio = () => {
                         {asset.issueDate || "isuued on?"}
                       </p>
                       <div className="pt-4">
-                        <button className="flex py-1 px-3 rounded-2xl flex-row items-center text-white bg-black font-semibold">
+                        <button  onClick={() => window.open(asset.pofoUrl, '_blank')} className="flex py-1 px-3 rounded-2xl flex-row items-center text-white bg-black font-semibold">
                           <p>Show Credential</p>
                           <div>
                             <img src={boxarrow} alt="loader" className="ml-2" />
@@ -684,7 +688,7 @@ const AssetPortfolio = () => {
                         {asset.issueDate || "isuued on?"}
                       </p>
                       <div className="pt-4">
-                        <button className="flex py-1 px-3 rounded-2xl flex-row items-center text-white bg-black font-semibold">
+                        <button  onClick={() => window.open(asset.pofoUrl, '_blank')} className="flex py-1 px-3 rounded-2xl flex-row items-center text-white bg-black font-semibold">
                           <p>Show Credential</p>
                           <div>
                             <img src={boxarrow} alt="loader" className="ml-2" />
@@ -718,7 +722,7 @@ const AssetPortfolio = () => {
                         {asset.issueDate || "isuued on?"}
                       </p>
                       <div className="pt-4">
-                        <button className="flex py-1 px-2 rounded-2xl flex-row items-center text-white bg-black font-semibold">
+                        <button  onClick={() => window.open(asset.pofoUrl, '_blank')} className="flex py-1 px-2 rounded-2xl flex-row items-center text-white bg-black font-semibold">
                           <p>Show Credential</p>
                           <div>
                             <img src={boxarrow} alt="loader" className="ml-2" />
