@@ -8,6 +8,7 @@ import AssetPortfolio from "./dashboard/AssetPortfolio";
 import Profile from "./components/Profile";
 import CreateAsset from "./components/CreateAsset";
 import NftPortfolio from "./dashboard/NftPortfolio";
+import EditProfile from "./components/EditProfile";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/createAsset" element={<CreateAsset />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/nft" element={<NftPortfolio />} />
+        <Route path="/editProfile" element={<EditProfile />} />
       </Routes>
       
     </BrowserRouter>
