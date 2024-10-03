@@ -1,5 +1,5 @@
 import Nav from "../components/Nav";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import share from "../assets/share.png";
 import { Link, useNavigate } from "react-router-dom";
@@ -12,6 +12,7 @@ import gridone from "../assets/gridone.png";
 import gridtwo from "../assets/gridtwo.png";
 import gridthree from "../assets/gridthree.png";
 import gridfour from "../assets/gridfour.png";
+import ivoryimg from "../assets/ivoryimg.png";
 
 const Invest = () => {
   const [assets, setAssets] = useState([]);
