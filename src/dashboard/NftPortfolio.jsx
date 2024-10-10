@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Nav from "../components/Nav";
 import leftarrow from "../assets/leftarrow.png";
 import { Link } from "react-router-dom";
@@ -24,13 +24,13 @@ const NftPortfolio = () => {
     <div>
       <Nav />
 
-      <div className="px-8">
+      <div className="xx:px-3 sm:px-8">
         <Link to="/invest" className="flex py-5 flex-row gap-4">
           <img src={leftarrow} alt="home" className="h-5 w-5 mt-1 z-20" />
-          <p className="font-bold text-lg">Asset Portfolio</p>
+          <p className="font-bold text-lg">NFT Portfolio</p>
         </Link>
 
-        <div className="flex flex-row justify-between bg-[#000000CC] text-[#FFFFFF] py-4 rounded-lg px-2 gap-4">
+        <div className="flex xx:flex-col sm:flex-row justify-between bg-[#000000CC] text-[#FFFFFF] py-4 rounded-lg px-2 gap-4">
           <div className="flex flex-row items-center px-1 gap-4">
             <div className="rounded-full items-center">
               <img src={tomato} alt="home" className="w-14 h-14 " />
@@ -44,33 +44,33 @@ const NftPortfolio = () => {
             </div>
           </div>
 
-          <div className="flex flex-row">
-            <div className="flex flex-col px-4">
+          <div className="flex xx:flex-col sm:flex-row gap-2">
+            <div className="flex xx:flex-row sm:flex-col justify-between gap-2 xx:px-2 sm:px-4">
               <p className=" text-[#ffffff7b] py-1">Floor Price (USDT)</p>
-              <p className="text-[#ffffff7b]">
+              <p className="text-[#ffffff7b] py-1">
                 <b className="text-white">33.02K</b> USDT
               </p>
             </div>
 
-            <div className="flex flex-col px-4">
-              <p className=" text-[#ffffff7b] py-1">Market Cap</p>
+            <div className="flex xx:flex-row sm:flex-col justify-between  gap-2 xx:px-2 sm:px-4">
+              <p className=" text-[#ffffff7b] ">Market Cap</p>
               <p className="text-[#ffffff7b]">
-                <b className="text-white">$90270</b> USDT
+                <b className="text-white ">$90270</b> USDT
               </p>
             </div>
 
-            <div className="flex flex-col px-4">
-              <p className=" text-[#ffffff7b] py-1">Owners</p>
+            <div className="flex xx:flex-row sm:flex-col justify-between gap-2 xx:px-2 sm:px-4">
+              <p className=" text-[#ffffff7b] ">Owners</p>
               <p>300</p>
             </div>
 
-            <div className="flex flex-col px-4">
-              <p className=" text-[#ffffff7b] py-1">Listed Asset</p>
+            <div className="flex xx:flex-row sm:flex-col justify-between gap-2 xx:px-2 sm:px-4">
+              <p className=" text-[#ffffff7b] ">Listed Asset</p>
               <p>100</p>
             </div>
 
-            <div className="flex flex-col px-4">
-              <p className=" text-[#ffffff7b] py-1">Total Supply)</p>
+            <div className="flex xx:flex-row sm:flex-col justify-between gap-2 xx:px-2 sm:px-4">
+              <p className=" text-[#ffffff7b] ">Total Supply)</p>
               <p>10K</p>
             </div>
           </div>
@@ -97,7 +97,7 @@ const NftPortfolio = () => {
         </div>
 
         {/*search */}
-        <div className="flex flew-row justify-between gap-2">
+        <div className="flex xx:flex-col sm:flew-row justify-between gap-2">
           <div className="flex flex-row gap-2">
             <div>
               <img src={filter} alt="home" className="w-12 h-10 z-20" />
@@ -110,8 +110,8 @@ const NftPortfolio = () => {
             </div>
           </div>
 
-          <div className="flex flex-row gap-2">
-            <div className="relative flex xx:w-24 md:w-[500px] md:h-[40px]  shadow-sm">
+          <div className="flex xx:flex-col sm:flex-row gap-2">
+            <div className="relative flex xx:w-full md:w-[500px] md:h-[40px]  shadow-sm">
               <div className="w-full flex  items-center py-3 border px-14 rounded-md">
                 <input
                   type="text"
@@ -120,7 +120,7 @@ const NftPortfolio = () => {
                 />
               </div>
 
-              <div className="absolute inset-y-0 left-0 flex px-3 cursor-pointer items-center">
+              <div className="absolute inset-y-0 left-0 flex px-3 xx:gap-2 sm:gap-0 cursor-pointer items-center">
                 <img
                   src={search}
                   alt="Search Icon"
@@ -130,9 +130,9 @@ const NftPortfolio = () => {
               </div>
             </div>
 
-            <div className=" flex flex-row">
+            <div className=" flex ">
               <button className="flex flex-row text-white rounded-md hover:bg-white hover:text-[#359A35] hover:border-2 hover:border-[#359A35] transition-all duration-300 bg-[#359A35] py-1 px-3 justify-center items-center">
-                <div className="font-normal text-sm px-1 ">
+                <div className="font-normal text-sm px-1 py-1">
                   Connect Wallet to buy
                 </div>
               </button>
@@ -145,7 +145,7 @@ const NftPortfolio = () => {
         </div>
 
         {/*nft grid */}
-        <div className="grid xx:grid-cols-2 gap-2 py-8 sm:grid-cols-3 md:grid-cols-4">
+        <div className="grid xx:grid-cols-1 gap-2 py-8 sm:grid-cols-3 md:grid-cols-4">
           <div className="relative grid rounded-xl">
             <img
               src={cornseed}

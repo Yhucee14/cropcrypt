@@ -1,4 +1,4 @@
-import { Link, useNavigate, useEffect } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import leftarrow from "../assets/leftarrow.png";
 import Nav from "./Nav";
 import cocoaprofile from "../assets/cocoaprofile.png";
@@ -7,7 +7,7 @@ import greentick from "../assets/greentick.png";
 import add from "../assets/add.png";
 import edit from "../assets/edit.png";
 import InvestInventory from "./InvestInventory";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // import PropTypes from "prop-types";
 import share from "../assets/share.png";
 import search from "../assets/search.png";
@@ -22,6 +22,7 @@ import axios from "axios";
 const Profile = () => {
   const [assets, setAssets] = useState([]);
   const [activeSection, setActiveSection] = useState("Invest");
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -129,7 +130,13 @@ const Profile = () => {
           handleSectionChange={handleSectionChange}
         />
 
-           {activeSection === "Invest" ? (
+        {isLoading ? (
+             <div className="flex justify-center items-center h-64">
+             <div className="w-14 h-14 border-4 border-t-4 border-gray-200 rounded-full animate-spin border-t-green-500"></div>
+           </div> 
+        ) : (
+          <div>
+            {activeSection === "Invest" ? (
             <div className="py-5 px-2 flex flex-col">
               <div className="font-bold py-2 text-2xl px-2">
                 Agricultural Holdings
@@ -374,6 +381,8 @@ const Profile = () => {
               </div>
             </div>
           )}
+          </div>
+        )}
       </div>
     </div>
   );

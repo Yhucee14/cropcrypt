@@ -54,10 +54,10 @@ const Invest = () => {
           <div className="w-14 h-14 border-4 border-t-4 border-gray-200 rounded-full animate-spin border-t-green-500"></div>
         </div> 
       ) : (
-        <div className="px-6">
+        <div className="xx:px-2 sm:px-6">
           {/*section one*/}
-          <div className="flex px-2 flex-row justify-between rounded-lg py-4 text-white bg-[#1B6909]">
-            <div className="flex flex-col justify-center">
+          <div className="flex px-2 xx:flex-col sm:flex-row justify-between rounded-lg py-4 text-white bg-[#1B6909]">
+            <div className="flex xx:flex-col sm:flex-row md:flex-col justify-center">
               <div className="flex flex-row">
                 <p className="font-bold  text-lg">Total asset portfolio</p>
                 <div className="px-2 mt-1">
@@ -70,12 +70,12 @@ const Invest = () => {
               </div>
             </div>
 
-            <div className="flex flex-row justify-between gap-4">
+            <div className="flex xx:flex-col sm:flex-row sm:justify-between gap-4">
               <div className="flex flex-col bg-white p-3 rounded-md">
                 <p className="text-black font-bold py-1 text-xl">
                   Total Invest
                 </p>
-                <div className="flex flex-row justify-center gap-4">
+                <div className="flex flex-row sm:justify-center gap-4">
                   <div className="text-[#359A35] font-extrabold text-4xl">
                     <p className="">$600.00</p>
                   </div>
@@ -92,7 +92,7 @@ const Invest = () => {
                 <p className="text-black font-bold py-1 text-xl">
                   Total Return
                 </p>
-                <div className="flex flex-row justify-center gap-4">
+                <div className="flex flex-row sm:justify-center gap-4">
                   <div className="text-[#359A35] font-extrabold text-4xl">
                     <p className="">$300.00</p>
                   </div>
@@ -108,7 +108,7 @@ const Invest = () => {
           </div>
 
           {/*section two*/}
-          <div className="flex py-5 px-2 mt-3 border flex-row justify-between">
+          <div className="flex py-5 px-2 sm:px-2 mt-3 border xx:flex-col sm:flex-row xx:gap-4 sm:gap-0 justify-between">
             <div className="flex flex-row justify-between">
               <button
                 className={`border-b-4 flex justify-center items-center font-semibold text-lg px-14 ${
@@ -134,7 +134,7 @@ const Invest = () => {
             </div>
 
             <div>
-              <div className="relative flex xx:w-24 md:w-[500px]   shadow-sm">
+              <div className="relative flex xx:w-full md:w-[500px]   shadow-sm">
                 <div className="w-full py-3 border px-14 rounded-md">
                   <input
                     type="text"
@@ -169,7 +169,7 @@ const Invest = () => {
                   className="hover:bg-[#a8a4a479] px-3 transition-all duration-300 rounded-lg"
                 >
                   <div className="flex py-4 flex-col border-b-2 border-b-[#A8A4A4] justify-center">
-                    <div className="flex flex-row md:justify-between lg:justify-between lg:gap-4">
+                    <div className="flex xx:flex-col sm:flex-row justify-between lg:gap-4">
                       <div className="md:w-[450px]  ">
                         <img
                           src={asset.image || ivoryimg}
@@ -177,7 +177,7 @@ const Invest = () => {
                           className="z-20 md:h-[330px] w-full"
                         />
                       </div>
-                      <div className="flex py-5 flex-row justify-between md:gap-2 lg:gap-8">
+                      <div className="flex sm:py-5 xx:flex-col sm:flex-row justify-between md:gap-2 lg:gap-8">
                         <div className="flex flex-col px-4 py-2">
                           <p className="font-bold py-2 text-3xl">
                             {asset.name}
@@ -201,7 +201,7 @@ const Invest = () => {
                             </p>
                           </div>
                         </div>
-                        <div className="flex flex-col gap-20 px-1 py-5">
+                        <div className="flex flex-col gap-5 sm:gap-20 px-1 py-5">
                           <div className="flex flex-row gap-2">
                             <div>
                               <img src={share} alt="share" className="z-20 " />
@@ -231,7 +231,7 @@ const Invest = () => {
                 NFT Inventory Marketplace
               </div>
 
-              <div className="flex py-5 px-1 mt-3 flex-row justify-between gap-4">
+              <div className="flex py-5 px-1 mt-3 xx:flex-col sm:flex-row justify-between gap-4">
                 <div className="flex flex-row justify-between gap-2">
                   <button className="border-b-4 flex justify-center items-center font-semibold text-md px-5">
                     Most viewed
@@ -250,8 +250,8 @@ const Invest = () => {
                   </button>
                 </div>
 
-                <div className="flex flex-row gap-2">
-                  <div className="relative flex xx:w-24 md:w-[400px]   shadow-sm">
+                <div className="flex xx:flex-col sm:flex-row gap-2">
+                  <div className="relative flex xx:w-full md:w-[400px]   shadow-sm">
                     <div className="w-full py-3 border px-14 rounded-md">
                       <input
                         type="text"
@@ -282,7 +282,7 @@ const Invest = () => {
               </div>
 
               {/* Table structure */}
-              <div className="py-4  flex justify-center">
+              <div className="py-4  flex justify-center overflow-x-auto">
                 <table className=" table-auto rounded-lg border-collapse border border-gray-300">
                   <thead>
                     <tr className="bg-[#359A351A]">
@@ -374,7 +374,7 @@ const Invest = () => {
                   <p>Own Your Digital Assets</p>
                 </div>
 
-                <div className="w-[600px] text-[#736D6D] font-medium py-5">
+                <div className="xx-full sm:w-[600px] text-[#736D6D] font-medium py-5">
                   <p>
                     Start your own NFT storefront in minutes with Cropcrypt.
                     Mint, sell, and scale your NFTs all in one customizable
@@ -382,21 +382,21 @@ const Invest = () => {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-4 py-5 gap-2">
-                  <div className=" rounded-md">
+                <div className="grid xx:grid-cols-1 sm:grid-cols-4 py-5 gap-2">
+                  <div className="border rounded-md">
                     <img src={gridfour} alt="home" className=" " />
                   </div>
 
-                  <div className=" rounded-md">
+                  <div className="border rounded-md">
                     <img src={gridthree} alt="home" className=" " />
                   </div>
 
-                  <div className=" rounded-md">
+                  <div className="border rounded-md">
                     <img src={gridtwo} alt="home" className=" " />
                   </div>
 
-                  <div className=" rounded-md">
-                    <img src={gridone} alt="home" className="h-[230px] " />
+                  <div className="border rounded-md">
+                    <img src={gridone} alt="home" className="xx:w-full md:h-[230px] " />
                   </div>
                 </div>
               </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import Nav from "../components/Nav";
 import cocoa from "../assets/cocoa.png";
@@ -11,15 +11,11 @@ import greenbox from "../assets/greenbox.png";
 import blackbox from "../assets/blackbox.png";
 import yellowbox from "../assets/yellowbox.png";
 import lineloader from "../assets/lineloader.png";
-import smallarrowleft from "../assets/smallarrowleft.png";
-import smallarrowright from "../assets/smallarrowright.png";
 import boxarrow from "../assets/boxarrow.png";
 import Modal from "../components/Modal";
-import goat from "../assets/goat.png";
 import usdt from "../assets/usdt.png";
-import downarrow from "../assets/downarrow.png";
 import plus from "../assets/plus.png";
-import { ConnectButton, RainbowKitProvider, lightTheme } from "@rainbow-me/rainbowkit";
+import { RainbowKitProvider, lightTheme } from "@rainbow-me/rainbowkit";
 
 const AssetPortfolio = () => {
   const { _id } = useParams(); // Get asset ID from URL
@@ -148,14 +144,14 @@ const AssetPortfolio = () => {
           <div className="w-14 h-14 border-4 border-t-4 border-gray-200 rounded-full animate-spin border-t-green-500"></div>
         </div>
       ) : (
-        <div className="flex flex-col px-8">
+        <div className="flex flex-col xx:px-2 md:px-8">
           <Link to="/invest" className="flex py-5 flex-row gap-4">
             <img src={leftarrow} alt="home" className="h-6 mt-0.5 z-20" />
             <p className="font-bold text-lg">Asset Portfolio</p>
           </Link>
 
           <div className="py-10 px-10">
-            <div className="bg-[#000000] flex flex-row rounded-lg md:py-6 lg:py-14 pt-14 justify-between">
+            <div className="bg-[#000000] flex xx:flex-col sm:flex-row rounded-lg md:py-6 lg:py-14 pt-14 justify-between">
               <div className=""></div>
               <div className="absolute md:top-[430px] lg:top-[475px] md:left-[480px] lg:left-[540px] py-3 px-3 border-4 z-50 rounded-full border-white bg-[#d9d9d989]">
                 <img src={rightarrow} alt="home" className=" " />
@@ -594,7 +590,7 @@ const AssetPortfolio = () => {
 
           <div>
             <p className="font-bold text-3xl py-5">
-              Assets Documentation's (legally)
+              Assets Documentations (legally)
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
