@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 const InvestInventory = ({ activeSection, handleSectionChange }) => {
   return (
-    <div className="flex flex-row justify-between">
+    <div className="flex flex-row py-3 justify-between">
     <button
       className={`border-b-4 flex justify-center items-center font-semibold text-lg px-14 ${
         activeSection === "Invest"

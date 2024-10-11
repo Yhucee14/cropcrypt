@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Nav from "./Nav";
 import { Link } from "react-router-dom";
 import leftarrow from "../assets/leftarrow.png";
@@ -160,20 +160,20 @@ const CreateAsset = () => {
     <div className="flex flex-col">
       <Nav />
 
-      <div className="px-8 flex flex-col">
+      <div className="xx:px-4 sm:px-8 flex flex-col">
         <div className="flex flex-col">
           <Link to="/" className="flex py-5 flex-row gap-4">
             <img src={leftarrow} alt="home" className="h-6 z-20" />
             <p className="font-bold text-xl">Create Asset</p>
           </Link>
 
-          <p className="w-[550px] text-[#00000080]">
+          <p className="sm:w-[550px] text-[#00000080]">
             Share basic information about your farm asset you want to onboard,
             why investors should care about it, and what makes it unique.
           </p>
         </div>
 
-        <div className="flex flex-row py-4 gap-4">
+        <div className="flex xx:flex-col sm:flex-row py-4 gap-4">
           <div className="w-full h-[300px] rounded-lg flex flex-col justify-center items-center bg-[#736D6D1A] border border-[#00000080]">
             <div className="items-center">
               <img src={cloud} alt="home" className=" z-20" />
@@ -260,11 +260,11 @@ const CreateAsset = () => {
         </div>
       </div>
 
-      <div className="px-8">
+      <div className="px-4 sm:px-8">
         <div className="py-4 font-bold text-2xl">
           <div>Investment Highlights</div>
         </div>
-        <div className="flex flex-row gap-4">
+        <div className="flex xx:flex-col sm:flex-row gap-4">
           <div className="w-full flex flex-col">
             <div>
               <label className="block font-bold mb-2">
@@ -384,9 +384,9 @@ const CreateAsset = () => {
 
       <div className="px-8">
         <div className="py-6 font-bold">
-          <div className="py-5 text-2xl">Certification and Licenses</div>
+          <div className="py-5 xx:text-xl sm:text-2xl">Certification and Licenses</div>
 
-          <div className="flex flex-row gap-4">
+          <div className="flex xx:flex-col sm:flex-row gap-4">
             <div className="w-full flex flex-col gap-4">
               <div className="flex py-3 flex-col">
                 <p className="text-md">
@@ -417,7 +417,7 @@ const CreateAsset = () => {
                   </label>
 
                   <div className="text-[#00000080] flex flex-col justify-center items-center">
-                    <p>Kindly upload only your proof of farm ownership</p>
+                    <p className="flex justify-center text-center xx:px-1 sm:px-0">Kindly upload only your proof of farm ownership</p>
                   </div>
                 </div>
               </div>
@@ -448,7 +448,7 @@ const CreateAsset = () => {
                   </label>
 
                   <div className="text-[#00000080] flex flex-col justify-center items-center">
-                    <p>
+                    <p className="flex justify-center text-center xx:px-1 sm:px-0">
                       Kindly upload only your letter of credit from your bank
                     </p>
                   </div>
@@ -483,7 +483,7 @@ const CreateAsset = () => {
                   </label>
 
                   <div className="text-[#00000080] flex flex-col text-sm justify-center items-center">
-                    <p>
+                    <p className="flex justify-center text-center xx:px-1 sm:px-0">
                       Kindly upload only your affidavit of insurance document
                       here!
                     </p>
@@ -517,7 +517,7 @@ const CreateAsset = () => {
                   </label>
 
                   <div className="text-[#00000080] text-sm flex flex-col justify-center items-center">
-                    <p>
+                    <p className="flex justify-center text-center xx:px-1 sm:px-0">
                       Kindly upload only your chamber of commerce certification
                       here!
                     </p>
@@ -532,7 +532,7 @@ const CreateAsset = () => {
       <div className="flex justify-end py-6 px-8">
         <button
           onClick={handleSubmit}
-          className="mt-4 bg-[#359A35] hover:bg-white hover:text-[#359A35] hover:border-2 hover:border-[#359A35] transition-all duration-300 flex flex-row gap-2 text-white py-2 px-6 rounded-3xl"
+          className="sm:mt-4 bg-[#359A35] hover:bg-white hover:text-[#359A35] hover:border-2 hover:border-[#359A35] transition-all duration-300 flex flex-row gap-2 text-white py-2 px-6 rounded-3xl"
         >
           <div className="hover:text-[#359A35]">
             <img src={tick} alt="home" className="mt-0.5  z-20" />
@@ -544,7 +544,7 @@ const CreateAsset = () => {
       {/* Success Modal */}
       {isSuccess && (
         <div
-          onClose={() => setIsSuccess(false)}
+          onClick={() => setIsSuccess(false)}
           className="fixed inset-0 flex items-center  justify-center bg-black bg-opacity-60"
         >
           <div className="bg-white px-5 py-5 w-[500px] rounded-lg text-center">

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import home from "../assets/home.png";
 import logo from "../assets/logo.png";
 import invest from "../assets/invest.png";
@@ -8,21 +8,6 @@ import blue from "../assets/blue.png";
 import settings from "../assets/settings.png";
 import down from "../assets/down.png";
 import { Link, useLocation } from "react-router-dom";
-import closeicon from "../assets/closeicon.png";
-import metamask from "../assets/metamask.png";
-import creditcard from "../assets/creditcard.png";
-import boxarrow from "../assets/boxarrow.png";
-import trustwallet from "../assets/trustwallet.png";
-import binance from "../assets/binance.png";
-import coinbase from "../assets/coinbase.png";
-import okx from "../assets/okx.png";
-import walletconnect from "../assets/walletconnect.png";
-import bravewallet from "../assets/bravewallet.png";
-import rabby from "../assets/rabby.png";
-import opera from "../assets/opera.png";
-import safepal from "../assets/safepal.png";
-import math from "../assets/math.png";
-import tokenpocket from "../assets/tokenpocket.png";
 import menu from "../assets/menu.png";
 import close from "../assets/close.png";
 import { ConnectButton, RainbowKitProvider, lightTheme } from "@rainbow-me/rainbowkit";
@@ -32,11 +17,11 @@ const Nav = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isAssetChainDropdownVisible, setAssetChainDropdownVisible] =
     useState(false);
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
 
-  const handleBuyClick = () => setShowModal(true);
+  // const handleBuyClick = () => setShowModal(true);
 
-  const handleCloseModal = () => setShowModal(false);
+  // const handleCloseModal = () => setShowModal(false);
 
   const location = useLocation();
   const isActive = (path) =>
@@ -73,7 +58,7 @@ const Nav = () => {
       </div>
 
       {isMobile ? (
-        <div className="md:hidden flex items-center">
+        <div className="md:hidden z-50 flex items-center">
           <button onClick={toggleMobileMenu}>
             <img
               src={isMobileMenuOpen ? close : menu}
