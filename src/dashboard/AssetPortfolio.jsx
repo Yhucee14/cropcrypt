@@ -150,13 +150,13 @@ const AssetPortfolio = () => {
             <p className="font-bold text-lg">Asset Portfolio</p>
           </Link>
 
-          <div className="py-10 px-10">
-            <div className="bg-[#000000] flex xx:flex-col sm:flex-row rounded-lg md:py-6 lg:py-14 pt-14 justify-between">
-              <div className=""></div>
-              <div className="absolute md:top-[430px] lg:top-[475px] md:left-[480px] lg:left-[540px] py-3 px-3 border-4 z-50 rounded-full border-white bg-[#d9d9d989]">
+          <div className="py-10 sm:px-10">
+            <div className="bg-[#000000] flex xx:flex-col sm:flex-row xx:py-2 sm:py-0 rounded-lg md:py-6 lg:py-14 sm:pt-14 justify-between">
+              <div className="hidden sm:flex"></div>
+              <div className="absolute top-[220px] right-4 md:top-[430px] lg:top-[475px] md:left-[480px] lg:left-[540px] py-3 px-3 border-4 z-50 rounded-full border-white bg-[#d9d9d989]">
                 <img src={rightarrow} alt="home" className=" " />
               </div>
-              <div className="absolute left-20 top-44">
+              <div className="sm:absolute sm:left-20  sm:top-44">
                 <img
                   src={asset.image || cocoa}
                   alt="asset"
@@ -189,7 +189,7 @@ const AssetPortfolio = () => {
                     BUY
                   </button>
 
-                  <div className="absolute right-0 top-[220px]">
+                  <div className="absolute right-0 top-[450px] sm:top-[220px]">
                     <img src={cube} alt="home" className=" z-50" />
                   </div>
 
@@ -371,7 +371,7 @@ const AssetPortfolio = () => {
             </Modal>
           )}
 
-          <div className="px-8 py-4">
+          <div className="px-2 sm:px-8 py-4">
             <p className="font-bold py-2 text-2xl">Description</p>
 
             <div>
@@ -389,8 +389,8 @@ const AssetPortfolio = () => {
             <hr />
           </div>
 
-          <div className="flex px-8 py-7 flex-row gap-2 lg:gap-4">
-            <div className="flex flex-col px-1 py-3 w-[50%] h-full border shadow-xl rounded-2xl">
+          <div className="flex px-2 sm:px-8 py-7 flex-col sm:flex-row gap-2 lg:gap-4">
+            <div className="flex flex-col px-1 py-3 sm:w-[50%] h-full border shadow-xl rounded-2xl">
               <p className="px-3 py-4 font-bold text-2xl">Owner Details</p>
               <p className="px-3 py-2 border-b-2 text-[#736D6D]">
                 Name: {asset.name}
@@ -401,7 +401,7 @@ const AssetPortfolio = () => {
               </p>
               <p className="px-3 py-3 text-[#736D6D] border-b-2">
                 Created Date:{" "}
-                <b className="text-black text-lg">{asset.createdAt}</b>
+                <b className="text-black sm:text-lg">{asset.createdAt}</b>
               </p>
               <p className="px-3 text-[#736D6D] border-b-2">
                 Contract Address:{" "}
@@ -428,7 +428,7 @@ const AssetPortfolio = () => {
                 Asset Analytic Title
               </p>
               <div className="flex flex-col">
-                <div className="flex flex-row">
+                <div className="flex flex-col sm:flex-row">
                   <div>
                     <img
                       src={pie}
@@ -436,7 +436,7 @@ const AssetPortfolio = () => {
                       className="md:w-[240px] lg:w-full z-20"
                     />
                   </div>
-                  <div className="flex flex-col justify-between">
+                  <div className="flex xx:px-2 sm:px-0 flex-col justify-between">
                     <div className="md:mt-12 lg:mt-28">
                       <div className="flex flex-row  py-2 gap-2">
                         <img src={greenbox} alt="home" className=" z-20" />
@@ -465,9 +465,9 @@ const AssetPortfolio = () => {
             </div>
           </div>
 
-          <div className="px-[20%] py-7">
+          <div className="px-2 sm:px-[20%] py-7">
             <div className="flex flex-row px-8 py-2 justify-between">
-              <p className="text-2xl text-[#359A35] font-bold">
+              <p className="text-xl sm:text-2xl text-[#359A35] font-bold">
                 50,300.00 <b className="text-lg text-[#A8A4A4]">USDT</b>
               </p>
               <p className="text-[#A8A4A4] text-lg px-3 font-bold">
@@ -479,14 +479,14 @@ const AssetPortfolio = () => {
             </div>
           </div>
 
-          <div className="px-8 py-10">
+          <div className="px-2 sm:px-8 py-10">
             <div>
               <p className="font-bold text-3xl text-black">
                 Investment Highlight:
               </p>
               <br />
 
-              <div className="flex flex-row py-4 justify-between">
+              <div className="flex flex-col sm:flex-row py-4 justify-between">
                 <div>
                   <p className="py-1 font-bold text-[#00000090]">
                     Annual Return: {asset.roi}%
@@ -589,7 +589,7 @@ const AssetPortfolio = () => {
           </div>
 
           <div>
-            <p className="font-bold text-3xl py-5">
+            <p className="font-bold text-xl sm:text-3xl py-5">
               Assets Documentations (legally)
             </p>
 
