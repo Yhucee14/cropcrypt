@@ -384,7 +384,9 @@ const CreateAsset = () => {
 
       <div className="px-8">
         <div className="py-6 font-bold">
-          <div className="py-5 xx:text-xl sm:text-2xl">Certification and Licenses</div>
+          <div className="py-5 xx:text-xl sm:text-2xl">
+            Certification and Licenses
+          </div>
 
           <div className="flex xx:flex-col sm:flex-row gap-4">
             <div className="w-full flex flex-col gap-4">
@@ -417,7 +419,9 @@ const CreateAsset = () => {
                   </label>
 
                   <div className="text-[#00000080] flex flex-col justify-center items-center">
-                    <p className="flex justify-center text-center xx:px-1 sm:px-0">Kindly upload only your proof of farm ownership</p>
+                    <p className="flex justify-center text-center xx:px-1 sm:px-0">
+                      Kindly upload only your proof of farm ownership
+                    </p>
                   </div>
                 </div>
               </div>
@@ -548,9 +552,18 @@ const CreateAsset = () => {
           className="fixed inset-0 flex items-center  justify-center bg-black bg-opacity-60"
         >
           <div className="bg-white px-5 py-5 w-[500px] rounded-lg text-center">
-            <p className="text-lg text-black py-2 px-5 font-bold">{modalMessage}</p>
-
-            <img src={greentick} alt="home" className=" mt-1 z-20" />
+            <div className="flex flex-row py-2 justify-center">
+              <p className="text-lg text-black py-2 px-5 font-bold">
+                {modalMessage}{" "}
+              </p>
+              <div className="flex ">
+                <img
+                  src={greentick}
+                  alt="home"
+                  className=" h-8 w-8 mt-1 z-20"
+                />
+              </div>
+            </div>
 
             <div className="flex py-4 justify-center">
               <Link
