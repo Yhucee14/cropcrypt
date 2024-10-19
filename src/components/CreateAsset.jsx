@@ -552,7 +552,7 @@ const CreateAsset = () => {
           className="fixed inset-0 flex items-center  justify-center bg-black bg-opacity-60"
         >
           <div className="bg-white px-5 py-5 w-[500px] rounded-lg text-center">
-            <div className="flex flex-row py-2 justify-center">
+            <div className="flex flex-col sm:flex-row py-2 justify-center">
               <p className="text-lg text-black py-2 px-5 font-bold">
                 {modalMessage}{" "}
               </p>

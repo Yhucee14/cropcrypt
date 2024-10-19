@@ -70,12 +70,12 @@ const Profile = () => {
       <div className="px-2 md:px-5 lg:px-36">
         <div className="flex flex-col">
           <div className="flex xx:flex-col sm:flew-row xx:gap-6 sm:gap-0 justify-between">
-            <div className="flex flew-row sm:justify-between gap-4">
+            <div className="flex flew-row gap-4">
               <p className="text-2xl font-bold">Musa Cattle Farm</p>
               <img src={greentick} alt="home" className="w-7 mt-0.5 h-7 z-20" />
             </div>
 
-            <div className="flex flex-row gap-2">
+            <div className="flex py-3 flex-row gap-2">
               <Link to="/createAsset">
                 <button className=" bg-[#359A35] hover:bg-[#e3e0e0] font-bold hover:text-[#359A35] hover:border-2 hover:border-[#359A35] transition-all duration-300 flex flex-row gap-2 text-white py-2 px-4 rounded-3xl">
                   <div className="hover:text-[#359A35]">
