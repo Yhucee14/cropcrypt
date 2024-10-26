@@ -10,10 +10,14 @@ import down from "../assets/down.png";
 import { Link, useLocation } from "react-router-dom";
 import menu from "../assets/menu.png";
 import close from "../assets/close.png";
-import { ConnectButton, RainbowKitProvider, lightTheme } from "@rainbow-me/rainbowkit";
+import {
+  ConnectButton,
+  RainbowKitProvider,
+  lightTheme,
+} from "@rainbow-me/rainbowkit";
 
 const Nav = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1023);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isAssetChainDropdownVisible, setAssetChainDropdownVisible] =
     useState(false);
@@ -42,183 +46,192 @@ const Nav = () => {
 
   return (
     <RainbowKitProvider
-    theme={lightTheme({
-      accentColor: "#359A35", // Set your preferred green color here
-      accentColorForeground: "white",
-    })}
-  >
-  <div className="flex px-2 py-4 justify-between cursor-pointer">
-      <div className="md:hidden flex flex-row ">
+      theme={lightTheme({
+        accentColor: "#359A35", // Set your preferred green color here
+        accentColorForeground: "white",
+      })}
+    >
+      <div className="flex px-2 py-4 justify-between cursor-pointer">
+        {/* <div className="md:hidden flex flex-row ">
         <Link to="/" className="flex ">
           <img src={logo} alt="logo" />
           <div className="px-2 font-bold text-xl text-black flex justify-center items-center">
             Cropcrypt
           </div>
         </Link>
-      </div>
+      </div> */}
 
-      {isMobile ? (
-        <div className="md:hidden z-50 flex items-center">
-          <button onClick={toggleMobileMenu}>
-            <img
-              src={isMobileMenuOpen ? close : menu}
-              alt="menu"
-              className="h-6 w-6"
-            />
-          </button>
-          {/* Mobile Menu */}
-          {isMobileMenuOpen && (
-            <div className="absolute top-20 left-0 w-full rounded-lg bg-white shadow-lg md:hidden z-10">
+        {isMobile ? (
+          <div className="md:hidden z-50 flex justify-between w-full items-center">
+            <div className=" flex flex-row ">
+              <Link to="/" className="flex ">
+                <img src={logo} alt="logo" />
+                <div className="px-2 font-bold text-xl text-black flex justify-center items-center">
+                  Cropcrypt
+                </div>
+              </Link>
+            </div>
+
+            <button onClick={toggleMobileMenu}>
+              <img
+                src={isMobileMenuOpen ? close : menu}
+                alt="menu"
+                className="h-6 w-6"
+              />
+            </button>
+            {/* Mobile Menu */}
+            {isMobileMenuOpen && (
+              <div className="absolute top-20 left-0 w-full rounded-lg bg-white shadow-lg md:hidden z-10">
+                <Link
+                  to="/"
+                  className={`block hover:bg-[#72B8724D] px-4 py-2 ${isActive(
+                    "/"
+                  )}`}
+                  onClick={toggleMobileMenu}
+                >
+                  Home
+                </Link>
+                <Link
+                  to="/invest"
+                  className={`block hover:bg-[#72B8724D] px-4 py-2 ${isActive(
+                    "/invest"
+                  )}`}
+                  onClick={toggleMobileMenu}
+                >
+                  Invest
+                </Link>
+                <Link
+                  to="/createAsset"
+                  className={`block hover:bg-[#72B8724D] px-4 py-2 ${isActive(
+                    "/createAsset"
+                  )}`}
+                  onClick={toggleMobileMenu}
+                >
+                  Create Assets
+                </Link>
+                <Link
+                  to="/profile"
+                  className={`block hover:bg-[#72B8724D] px-4 py-2 ${isActive(
+                    "/profile"
+                  )}`}
+                  onClick={toggleMobileMenu}
+                >
+                  Profile
+                </Link>
+              </div>
+            )}
+          </div>
+        ) : (
+          <div className="flex flex-row justify-between w-screen">
+            <div className=" flex flex-row ">
+              <Link to="/" className="flex ">
+                <img src={logo} alt="logo" />
+                <div className="px-2 font-bold text-xl text-black flex justify-center items-center">
+                  Cropcrypt
+                </div>
+              </Link>
+            </div>
+
+            <div className="flex flex-row justify-center lg:gap-8">
               <Link
                 to="/"
-                className={`block hover:bg-[#72B8724D] px-4 py-2 ${isActive(
-                  "/"
-                )}`}
-                onClick={toggleMobileMenu}
+                className={`flex md:px-2 font-medium lg:px-2 ${isActive("/")}`}
               >
-                Home
+                <div className="flex justify-center items-center">
+                  <img src={home} alt="home" className="w-5 h-5" />
+                </div>
+                <div className="px-2 mt-0.5 flex justify-center items-center">
+                  Home
+                </div>
               </Link>
+
               <Link
                 to="/invest"
-                className={`block hover:bg-[#72B8724D] px-4 py-2 ${isActive(
+                className={`flex md:px-1 font-medium lg:px-2 ${isActive(
                   "/invest"
                 )}`}
-                onClick={toggleMobileMenu}
               >
-                Invest
+                <div className="flex justify-center items-center">
+                  <img src={invest} alt="invest" className="w-5 h-5" />
+                </div>
+                <div className="px-2 mt-0.5 flex justify-center items-center">
+                  Invest
+                </div>
               </Link>
+
               <Link
                 to="/createAsset"
-                className={`block hover:bg-[#72B8724D] px-4 py-2 ${isActive(
+                className={`flex md:px-1 font-medium lg:px-2 ${isActive(
                   "/createAsset"
                 )}`}
-                onClick={toggleMobileMenu}
               >
-                Create Assets
+                <div className="flex justify-center items-center">
+                  <img src={mint} alt="createAsset" className="w-5 h-5" />
+                </div>
+                <div className="px-1 mt-0.5 flex justify-center items-center">
+                  Create Assets
+                </div>
               </Link>
+
               <Link
                 to="/profile"
-                className={`block hover:bg-[#72B8724D] px-4 py-2 ${isActive(
+                className={`flex md:px-1 font-medium lg:px-2 ${isActive(
                   "/profile"
                 )}`}
-                onClick={toggleMobileMenu}
               >
-                Profile
+                <div className="flex justify-center items-center">
+                  <img src={profile} alt="profile" className="w-5 h-5" />
+                </div>
+                <div className="px-2 mt-0.5 flex justify-center items-center">
+                  Profile
+                </div>
               </Link>
             </div>
-          )}
-        </div>
-      ) : (
-        <div className="flex flex-row justify-between w-screen">
-          <div className=" flex flex-row ">
-            <Link to="/" className="flex ">
-              <img src={logo} alt="logo" />
-              <div className="px-2 font-bold text-xl text-black flex justify-center items-center">
-                Cropcrypt
-              </div>
-            </Link>
-          </div>
 
-          <div className="flex flex-row justify-center lg:gap-8">
-            <Link
-              to="/"
-              className={`flex md:px-2 font-medium lg:px-2 ${isActive("/")}`}
-            >
-              <div className="flex justify-center items-center">
-                <img src={home} alt="home" className="w-5 h-5" />
-              </div>
-              <div className="px-2 mt-0.5 flex justify-center items-center">
-                Home
-              </div>
-            </Link>
-
-            <Link
-              to="/invest"
-              className={`flex md:px-1 font-medium lg:px-2 ${isActive(
-                "/invest"
-              )}`}
-            >
-              <div className="flex justify-center items-center">
-                <img src={invest} alt="invest" className="w-5 h-5" />
-              </div>
-              <div className="px-2 mt-0.5 flex justify-center items-center">
-                Invest
-              </div>
-            </Link>
-
-            <Link
-              to="/createAsset"
-              className={`flex md:px-1 font-medium lg:px-2 ${isActive(
-                "/createAsset"
-              )}`}
-            >
-              <div className="flex justify-center items-center">
-                <img src={mint} alt="createAsset" className="w-5 h-5" />
-              </div>
-              <div className="px-1 mt-0.5 flex justify-center items-center">
-                Create Assets
-              </div>
-            </Link>
-
-            <Link
-              to="/profile"
-              className={`flex md:px-1 font-medium lg:px-2 ${isActive(
-                "/profile"
-              )}`}
-            >
-              <div className="flex justify-center items-center">
-                <img src={profile} alt="profile" className="w-5 h-5" />
-              </div>
-              <div className="px-2 mt-0.5 flex justify-center items-center">
-                Profile
-              </div>
-            </Link>
-          </div>
-
-          <div className="flex justify-center items-center">
-            <div className="flex px-2 justify-center items-center">
-              <img src={settings} alt="home" className="w-8 h-8" />
-            </div>
-
-            <div className="flex justify-center gap-2 items-center">
-              <img src={blue} alt="home" className="w-10 z-20 h-10" />
-
-              <div
-                className="relative"
-                onMouseEnter={() => setAssetChainDropdownVisible(true)}
-                onMouseLeave={() => setAssetChainDropdownVisible(false)}
-              >
-                <button className="flex flex-row ml-[-34px] border-2 border-grey bg-green-100 rounded-2xl py-1 px-5 text-deepgreen justify-center items-center">
-                  <div className="px-3 font-bold">Asset Chain</div>
-                  <img
-                    src={down}
-                    alt="home"
-                    className="px-1 w-5 h-2 mt-1 z-20"
-                  />
-                </button>
-
-                {isAssetChainDropdownVisible && (
-                  <div className="absolute bg-green-100 mt-1 border border-gray-200 left-[-15px] rounded-lg shadow-lg w-40 z-50">
-                    <ul className="py-2">
-                      <li className="px-4 py-2 hover:bg-gray-100">Chain 1</li>
-                      <li className="px-4 py-2 hover:bg-gray-100">Chain 2</li>
-                      <li className="px-4 py-2 hover:bg-gray-100">Chain 3</li>
-                      <li className="px-4 py-2 hover:bg-gray-100">Chain 4</li>
-                      <li className="px-4 py-2 hover:bg-gray-100">Chain 5</li>
-                    </ul>
-                  </div>
-                )}
+            <div className="flex justify-center items-center">
+              <div className="flex px-2 justify-center items-center">
+                <img src={settings} alt="home" className="w-8 h-8" />
               </div>
 
-              <div className="relative">
-                <button
+              <div className="flex justify-center gap-2 items-center">
+                <img src={blue} alt="home" className="w-10 z-20 h-10" />
+
+                <div
+                  className="relative"
+                  onMouseEnter={() => setAssetChainDropdownVisible(true)}
+                  onMouseLeave={() => setAssetChainDropdownVisible(false)}
+                >
+                  <button className="flex flex-row ml-[-34px] border-2 border-grey bg-green-100 rounded-2xl py-1 px-5 text-deepgreen justify-center items-center">
+                    <div className="px-3 font-bold">Asset Chain</div>
+                    <img
+                      src={down}
+                      alt="home"
+                      className="px-1 w-5 h-2 mt-1 z-20"
+                    />
+                  </button>
+
+                  {isAssetChainDropdownVisible && (
+                    <div className="absolute bg-green-100 mt-1 border border-gray-200 left-[-15px] rounded-lg shadow-lg w-40 z-50">
+                      <ul className="py-2">
+                        <li className="px-4 py-2 hover:bg-gray-100">Chain 1</li>
+                        <li className="px-4 py-2 hover:bg-gray-100">Chain 2</li>
+                        <li className="px-4 py-2 hover:bg-gray-100">Chain 3</li>
+                        <li className="px-4 py-2 hover:bg-gray-100">Chain 4</li>
+                        <li className="px-4 py-2 hover:bg-gray-100">Chain 5</li>
+                      </ul>
+                    </div>
+                  )}
+                </div>
+
+                <div className="relative">
+                  <button
                   // onClick={handleBuyClick}
                   // className="flex flex-row text-white rounded-3xl hover:bg-white hover:text-[#359A35] hover:border-2 hover:border-[#359A35] transition-all duration-300 bg-[#359A35] py-2 px-3 justify-center items-center"
-                >
-                  <ConnectButton />
-                </button>
+                  >
+                    <ConnectButton />
+                  </button>
 
-                {/* {showModal && (
+                  {/* {showModal && (
                   <div
                     onClose={handleCloseModal}
                     className="fixed inset-0 bg-gray-600 bg-opacity-50 p-4 md:p-20 z-50 border flex flex-col justify-center items-center"
@@ -414,14 +427,13 @@ const Nav = () => {
                     </div>
                   </div>
                 )} */}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      )}
-    </div>
-</RainbowKitProvider>
-
+        )}
+      </div>
+    </RainbowKitProvider>
   );
 };
 
