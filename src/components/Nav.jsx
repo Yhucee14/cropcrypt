@@ -52,20 +52,12 @@ const Nav = () => {
       })}
     >
       <div className="flex px-2 py-4 justify-between cursor-pointer">
-        {/* <div className="md:hidden flex flex-row ">
-        <Link to="/" className="flex ">
-          <img src={logo} alt="logo" />
-          <div className="px-2 font-bold text-xl text-black flex justify-center items-center">
-            Cropcrypt
-          </div>
-        </Link>
-      </div> */}
 
         {isMobile ? (
-          <div className="md:hidden z-50 flex justify-between w-full items-center">
+          <div className="md:hidden shadow-md py-2 z-50 flex justify-between w-full items-center">
             <div className=" flex flex-row ">
               <Link to="/" className="flex ">
-                <img src={logo} alt="logo" />
+                <img src={logo} alt="logo" className="w-full h-12" />
                 <div className="px-2 font-bold text-xl text-black flex justify-center items-center">
                   Cropcrypt
                 </div>

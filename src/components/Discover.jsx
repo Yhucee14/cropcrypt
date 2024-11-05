@@ -1,10 +1,10 @@
-import React from "react";
+
 import colorCoin from "../assets/colorCoin.png";
 import bag from "../assets/bag.png";
 
 const Discover = () => {
   return (
-    <div className="flex py-8 flex-col justify-center items-center">
+    <div className="flex py-8 flex-col xx:px-3 md:px-0 justify-center items-center">
       <div className="flex flex-row font-bold text-2xl sm:text-4xl py-5">
         <p className="px-1 ">Discover our</p>
         <p className="text-[#1B6909] ">Ecosystem</p>
