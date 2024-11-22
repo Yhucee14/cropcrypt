@@ -29,7 +29,7 @@ const Nav = () => {
 
   const location = useLocation();
   const isActive = (path) =>
-    location.pathname === path ? "text-green-500" : "text-black";
+    location.pathname === path 
 
   useEffect(() => {
     const handleResize = () => {
@@ -47,12 +47,11 @@ const Nav = () => {
   return (
     <RainbowKitProvider
       theme={lightTheme({
-        accentColor: "#359A35", // Set your preferred green color here
+        accentColor: "#359A35",
         accentColorForeground: "white",
       })}
     >
       <div className="flex px-2 py-4 justify-between cursor-pointer">
-
         {isMobile ? (
           <div className="md:hidden shadow-md py-2 z-50 flex justify-between w-full items-center">
             <div className=" flex flex-row ">
@@ -130,7 +129,11 @@ const Nav = () => {
                 className={`flex md:px-2 font-medium lg:px-2 ${isActive("/")}`}
               >
                 <div className="flex justify-center items-center">
-                  <img src={home} alt="home" className="w-5 h-5" />
+                  <img
+                    src={home}
+                    alt="home"
+                    className={`w-5 h-5 ${isActive("/") ? "filter-green" : ""}`}
+                  />
                 </div>
                 <div className="px-2 mt-0.5 flex justify-center items-center">
                   Home
@@ -139,12 +142,14 @@ const Nav = () => {
 
               <Link
                 to="/invest"
-                className={`flex md:px-1 font-medium lg:px-2 ${isActive(
-                  "/invest"
-                )}`}
+                className={`flex md:px-1 font-medium lg:px-2 ${
+                  isActive("/invest") ? "text-green-600" : "text-[#736D6D]"
+                }`}
               >
                 <div className="flex justify-center items-center">
-                  <img src={invest} alt="invest" className="w-5 h-5" />
+                  <img src={invest} alt="invest"  className={`w-5 h-5 ${
+                        isActive("/invest") ? "filter-green" : ""
+                      }`} />
                 </div>
                 <div className="px-2 mt-0.5 flex justify-center items-center">
                   Invest

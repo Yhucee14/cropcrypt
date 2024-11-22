@@ -34,3 +34,7 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.filter-green {
+  filter: brightness(0) saturate(100%) invert(42%) sepia(86%) saturate(546%) hue-rotate(89deg) brightness(93%) contrast(93%);
+}
