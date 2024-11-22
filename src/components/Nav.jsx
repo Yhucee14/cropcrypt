@@ -21,19 +21,13 @@ const Nav = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isAssetChainDropdownVisible, setAssetChainDropdownVisible] =
     useState(false);
-  // const [showModal, setShowModal] = useState(false);
-
-  // const handleBuyClick = () => setShowModal(true);
-
-  // const handleCloseModal = () => setShowModal(false);
 
   const location = useLocation();
-  const isActive = (path) =>
-    location.pathname === path 
+  const isActive = (path) => location.pathname === path;
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); // Check if screen width is <= 768px (mobile breakpoint)
+      setIsMobile(window.innerWidth <= 768); 
     };
 
     window.addEventListener("resize", handleResize);
@@ -54,9 +48,9 @@ const Nav = () => {
       <div className="flex px-2 py-4 justify-between cursor-pointer">
         {isMobile ? (
           <div className="md:hidden shadow-md py-2 z-50 flex justify-between w-full items-center">
-            <div className=" flex flex-row ">
+            <div className=" flex flex-row py-2 px-1">
               <Link to="/" className="flex ">
-                <img src={logo} alt="logo" className="w-full h-12" />
+                <img src={logo} alt="logo" className=" w-10 h-7" />
                 <div className="px-2 font-bold text-xl text-black flex justify-center items-center">
                   Cropcrypt
                 </div>
@@ -72,43 +66,94 @@ const Nav = () => {
             </button>
             {/* Mobile Menu */}
             {isMobileMenuOpen && (
-              <div className="absolute top-20 left-0 w-full rounded-lg bg-white shadow-lg md:hidden z-10">
-                <Link
-                  to="/"
-                  className={`block hover:bg-[#72B8724D] px-4 py-2 ${isActive(
-                    "/"
-                  )}`}
-                  onClick={toggleMobileMenu}
-                >
-                  Home
-                </Link>
-                <Link
-                  to="/invest"
-                  className={`block hover:bg-[#72B8724D] px-4 py-2 ${isActive(
-                    "/invest"
-                  )}`}
-                  onClick={toggleMobileMenu}
-                >
-                  Invest
-                </Link>
-                <Link
-                  to="/createAsset"
-                  className={`block hover:bg-[#72B8724D] px-4 py-2 ${isActive(
-                    "/createAsset"
-                  )}`}
-                  onClick={toggleMobileMenu}
-                >
-                  Create Assets
-                </Link>
-                <Link
-                  to="/profile"
-                  className={`block hover:bg-[#72B8724D] px-4 py-2 ${isActive(
-                    "/profile"
-                  )}`}
-                  onClick={toggleMobileMenu}
-                >
-                  Profile
-                </Link>
+              <div className="absolute top-20 left-0 w-full rounded-lg bg-white shadow-2xl md:hidden z-10">
+                <div className="flex flex-col px-4 justify-between">
+                  <Link
+                    to="/"
+                    className={`flex md:px-2 font-medium border-b xx:py-3 md:py-0 gap-2 lg:px-2 ${
+                      isActive("/") ? "text-green-600" : "text-[#736D6D]"
+                    }`}
+                  >
+                    <div className="flex justify-center items-center">
+                      <img
+                        src={home}
+                        alt="home"
+                        className={`w-5 h-5 ${
+                          isActive("/") ? "filter-green" : ""
+                        }`}
+                      />
+                    </div>
+                    <div className="px-2 mt-0.5 fon flex justify-center items-center">
+                      Home
+                    </div>
+                  </Link>
+
+                  <Link
+                    to="/invest"
+                    className={`flex md:px-1 font-medium xx:py-3 md:py-0 border-b gap-2 lg:px-2 ${
+                      isActive("/invest") ? "text-green-700" : "text-[#736D6D]"
+                    }`}
+                  >
+                    <div className="flex justify-center items-center">
+                      <img
+                        src={invest}
+                        alt="invest"
+                        className={`w-5 h-5 ${
+                          isActive("/invest") ? "filter-green" : ""
+                        }`}
+                      />
+                    </div>
+                    <div className="px-2 mt-0.5 flex justify-center items-center">
+                      Invest
+                    </div>
+                  </Link>
+
+                  <Link
+                    to="/createAsset"
+                    className={`flex md:px-1 font-medium xx:py-3 md:py-0 border-b gap-2 lg:px-2 ${
+                      isActive("/createAsset")
+                        ? "text-green-600"
+                        : "text-[#736D6D]"
+                    }`}
+                  >
+                    <div className="flex justify-center items-center">
+                      <img
+                        src={mint}
+                        alt="createAsset"
+                        className={`w-5 h-5 ${
+                          isActive("/createAsset") ? "filter-green" : ""
+                        }`}
+                      />
+                    </div>
+                    <div className="px-1 mt-0.5 flex justify-center items-center">
+                      Create Assets
+                    </div>
+                  </Link>
+
+                  <Link
+                    to="/profile"
+                    className={`flex md:px-1 font-medium xx:py-3 md:py-0 gap-2 lg:px-2 ${
+                      isActive("/profile") ? "text-green-600" : "text-[#736D6D]"
+                    }`}
+                  >
+                    <div className="flex justify-center items-center">
+                      <img
+                        src={profile}
+                        alt="profile"
+                        className={`w-5 h-5 ${
+                          isActive("/profile") ? "filter-green" : ""
+                        }`}
+                      />
+                    </div>
+                    <div className="px-2 mt-0.5 flex justify-center items-center">
+                      Profile
+                    </div>
+                  </Link>
+
+                  <div className="py-2 flex justify-center border">
+                  <ConnectButton />
+                  </div>
+                </div>
               </div>
             )}
           </div>
@@ -126,7 +171,9 @@ const Nav = () => {
             <div className="flex flex-row justify-center lg:gap-8">
               <Link
                 to="/"
-                className={`flex md:px-2 font-medium lg:px-2 ${isActive("/")}`}
+                className={`flex md:px-2 font-medium lg:px-2 ${
+                  isActive("/") ? "text-green-600" : "text-[#736D6D]"
+                }`}
               >
                 <div className="flex justify-center items-center">
                   <img
@@ -147,9 +194,13 @@ const Nav = () => {
                 }`}
               >
                 <div className="flex justify-center items-center">
-                  <img src={invest} alt="invest"  className={`w-5 h-5 ${
-                        isActive("/invest") ? "filter-green" : ""
-                      }`} />
+                  <img
+                    src={invest}
+                    alt="invest"
+                    className={`w-5 h-5 ${
+                      isActive("/invest") ? "filter-green" : ""
+                    }`}
+                  />
                 </div>
                 <div className="px-2 mt-0.5 flex justify-center items-center">
                   Invest
@@ -158,12 +209,18 @@ const Nav = () => {
 
               <Link
                 to="/createAsset"
-                className={`flex md:px-1 font-medium lg:px-2 ${isActive(
-                  "/createAsset"
-                )}`}
+                className={`flex md:px-1 font-medium lg:px-2 ${
+                  isActive("/createAsset") ? "text-green-600" : "text-[#736D6D]"
+                }`}
               >
                 <div className="flex justify-center items-center">
-                  <img src={mint} alt="createAsset" className="w-5 h-5" />
+                  <img
+                    src={mint}
+                    alt="createAsset"
+                    className={`w-5 h-5 ${
+                      isActive("/createAsset") ? "filter-green" : ""
+                    }`}
+                  />
                 </div>
                 <div className="px-1 mt-0.5 flex justify-center items-center">
                   Create Assets
@@ -172,12 +229,18 @@ const Nav = () => {
 
               <Link
                 to="/profile"
-                className={`flex md:px-1 font-medium lg:px-2 ${isActive(
-                  "/profile"
-                )}`}
+                className={`flex md:px-1 font-medium lg:px-2 ${
+                  isActive("/profile") ? "text-green-600" : "text-[#736D6D]"
+                }`}
               >
                 <div className="flex justify-center items-center">
-                  <img src={profile} alt="profile" className="w-5 h-5" />
+                  <img
+                    src={profile}
+                    alt="profile"
+                    className={`w-5 h-5 ${
+                      isActive("/profile") ? "filter-green" : ""
+                    }`}
+                  />
                 </div>
                 <div className="px-2 mt-0.5 flex justify-center items-center">
                   Profile
