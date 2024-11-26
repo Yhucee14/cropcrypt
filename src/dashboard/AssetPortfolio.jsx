@@ -158,14 +158,11 @@ const AssetPortfolio = () => {
             <div className="py-10 sm:px-10">
               <div className="bg-[#000000] flex xx:flex-col sm:flex-row xx:py-2 sm:py-0 rounded-lg md:py-6 lg:py-14 sm:pt-14 justify-between">
                 <div className="hidden sm:flex"></div>
-                {/* <div className="absolute top-[220px] right-4 md:top-[430px] lg:top-[475px] md:left-[480px] lg:left-[540px] py-3 px-3 border-4 z-50 rounded-full border-white bg-[#d9d9d989]">
-                  <img src={rightarrow} alt="home" className=" " />
-                </div> */}
                 <div className="sm:absolute sm:left-20  sm:top-44">
                   <img
                     src={asset.image || cocoa}
                     alt="asset"
-                    className="md:w-[500px] md:h-[380px] lg:h-[450px] lg:w-[570px] z-20"
+                    className="w-full md:w-[500px] md:h-[380px] lg:h-[450px] lg:w-[570px] z-20"
                   />
                 </div>
                 <div className="flex flex-col justify-center py-5 px-5 md:w-[40%] lg:w-[45%] text-white ">
@@ -189,7 +186,7 @@ const AssetPortfolio = () => {
                   <div className="flex flex-row gap-2">
                     <button
                       onClick={handleBuyClick}
-                      className="bg-[#359A35] z-40 hover:bg-white hover:text-[#359A35] hover:border-2 hover:border-[#359A35] transiton-all duration-300 rounded-xl py-2 px-6 font-bold text-2xl w-[300px] text-white"
+                      className="bg-[#359A35] z-40 hover:bg-white hover:text-[#359A35] hover:border-2 hover:border-[#359A35] transiton-all duration-300 rounded-xl py-2 px-6 font-bold text-2xl w-full md:w-[300px] text-white"
                     >
                       BUY
                     </button>
@@ -394,12 +391,12 @@ const AssetPortfolio = () => {
                 </p>
               </div>
             </div>
-            <div className=" py-4 px-[20%] h-1">
+            <div className=" py-4 px-[20%]">
               <hr />
             </div>
 
-            <div className="flex justify-center px-2 sm:px-8 py-7 flex-col sm:flex-row gap-2 lg:gap-4">
-              <div className="flex flex-col px-1 py-3  h-full border shadow-xl rounded-2xl">
+            <div className="flex justify-center px-2 sm:px-8 py-7 flex-col sm:flex-row gap-5 lg:gap-4">
+              <div className="flex flex-col px-1 py-3  h-full border shadow-lg rounded-2xl">
                 <p className="px-3 py-4 font-bold text-2xl">Owner Details</p>
                 <p className="px-3 py-2 border-b-2 text-[#736D6D]">
                   Name: {asset.name}
@@ -433,61 +430,61 @@ const AssetPortfolio = () => {
                 </p>
               </div>
               <div className="py-4 md:px-0 lg:px-0 flex flex-col md:w-[500px] md:h-[400px]  lg:h-full border shadow-xl rounded-2xl">
-                <p className="px-4 flex justify-center font-bold text-xl md:text-xl lg:text-2xl">
+                <p className="px-4 flex justify-start md:justify-center font-bold text-xl md:text-xl lg:text-2xl">
                   Asset Analytic Title
                 </p>
-                  <div className="flex flex-col md:flex-row lg:gap-5">
-                    {/* Pie Chart Section */}
-                    <div className=" px-2 flex justify-center items-center">
-                      <PieChart width={250} height={300}>
-                        <Pie
-                          data={data}
-                          cx={120} // Center X-coordinate
-                          cy={150} // Center Y-coordinate
-                          innerRadius={90}
-                          outerRadius={110}
-                          fill="#8884d8"
-                          paddingAngle={5}
-                          dataKey="value"
-                        >
-                          {data.map((entry, index) => (
-                            <Cell
-                              key={`cell-${index}`}
-                              fill={COLORS[index % COLORS.length]}
-                            />
-                          ))}
-                          {/* Add Label for Center Percentage */}
-                          <Label
-                            value="49%"
-                            position="center"
-                            className="font-bold text-black text-3xl"
+                <div className="flex flex-col md:flex-row lg:gap-5">
+                  {/* Pie Chart Section */}
+                  <div className=" px-2 flex justify-center items-center">
+                    <PieChart width={250} height={300}>
+                      <Pie
+                        data={data}
+                        cx={120} // Center X-coordinate
+                        cy={150} // Center Y-coordinate
+                        innerRadius={90}
+                        outerRadius={110}
+                        fill="#8884d8"
+                        paddingAngle={5}
+                        dataKey="value"
+                      >
+                        {data.map((entry, index) => (
+                          <Cell
+                            key={`cell-${index}`}
+                            fill={COLORS[index % COLORS.length]}
                           />
-                        </Pie>
-                      </PieChart>
-                    </div>
+                        ))}
+                        {/* Add Label for Center Percentage */}
+                        <Label
+                          value="49%"
+                          position="center"
+                          className="font-bold text-black text-3xl"
+                        />
+                      </Pie>
+                    </PieChart>
+                  </div>
 
-                    {/* Details Section */}
-                    <div className="flex  xx:px-4 sm:px-1 flex-col justify-between">
-                      {/* Asset Details */}
-                      <div className="md:mt-24 lg:mt-24">
-                        <div className="flex flex-row py-2 gap-2">
-                          <img src={greenbox} alt="home" className="w-6 h-6" />
-                          <p className="text-base font-medium">
-                            112 Listed Assets
-                          </p>
-                        </div>
-                        <div className="flex flex-row py-2 gap-2">
-                          <img src={blackbox} alt="home" className="w-6 h-6" />
-                          <p className="text-base font-medium">
-                            $112,000 Mkt Cap
-                          </p>
-                        </div>
-                        <div className="flex flex-row py-2 gap-2">
-                          <img src={yellowbox} alt="home" className="w-6 h-6" />
-                          <p className="text-base font-medium">
-                            205 Share Holders
-                          </p>
-                        </div>
+                  {/* Details Section */}
+                  <div className="flex  xx:px-4 sm:px-1 flex-col justify-between">
+                    {/* Asset Details */}
+                    <div className="md:mt-24 lg:mt-24">
+                      <div className="flex flex-row py-2 gap-2">
+                        <img src={greenbox} alt="home" className="w-6 h-6" />
+                        <p className="text-base font-medium">
+                          112 Listed Assets
+                        </p>
+                      </div>
+                      <div className="flex flex-row py-2 gap-2">
+                        <img src={blackbox} alt="home" className="w-6 h-6" />
+                        <p className="text-base font-medium">
+                          $112,000 Mkt Cap
+                        </p>
+                      </div>
+                      <div className="flex flex-row py-2 gap-2">
+                        <img src={yellowbox} alt="home" className="w-6 h-6" />
+                        <p className="text-base font-medium">
+                          205 Share Holders
+                        </p>
+                      </div>
 
                       {/* Connect Wallet Button */}
                       <div className="flex md:justify-end z-50 py-5">
@@ -557,7 +554,7 @@ const AssetPortfolio = () => {
             </div>
 
             {/* Table structure */}
-            <div className="py-4">
+            <div className="py-4 justify-center hidden md:block overflow-x-auto">
               <table className=" table-auto border-collapse border border-gray-300">
                 <thead>
                   <tr className="bg-[#f1f1f1]">
@@ -623,7 +620,48 @@ const AssetPortfolio = () => {
               </table>
             </div>
 
-            <div>
+            <div className="py-4">
+            <p className="font-bold text-3xl py-4 px-2 text-black">
+                 Activity
+                </p>
+
+              {/* Mobile Stacked Table */}
+              <div className="block md:hidden">
+                <div className="mb-2 border text-[#736D6D] border-gray-300 p-4 rounded-lg">
+                  <div className="flex py-1 justify-between">
+                    <span className="font-semibold">Token Name:</span>
+                    <span className="text-black font-semibold">{asset.name}</span>
+                  </div>
+                  <div className="flex py-1 justify-between">
+                    <span className="font-semibold">Price/Share:</span>
+                    <div className="flex flex-row gap-2">
+                      <span className="font-semibold text-black">
+                        {asset.amount || "N/A"}
+                      </span>
+                      <span className="text-[#359A35] font-bold mt-0.4">
+                        (${asset.amount / 1600 || "N/A"})
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex py-1 justify-between">
+                    <span className="font-semibold">From:</span>
+                    <span className="text-[#2210F4] font-semibold">0xc0...d1ce95Bosses</span>
+                  </div>
+                  <div className="flex py-1 justify-between">
+                    <span className="font-semibold">QTY of Shares:</span>
+                    <span className="text-black font-semibold">{asset.shares}</span>
+                  </div>
+                  <div className="flex py-1 justify-between">
+                    <span className="font-semibold">Date:</span>
+                    <span className="text-black font-semibold">
+                      {new Date(asset.createdAt).toLocaleDateString()}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col justify-center">
               <p className="font-bold text-xl sm:text-3xl py-5">
                 Assets Documentations (legally)
               </p>
