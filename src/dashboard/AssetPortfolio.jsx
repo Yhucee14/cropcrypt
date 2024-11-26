@@ -204,7 +204,7 @@ const AssetPortfolio = () => {
             </div>
 
             {showModal && (
-              <Modal onClose={handleCloseModal}>
+              <Modal onClose={handleCloseModal} >
                 <div className="flex flex-col">
                   <div className="flex flex-row">
                     <div className="w-[200px]">
@@ -212,27 +212,27 @@ const AssetPortfolio = () => {
                     </div>
 
                     <div className="flex flex-col">
-                      <p className="text-[#359a35] py-2 px-2">
+                      <p className="text-[#359a35] py-1 px-2">
                         <b className="text-[#000000]">Category:</b>{" "}
                         {asset.category || "Category"}
                       </p>
-                      <p className="text-[#359a35] py-2 px-2">
+                      <p className="text-[#359a35] py-1 px-2">
                         <b className="text-[#000000]">From:</b>{" "}
                         {asset.farm || "Farm Name"}
                       </p>
-                      <p className="text-[#359a35] py-2 px-2">
+                      <p className="text-[#359a35] py-1 px-2">
                         <b className="text-[#000000]">Asset ID:</b>{" "}
                         {asset._id || "Asset ID"}
                       </p>
-                      <p className="text-[#0500FF] py-2 px-2">
+                      <p className="text-[#0500FF] py-1 px-2">
                         <b className="text-[#000000]">Recipient address:</b>{" "}
                         {asset.recipientAddress || "Address"}
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex flex-col px-2 py-2 border rounded-xl">
-                    <div className="flex flex-row px-2 py-2 justify-between">
+                  <div className="flex flex-col px-2 py-1 border rounded-xl">
+                    <div className="flex flex-row px-2 py-1 justify-between">
                       <p>Pay with:</p>
                       <div className="relative">
                         <div
@@ -276,7 +276,7 @@ const AssetPortfolio = () => {
                       </div>
                     </div>
 
-                    <div className="flex flex-row px-2 py-2 justify-between">
+                    <div className="flex flex-row px-2 py-1 justify-between">
                       <p>Price per share:</p>
                       <div className="flex flex-col">
                         <div className="flex flex-row gap-2">
@@ -287,7 +287,7 @@ const AssetPortfolio = () => {
                       </div>
                     </div>
 
-                    <div className="flex flex-row px-2 py-2 justify-between">
+                    <div className="flex flex-row px-2 py-1 justify-between">
                       <p>Number of shares:</p>
                       <div className="flex flex-row gap-2 items-center">
                         <button
@@ -307,7 +307,7 @@ const AssetPortfolio = () => {
                       </div>
                     </div>
 
-                    <div className="flex flex-row px-2 py-3 justify-between">
+                    <div className="flex flex-row px-2 py-1 justify-between">
                       <p>You earn (Invest Return):</p>
                       <div className="flex flex-col">
                         <div className="flex flex-row gap-2 text-[#2210F4]">
@@ -318,7 +318,7 @@ const AssetPortfolio = () => {
                       </div>
                     </div>
 
-                    <div className="flex flex-row px-2 py-3 justify-between">
+                    <div className="flex flex-row px-2 py-1 justify-between">
                       <p>Commission Fee (2%):</p>
                       <div className="flex flex-row gap-2">
                         <p className="text-xl font-bold">$1.03</p>
@@ -326,7 +326,7 @@ const AssetPortfolio = () => {
                       </div>
                     </div>
 
-                    <div className="flex flex-row px-2 py-4 justify-between">
+                    <div className="flex flex-row px-2 py-2 justify-between">
                       <p>Network Fee:</p>
                       <div className="flex gap-2 flex-row">
                         <p className="font-bold">(20 RWA)</p>
@@ -337,7 +337,7 @@ const AssetPortfolio = () => {
                   </div>
                 </div>
 
-                <div className="py-5 px-4 flex flex-row justify-between">
+                <div className="py-2 px-4 flex flex-row justify-between">
                   <div className="font-bold text-xl">You Pay</div>
                   <div className="flex flex-row gap-2">
                     <p className="font-bold text-xl">1588.931</p>
@@ -554,7 +554,7 @@ const AssetPortfolio = () => {
             </div>
 
             {/* Table structure */}
-            <div className="py-4 justify-center hidden md:block overflow-x-auto">
+            <div className="py-4 justify-center hidden md:flex overflow-x-auto">
               <table className=" table-auto border-collapse border border-gray-300">
                 <thead>
                   <tr className="bg-[#f1f1f1]">
@@ -621,7 +621,7 @@ const AssetPortfolio = () => {
             </div>
 
             <div className="py-4">
-            <p className="font-bold text-3xl py-4 px-2 text-black">
+            <p className="font-bold text-3xl py-4 px-2 block md:hidden text-black">
                  Activity
                 </p>
 
