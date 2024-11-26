@@ -398,8 +398,8 @@ const AssetPortfolio = () => {
               <hr />
             </div>
 
-            <div className="flex px-2 sm:px-8 py-7 flex-col sm:flex-row gap-2 lg:gap-4">
-              <div className="flex flex-col px-1 py-3 sm:w-[50%] h-full border shadow-xl rounded-2xl">
+            <div className="flex justify-center px-2 sm:px-8 py-7 flex-col sm:flex-row gap-2 lg:gap-4">
+              <div className="flex flex-col px-1 py-3 w-full h-full border shadow-xl rounded-2xl">
                 <p className="px-3 py-4 font-bold text-2xl">Owner Details</p>
                 <p className="px-3 py-2 border-b-2 text-[#736D6D]">
                   Name: {asset.name}
@@ -432,7 +432,7 @@ const AssetPortfolio = () => {
                   <b className="font-bold text-black">{asset.timeline}</b>
                 </p>
               </div>
-              <div className="py-4 md:px-3 lg:px-4 flex flex-col md:h-[400px] lg:h-full border shadow-xl rounded-2xl">
+              <div className="py-4 md:px-3 lg:px-4 flex flex-col w-full md:h-[400px] lg:h-full border shadow-xl rounded-2xl">
                 <p className="px-4 flex justify-center font-bold md:text-xl lg:text-2xl">
                   Asset Analytic Title
                 </p>
