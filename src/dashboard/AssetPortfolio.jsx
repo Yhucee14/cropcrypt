@@ -141,7 +141,7 @@ const AssetPortfolio = () => {
         accentColorForeground: "white",
       })}
     >
-      <div className="relative">
+      <div className="relative overflow-x-hidden">
         <Nav />
 
         {isLoading ? (
@@ -150,7 +150,7 @@ const AssetPortfolio = () => {
           </div>
         ) : (
           <div className="flex flex-col xx:px-2 md:px-8">
-            <Link to="/invest" className="flex py-5 flex-row gap-4">
+            <Link to="/invest" className="flex md:py-5 px-2 flex-row gap-4">
               <img src={leftarrow} alt="home" className="h-6 mt-0.5 z-20" />
               <p className="font-bold text-lg">Asset Portfolio</p>
             </Link>
@@ -399,7 +399,7 @@ const AssetPortfolio = () => {
             </div>
 
             <div className="flex justify-center px-2 sm:px-8 py-7 flex-col sm:flex-row gap-2 lg:gap-4">
-              <div className="flex flex-col px-1 py-3 w-full h-full border shadow-xl rounded-2xl">
+              <div className="flex flex-col px-1 py-3  h-full border shadow-xl rounded-2xl">
                 <p className="px-3 py-4 font-bold text-2xl">Owner Details</p>
                 <p className="px-3 py-2 border-b-2 text-[#736D6D]">
                   Name: {asset.name}
@@ -432,21 +432,20 @@ const AssetPortfolio = () => {
                   <b className="font-bold text-black">{asset.timeline}</b>
                 </p>
               </div>
-              <div className="py-4 md:px-3 lg:px-4 flex flex-col w-full md:h-[400px] lg:h-full border shadow-xl rounded-2xl">
-                <p className="px-4 flex justify-center font-bold md:text-xl lg:text-2xl">
+              <div className="py-4 md:px-0 lg:px-0 flex flex-col md:w-[500px] md:h-[400px]  lg:h-full border shadow-xl rounded-2xl">
+                <p className="px-4 flex justify-center font-bold text-xl md:text-xl lg:text-2xl">
                   Asset Analytic Title
                 </p>
-                <div className="flex justify-center">
-                  <div className="flex flex-col md:flex-row justify-between">
+                  <div className="flex flex-col md:flex-row lg:gap-5">
                     {/* Pie Chart Section */}
-                    <div className=" p-2 flex justify-center items-center">
-                      <PieChart width={220} height={300}>
+                    <div className=" px-2 flex justify-center items-center">
+                      <PieChart width={250} height={300}>
                         <Pie
                           data={data}
-                          cx={110} // Center X-coordinate
+                          cx={120} // Center X-coordinate
                           cy={150} // Center Y-coordinate
-                          innerRadius={60}
-                          outerRadius={80}
+                          innerRadius={90}
+                          outerRadius={110}
                           fill="#8884d8"
                           paddingAngle={5}
                           dataKey="value"
@@ -468,7 +467,7 @@ const AssetPortfolio = () => {
                     </div>
 
                     {/* Details Section */}
-                    <div className="flex xx:px-2 sm:px-0 flex-col justify-between">
+                    <div className="flex  xx:px-4 sm:px-1 flex-col justify-between">
                       {/* Asset Details */}
                       <div className="md:mt-24 lg:mt-24">
                         <div className="flex flex-row py-2 gap-2">
@@ -489,7 +488,6 @@ const AssetPortfolio = () => {
                             205 Share Holders
                           </p>
                         </div>
-                      </div>
 
                       {/* Connect Wallet Button */}
                       <div className="flex md:justify-end z-50 py-5">
