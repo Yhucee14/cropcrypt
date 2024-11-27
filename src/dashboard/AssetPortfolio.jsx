@@ -207,8 +207,8 @@ const AssetPortfolio = () => {
               <Modal onClose={handleCloseModal} >
                 <div className="flex flex-col">
                   <div className="flex flex-row">
-                    <div className="w-[200px]">
-                      <img src={asset.image} alt="home" className="z-20" />
+                    <div className=" rounded-full">
+                      <img src={asset.image} alt="home" className="z-20 w-[68px] h-[65px]  rounded-full" />
                     </div>
 
                     <div className="flex flex-col">
@@ -231,9 +231,9 @@ const AssetPortfolio = () => {
                     </div>
                   </div>
 
-                  <div className="flex flex-col px-2 py-1 border rounded-xl">
+                  <div className="flex flex-col px-2 shadow-xl py-1 border rounded-xl">
                     <div className="flex flex-row px-2 py-1 justify-between">
-                      <p>Pay with:</p>
+                      <p className="py-1">Pay with:</p>
                       <div className="relative">
                         <div
                           className="flex flex-row py-2 px-1 justify-between shadow-md gap-2 cursor-pointer"
@@ -256,7 +256,7 @@ const AssetPortfolio = () => {
                         </div>
 
                         {isDropdownOpen && (
-                          <div className="absolute top-full mt-2 w-full bg-white border shadow-lg rounded-xl">
+                          <div className="absolute top-9 right-0 mt-2 w-28 bg-white border shadow-lg rounded-xl">
                             {cryptoOptions.map((crypto) => (
                               <div
                                 key={crypto.name}
@@ -280,7 +280,7 @@ const AssetPortfolio = () => {
                       <p>Price per share:</p>
                       <div className="flex flex-col">
                         <div className="flex flex-row gap-2">
-                          <p>{(asset.amount / asset.shares).toFixed(2)}</p>
+                          <p className="font-semibold">{(asset.amount / asset.shares).toFixed(2)}</p>
                           <p>{selectedCrypto}</p>
                         </div>
                         <div className="flex justify-end">($13.19)</div>
@@ -288,10 +288,10 @@ const AssetPortfolio = () => {
                     </div>
 
                     <div className="flex flex-row px-2 py-1 justify-between">
-                      <p>Number of shares:</p>
+                      <p className="py-1">Number of shares:</p>
                       <div className="flex flex-row gap-2 items-center">
                         <button
-                          className="flex mt-[-4px] items-center cursor-pointer text-lg text-white rounded-sm py-2 px-2 bg-red-600 h-7 font-bold"
+                          className="flex mt-[-4px] items-center cursor-pointer text-lg text-white rounded-sm py-1 px-2 bg-red-600 h-5 font-bold"
                           onClick={decrement}
                         >
                           -
@@ -301,14 +301,14 @@ const AssetPortfolio = () => {
                           <img
                             src={plus}
                             alt="increment"
-                            className="w-12 h-12"
+                            className="w-12 h-10"
                           />
                         </button>
                       </div>
                     </div>
 
                     <div className="flex flex-row px-2 py-1 justify-between">
-                      <p>You earn (Invest Return):</p>
+                      <p className="py-1">You earn (Invest Return):</p>
                       <div className="flex flex-col">
                         <div className="flex flex-row gap-2 text-[#2210F4]">
                           <p className="text-xl font-bold">7.344</p>
@@ -319,7 +319,7 @@ const AssetPortfolio = () => {
                     </div>
 
                     <div className="flex flex-row px-2 py-1 justify-between">
-                      <p>Commission Fee (2%):</p>
+                      <p className="py-1">Commission Fee (2%):</p>
                       <div className="flex flex-row gap-2">
                         <p className="text-xl font-bold">$1.03</p>
                         <p className="text-md mt-1">{selectedCrypto}</p>
@@ -337,7 +337,7 @@ const AssetPortfolio = () => {
                   </div>
                 </div>
 
-                <div className="py-2 px-4 flex flex-row justify-between">
+                <div className="py-3 px-4 flex flex-row justify-between">
                   <div className="font-bold text-xl">You Pay</div>
                   <div className="flex flex-row gap-2">
                     <p className="font-bold text-xl">1588.931</p>
