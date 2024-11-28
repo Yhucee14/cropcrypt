@@ -56,22 +56,22 @@ const Invest = () => {
       ) : (
         <div className="xx:px-2 sm:px-6">
           {/*section one*/}
-          <div className="flex px-2 xx:flex-col sm:flex-row justify-between rounded-lg py-4 text-white bg-[#1B6909]">
+          <div className="flex px-2 xx:flex-col sm:flex-row justify-between rounded-lg py-4 text-white bg-gradient-invest md:bg-[#1B6909]">
             <div className="flex xx:flex-col sm:flex-row md:flex-col justify-center">
-              <div className="flex flex-row">
-                <p className="font-bold  text-lg">Total asset portfolio</p>
+              <div className="flex justify-center flex-row">
+                <p className="md:font-bold px-2 text-lg">Total asset value</p>
                 <div className="px-2 mt-1">
                   <img src={eye} alt="home" className="mt-0.5 z-20" />
                 </div>
               </div>
 
-              <div className="font-bold py-2 text-4xl">
+              <div className="font-bold flex justify-center md:justify-start px-2 py-2 text-4xl">
                 <p className="">$1095.25</p>
               </div>
             </div>
 
-            <div className="flex xx:flex-row sm:flex-row sm:justify-between gap-3">
-              <div className="flex flex-col xx:gap-4 md:gap-0 min-w-[150px] md:w-full bg-white p-2 md:p-3 rounded-md">
+            <div className="flex xx:flex-row justify-center sm:flex-row sm:justify-between gap-3">
+              <div className="flex flex-col xx:gap-4 md:gap-0 min-w-[170px] md:w-full bg-white p-2 md:p-3 rounded-md">
                 <p className="text-black font-bold py-1 md:text-xl">
                   Total Invest
                 </p>
@@ -88,7 +88,7 @@ const Invest = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col xx:gap-4 md:gap-0 min-w-[150px] md:w-full bg-white p-2 md:p-3 rounded-md">
+              <div className="flex flex-col xx:gap-4 md:gap-0 min-w-[170px] md:w-full bg-white p-2 md:p-3 rounded-md">
                 <p className="text-black font-bold py-1 md:text-xl">
                 Total Return
                 </p>
