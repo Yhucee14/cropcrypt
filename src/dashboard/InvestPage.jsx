@@ -46,7 +46,7 @@ const Invest = () => {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col overflow-x-hidden">
       <Nav />
 
       {isLoading ? (
@@ -70,36 +70,36 @@ const Invest = () => {
               </div>
             </div>
 
-            <div className="flex xx:flex-col sm:flex-row sm:justify-between gap-4">
-              <div className="flex flex-col bg-white p-3 rounded-md">
-                <p className="text-black font-bold py-1 text-xl">
+            <div className="flex xx:flex-row sm:flex-row sm:justify-between gap-3">
+              <div className="flex flex-col xx:gap-4 md:gap-0 min-w-[150px] md:w-full bg-white p-2 md:p-3 rounded-md">
+                <p className="text-black font-bold py-1 md:text-xl">
                   Total Invest
                 </p>
-                <div className="flex flex-row sm:justify-center gap-4">
-                  <div className="text-[#359A35] font-extrabold text-4xl">
+                <div className="flex flex-row sm:justify-center gap-2 md:gap-4">
+                  <div className="text-[#359A35] font-extrabold text-lg md:text-4xl">
                     <p className="">$600.00</p>
                   </div>
 
-                  <div className="mt-2">
-                    <p className="px-2 py-1 text-sm bg-[#F5B30A] rounded-xl text-black font-bold">
+                  <div className="md:mt-2 py-1">
+                    <p className="px-2 md:px-2 py-1 text-xs md:text-sm bg-[#F5B30A] rounded-xl text-black font-bold">
                       50 stock
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="flex flex-col bg-white p-3 rounded-md">
-                <p className="text-black font-bold py-1 text-xl">
-                  Total Return
+              <div className="flex flex-col xx:gap-4 md:gap-0 min-w-[150px] md:w-full bg-white p-2 md:p-3 rounded-md">
+                <p className="text-black font-bold py-1 md:text-xl">
+                Total Return
                 </p>
-                <div className="flex flex-row sm:justify-center gap-4">
-                  <div className="text-[#359A35] font-extrabold text-4xl">
+                <div className="flex flex-row sm:justify-center gap-2 md:gap-4">
+                  <div className="text-[#359A35] font-extrabold text-lg md:text-4xl">
                     <p className="">$300.00</p>
                   </div>
 
-                  <div className="mt-2">
-                    <p className="px-3 py-1 text-sm bg-[#D8ECD8] rounded-xl text-[#075607] font-bold">
-                      24.7%
+                  <div className="md:mt-2 py-1">
+                    <p className="px-2 md:px-2 py-1 text-xs md:text-sm bg-[#D8ECD8] rounded-xl text-[#075607] font-bold">
+                    24.7%
                     </p>
                   </div>
                 </div>
