@@ -56,7 +56,7 @@ const Invest = () => {
       ) : (
         <div className="xx:px-2 sm:px-6">
           {/*section one*/}
-          <div className="flex relative px-2 xx:flex-col sm:flex-row justify-center md:justify-between xx:pb-12 md:pb-0 rounded-lg py-4 text-white bg-gradient-invest md:bg-[#1B6909]">
+          <div className="flex z-20 px-2 xx:flex-col sm:flex-row justify-center md:justify-between rounded-lg py-4 text-white bg-gradient-invest xx:pb-8 md:pb-0 md:bg-[#1B6909]">
             <div className="flex xx:flex-col sm:flex-row md:flex-col justify-center">
               <div className="flex justify-center flex-row">
                 <p className="md:font-bold px-2 text-lg">Total asset value</p>
@@ -70,8 +70,8 @@ const Invest = () => {
               </div>
             </div>
 
-            <div className="flex xx:absolute xx:top-28 xx:flex-row justify-center sm:flex-row sm:justify-between gap-2 md:gap-3">
-              <div className="flex flex-col shadow-lg xx:gap-4 md:gap-0 min-w-[180px] md:w-full bg-white p-2 md:p-3 rounded-md">
+            <div className="hidden md:flex xx:flex-row justify-center sm:flex-row sm:justify-between gap-2 md:gap-3">
+              <div className="flex flex-col shadow-lg xx:gap-4 md:gap-0   md:w-full bg-white p-2 md:p-3 rounded-md">
                 <p className="text-black font-bold py-1 md:text-xl">
                   Total Invest
                 </p>
@@ -88,7 +88,7 @@ const Invest = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col shadow-lg xx:gap-4 md:gap-0 min-w-[180px] md:w-full bg-white p-2 md:p-3 rounded-md">
+              <div className="flex flex-col shadow-lg xx:gap-4 md:gap-0   md:w-full bg-white p-2 md:p-3 rounded-md">
                 <p className="text-black font-bold py-1 md:text-xl">
                 Total Return
                 </p>
@@ -107,7 +107,41 @@ const Invest = () => {
             </div>
           </div>
 
-<div className="p-10"></div>
+          <div className="flex md:hidden -mt-8 xx:flex-row justify-center sm:flex-row sm:justify-between gap-2 md:gap-3">
+              <div className="flex flex-col shadow-lg xx:gap-4 md:gap-0   md:w-full bg-white p-2 md:p-3 rounded-md">
+                <p className="text-black font-bold py-1 md:text-xl">
+                  Total Invest
+                </p>
+                <div className="flex flex-row sm:justify-center gap-2 md:gap-4">
+                  <div className="text-[#359A35] font-extrabold text-lg md:text-4xl">
+                    <p className="">$600.00</p>
+                  </div>
+
+                  <div className="md:mt-2 py-1">
+                    <p className="px-2 md:px-2 py-1 text-xs md:text-sm bg-[#F5B30A] rounded-xl text-black font-bold">
+                      50 stock
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col shadow-lg xx:gap-4 md:gap-0   md:w-full bg-white p-2 md:p-3 rounded-md">
+                <p className="text-black font-bold py-1 md:text-xl">
+                Total Return
+                </p>
+                <div className="flex flex-row justify-between sm:justify-center gap-2 md:gap-4">
+                  <div className="text-[#359A35] font-extrabold text-lg md:text-4xl">
+                    <p className="">$300.00</p>
+                  </div>
+
+                  <div className="md:mt-2 py-1">
+                    <p className="px-2 md:px-2 py-1 text-xs md:text-sm bg-[#D8ECD8] rounded-xl text-[#075607] font-bold">
+                    24.7%
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
           {/*section two*/}
           <div className="flex py-5 px-2 sm:px-2 mt-3 border xx:flex-col sm:flex-row xx:gap-4 sm:gap-0 justify-between">
