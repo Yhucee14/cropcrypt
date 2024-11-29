@@ -56,7 +56,7 @@ const Invest = () => {
       ) : (
         <div className="xx:px-2 sm:px-6">
           {/*section one*/}
-          <div className="flex px-2 xx:flex-col sm:flex-row justify-between rounded-lg py-4 text-white bg-gradient-invest md:bg-[#1B6909]">
+          <div className="flex relative px-2 xx:flex-col sm:flex-row justify-center md:justify-between xx:pb-12 md:pb-0 rounded-lg py-4 text-white bg-gradient-invest md:bg-[#1B6909]">
             <div className="flex xx:flex-col sm:flex-row md:flex-col justify-center">
               <div className="flex justify-center flex-row">
                 <p className="md:font-bold px-2 text-lg">Total asset value</p>
@@ -70,8 +70,8 @@ const Invest = () => {
               </div>
             </div>
 
-            <div className="flex xx:flex-row justify-center sm:flex-row sm:justify-between gap-3">
-              <div className="flex flex-col xx:gap-4 md:gap-0 min-w-[170px] md:w-full bg-white p-2 md:p-3 rounded-md">
+            <div className="flex xx:absolute xx:top-28 xx:flex-row justify-center sm:flex-row sm:justify-between gap-2 md:gap-3">
+              <div className="flex flex-col shadow-lg xx:gap-4 md:gap-0 min-w-[180px] md:w-full bg-white p-2 md:p-3 rounded-md">
                 <p className="text-black font-bold py-1 md:text-xl">
                   Total Invest
                 </p>
@@ -88,11 +88,11 @@ const Invest = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col xx:gap-4 md:gap-0 min-w-[170px] md:w-full bg-white p-2 md:p-3 rounded-md">
+              <div className="flex flex-col shadow-lg xx:gap-4 md:gap-0 min-w-[180px] md:w-full bg-white p-2 md:p-3 rounded-md">
                 <p className="text-black font-bold py-1 md:text-xl">
                 Total Return
                 </p>
-                <div className="flex flex-row sm:justify-center gap-2 md:gap-4">
+                <div className="flex flex-row justify-between sm:justify-center gap-2 md:gap-4">
                   <div className="text-[#359A35] font-extrabold text-lg md:text-4xl">
                     <p className="">$300.00</p>
                   </div>
@@ -106,6 +106,8 @@ const Invest = () => {
               </div>
             </div>
           </div>
+
+<div className="p-10"></div>
 
           {/*section two*/}
           <div className="flex py-5 px-2 sm:px-2 mt-3 border xx:flex-col sm:flex-row xx:gap-4 sm:gap-0 justify-between">
