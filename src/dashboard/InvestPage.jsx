@@ -56,7 +56,7 @@ const Invest = () => {
       ) : (
         <div className="xx:px-2 sm:px-6">
           {/*section one*/}
-          <div className="flex z-20 p-6 xx:flex-col ss:flex-row justify-center ss:justify-between rounded-lg text-white bg-gradient-invest  md:bg-[#1B6909]">
+          <div className="flex z-20 p-6 xx:flex-col ss:flex-row justify-center ss:justify-between  rounded-lg text-white bg-gradient-invest  md:bg-[#1B6909]">
             <div className="flex xx:flex-col sm:flex-row md:flex-col justify-center">
               <div className="flex justify-center flex-row">
                 <p className="md:font-bold px-2 text-lg">Total asset value</p>
@@ -107,7 +107,7 @@ const Invest = () => {
             </div>
           </div>
 
-          <div className="flex ss:hidden -mt-8 xx:flex-row justify-center sm:flex-row sm:justify-between gap-2 md:gap-3">
+          <div className="flex ss:hidden py-4 px-4 -mt-8 xx:flex-row justify-between sm:flex-row  gap-2 md:gap-3">
               <div className="flex flex-col shadow-lg xx:gap-4 md:gap-0   md:w-full bg-white p-2 md:p-3 rounded-md">
                 <p className="text-black font-bold py-1 md:text-xl">
                   Total Invest
