@@ -145,7 +145,7 @@ const Invest = () => {
           <div className="flex py-5 px-2 sm:px-2 mt-3 border xx:flex-col sm:flex-row xx:gap-4 sm:gap-0 justify-between">
             <div className="flex flex-row justify-between">
               <button
-                className={`border-b-4 flex justify-center items-center font-semibold text-lg px-14 ${
+                className={`border-b-4 flex justify-center items-center w-full font-semibold text-lg px-14 ${
                   activeSection === "Invest"
                     ? "border-b-[#359A35] text-[#359A35]"
                     : "border-b-[#736D6D] text-[#736D6D]"
@@ -156,7 +156,7 @@ const Invest = () => {
               </button>
 
               <button
-                className={`border-b-4 flex justify-center items-center font-semibold text-lg px-14 ${
+                className={`border-b-4 flex justify-center w-full items-center font-semibold text-lg px-14 ${
                   activeSection === "Inventory"
                     ? "border-b-[#359A35] text-[#359A35]"
                     : "border-b-[#736D6D] text-[#736D6D]"
@@ -204,16 +204,16 @@ const Invest = () => {
                 >
                   <div className="flex py-4 flex-col border-b-2 border-b-[#A8A4A4] justify-center">
                     <div className="flex xx:flex-col sm:flex-row justify-between lg:gap-4">
-                      <div className=" md:w-[450px]  lg:w-full">
+                      <div className="w-full">
                         <img
                           src={asset.image || ivoryimg}
                           alt={asset.name}
-                          className="z-20 ss:h-[330px] h-[174px] w-full"
+                          className="z-20 ss:h-[330px] h-[174px] w-full "
                         />
                       </div>
 
-                      <div className="flex flex-col lg:w-full">
-                      <div className="flex sm:py-5 flex-row justify-between md:gap-2 lg:gap-8">
+                      <div className="flex flex-col w-full">
+                      <div className="flex sm:py-5 flex-row justify-between md:gap-2 lg:gap-full">
                         <div className="flex flex-col px-2 py-2">
                           <p className="font-bold py-2 text-xl ss:text-3xl">
                             {asset.name}
