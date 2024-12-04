@@ -629,11 +629,11 @@ const AssetPortfolio = () => {
               <div className="block md:hidden">
                 <div className="mb-2 border text-[#736D6D] border-gray-300 p-4 rounded-lg">
                   <div className="flex py-1 justify-between">
-                    <span className="font-semibold">Token Name:</span>
+                    <span className="">Token Name:</span>
                     <span className="text-black font-semibold">{asset.name}</span>
                   </div>
                   <div className="flex py-1 justify-between">
-                    <span className="font-semibold">Price/Share:</span>
+                    <span className="">Price/Share:</span>
                     <div className="flex flex-row gap-2">
                       <span className="font-semibold text-black">
                         {asset.amount || "N/A"}
@@ -644,15 +644,15 @@ const AssetPortfolio = () => {
                     </div>
                   </div>
                   <div className="flex py-1 justify-between">
-                    <span className="font-semibold">From:</span>
+                    <span className="">From:</span>
                     <span className="text-[#2210F4] font-semibold">0xc0...d1ce95Bosses</span>
                   </div>
                   <div className="flex py-1 justify-between">
-                    <span className="font-semibold">QTY of Shares:</span>
+                    <span className="">QTY of Shares:</span>
                     <span className="text-black font-semibold">{asset.shares}</span>
                   </div>
                   <div className="flex py-1 justify-between">
-                    <span className="font-semibold">Date:</span>
+                    <span className="">Date:</span>
                     <span className="text-black font-semibold">
                       {new Date(asset.createdAt).toLocaleDateString()}
                     </span>

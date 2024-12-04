@@ -105,7 +105,7 @@ const Invest = () => {
             </div>
           </div>
 
-          <div className="flex ss:hidden py-4 px-4 -mt-8 xx:flex-row justify-between sm:flex-row  gap-2">
+          <div className="flex ss:hidden py-7 px-4 -mt-12 xx:flex-row justify-between sm:flex-row  gap-2">
             <div className="flex flex-col shadow-lg xx:gap-4 w-[186px] bg-white p-2 rounded-md">
               <p className="text-black font-bold py-1 md:text-xl">
                 Total Invest
@@ -169,10 +169,10 @@ const Invest = () => {
 
             <div>
               <div className="relative flex xx:w-full md:w-[500px]   shadow-sm">
-                <div className="w-full py-3 border px-14 rounded-md">
+                <div className="w-full py-2 border px-14 rounded-lg">
                   <input
                     type="text"
-                    placeholder="Search NFT crops"
+                    placeholder="Search tokenized crops"
                     // value={searchTerm}
                     // onChange={handleSearch}
                     className=" focus:outline-none focus:ring-[#359A35] focus:border-[#A4A4A4]"
@@ -204,27 +204,27 @@ const Invest = () => {
                 >
                   <div className="flex py-4 flex-col border-b-2 border-b-[#A8A4A4] justify-center">
                     <div className="flex xx:flex-col sm:flex-row justify-between lg:gap-4">
-                      <div className="md:w-[450px]  ">
+                      <div className=" md:w-[450px]  lg:w-full">
                         <img
                           src={asset.image || ivoryimg}
                           alt={asset.name}
-                          className="z-20 md:h-[330px] h-[174px] w-full"
+                          className="z-20 ss:h-[330px] h-[174px] w-full"
                         />
                       </div>
 
-                      <div className="flex flex-col">
+                      <div className="flex flex-col lg:w-full">
                       <div className="flex sm:py-5 flex-row justify-between md:gap-2 lg:gap-8">
                         <div className="flex flex-col px-2 py-2">
-                          <p className="font-bold py-2 md:text-3xl">
+                          <p className="font-bold py-2 text-xl ss:text-3xl">
                             {asset.name}
                           </p>
-                          <div className="text-[#359A35] flex flex-row gap-2 font-extrabold md:text-2xl">
+                          <div className="text-[#359A35] flex flex-row gap-2 font-extrabold text-lg ss:text-2xl">
                             <p>{asset.amount / asset.shares}</p>
-                            <p className="text-[#A8A4A4] flex items-center md:text-xl">
+                            <p className="text-[#A8A4A4] flex items-center ss:text-xl">
                               RWA
                             </p>
                           </div>
-                          <p className="text-[#A8A4A4] font-bold md:text-lg">
+                          <p className="text-[#A8A4A4] font-bold ss:text-lg">
                             Price per 1 share
                           </p>
                         </div>
@@ -234,11 +234,11 @@ const Invest = () => {
                             <img
                               src={share}
                               alt="share"
-                              className="z-20 w-10 h-10 md:w-14 md:h-14"
+                              className="z-20 w-10 h-10 ss:w-14 ss:h-14"
                             />
                           </div>
                           <div>
-                            <button className="bg-[#359A35] rounded-xl py-2 md:py-2 px-3 md:px-6 font-bold text-white">
+                            <button className="bg-[#359A35] rounded-xl py-2 ss:py-4 lg:py-4 px-3 ss:px-6 lg:px-7 font-bold text-white">
                               BUY
                             </button>
                           </div>
