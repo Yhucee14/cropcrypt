@@ -105,8 +105,8 @@ const Invest = () => {
             </div>
           </div>
 
-          <div className="flex ss:hidden py-4 px-4 -mt-8 xx:flex-row justify-between sm:flex-row  gap-2 md:gap-3">
-            <div className="flex flex-col shadow-lg xx:gap-4 md:gap-0   md:w-full bg-white p-2 md:p-3 rounded-md">
+          <div className="flex ss:hidden py-4 px-4 -mt-8 xx:flex-row justify-between sm:flex-row  gap-2">
+            <div className="flex flex-col shadow-lg xx:gap-4 w-[186px] bg-white p-2 rounded-md">
               <p className="text-black font-bold py-1 md:text-xl">
                 Total Invest
               </p>
@@ -123,7 +123,7 @@ const Invest = () => {
               </div>
             </div>
 
-            <div className="flex flex-col shadow-lg xx:gap-4 md:gap-0   md:w-full bg-white p-2 md:p-3 rounded-md">
+            <div className="flex flex-col shadow-lg xx:gap-4 w-[186px] bg-white p-2 rounded-md">
               <p className="text-black font-bold py-1 md:text-xl">
                 Total Return
               </p>
