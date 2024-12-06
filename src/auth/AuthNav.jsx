@@ -22,7 +22,7 @@ const AuthNav = () => {
   };
 
   return (
-    <div className="flex px-0 py-4 justify-between cursor-pointer">
+    <div className="flex px-0 py-5 justify-between cursor-pointer">
       {isMobile ? (
         <div className="md:hidden shadow-md py-2 px-4 z-50 flex justify-between w-full items-center">
           <div className=" flex flex-row py-2 px-1">
