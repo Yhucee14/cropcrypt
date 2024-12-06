@@ -1,4 +1,4 @@
-import React from "react";
+
 import phone from "../assets/phone.png";
 import { Link } from "react-router-dom";
 import { ConnectButton, RainbowKitProvider, lightTheme } from "@rainbow-me/rainbowkit";

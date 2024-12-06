@@ -11,6 +11,11 @@ body {
     font-family: 'DM Sans', sans-serif;
   }
   
+.bg-button-green{
+  background: linear-gradient(90deg, #359A35 0%, #164016 66.19%, #123412 100%);
+}
+
+
 
 .bg-gradient-invest {
   background: linear-gradient(270deg, #359A35 0%, #123412 100%);
@@ -29,8 +34,11 @@ body {
 
 }
 
-.text-gradient-invest {
-  background: linear-gradient(270deg, #359A35 0%, #123412 100%);
+
+
+
+.text-gradient-logo {
+  background: linear-gradient(90deg, #000000 0%, #359A35 69.5%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

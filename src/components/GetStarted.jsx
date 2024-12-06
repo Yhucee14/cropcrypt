@@ -1,4 +1,4 @@
-import React from 'react'
+
 import coin from '../assets/coin.png'
 import track from '../assets/track.png'
 import harvest from '../assets/harvest.png'
