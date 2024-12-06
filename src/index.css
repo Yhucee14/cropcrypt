@@ -13,9 +13,13 @@ body {
   
 .bg-button-green{
   background: linear-gradient(90deg, #359A35 0%, #164016 66.19%, #123412 100%);
+  transition: background 0.3s;
 }
 
-
+.bg-button-green:hover {
+  background: white; 
+  color: #099504;
+}
 
 .bg-gradient-invest {
   background: linear-gradient(270deg, #359A35 0%, #123412 100%);
