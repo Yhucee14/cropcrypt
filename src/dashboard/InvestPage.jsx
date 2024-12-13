@@ -14,6 +14,7 @@ import gridthree from "../assets/gridthree.png";
 import gridfour from "../assets/gridfour.png";
 import ivoryimg from "../assets/ivoryimg.png";
 
+
 const Invest = () => {
   const [assets, setAssets] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

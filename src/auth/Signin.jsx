@@ -91,6 +91,8 @@ const Signin = () => {
                 </button>
               </div>
             </div>
+            
+            <Link to='/verifyemail'>Verify</Link>
 
             <div className="px-5">
               <p className="text-[#1A0F28] text-xs text-center">

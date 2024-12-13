@@ -3,12 +3,49 @@ import AuthNav from "./AuthNav";
 import google from "../assets/google.png";
 import apple from "../assets/apple.png";
 import { Link } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
 
 const SignUp = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
+  };
+
+  // Form input change handler
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // API call to send sign-up data
+  const signUp = async (data) => {
+    const response = await fetch("/api/signup", {
+      // Replace with your API endpoint
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error("Error signing up");
+    }
+
+    return response.json();
+  };
+
+  const { mutate, isLoading, error } = useMutation(signUp);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    mutate(formData); // Call the mutation with the form data
   };
 
   return (
@@ -51,85 +88,121 @@ const SignUp = () => {
           <span className="border w-20 ss:w-40 h-0"></span>
         </div>
 
-        <div>
-          <form className="flex flex-col justify-between gap-4  w-full">
-            <div className="relative w-full xx:px-4 sm:px-0 flex flex-col gap-3 mx-auto">
-              <div className="flex flex-col ss:flex-row py-2 gap-3">
-                <input
-                  type="text"
-                  placeholder="First name"
-                  className="border border-gray-400 bg-[#F3F3F3] transition-all duration-300 focus:bg-[#E0EEE0] focus:border-2 focus:border-[#359A35] w-full rounded-xl h-12 text-sm pl-4 text-[#1A0F28] focus:outline-none"
-                />
-                <input
-                  type="text"
-                  placeholder="Last name"
-                  className="border border-gray-400 bg-[#F3F3F3] transition-all duration-300 focus:bg-[#E0EEE0] focus:border-2 focus:border-[#359A35] w-full rounded-xl h-12 text-sm pl-4 text-[#1A0F28] focus:outline-none"
-                />
-              </div>
-
-              <div>
-                <input
-                  type="text"
-                  placeholder="Email address"
-                  className="border border-gray-400 transition-all duration-300 bg-[#F3F3F3] focus:bg-[#E0EEE0] focus:border-2 focus:border-[#359A35] w-full rounded-xl h-12 text-sm pl-4 text-[#1A0F28] focus:outline-none"
-                />
-              </div>
-
-              <div className="relative">
-                <input
-                  type={passwordVisible ? "text" : "password"}
-                  placeholder="Password"
-                  className="border border-gray-400 transition-all duration-300 bg-[#F3F3F3] focus:bg-[#E0EEE0] focus:border-2 focus:border-[#359A35] w-full rounded-xl h-12 text-sm pl-4 text-[#1A0F28] focus:outline-none"
-                />
-                <button
-                  type="button"
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-xs text-gray-600"
-                  onClick={togglePasswordVisibility}
-                >
-                  {passwordVisible ? "Hide" : "Show"}
-                </button>
-              </div>
-
-              <div className="flex px-1 ss:px-0 py-2 ss:py-0 ss:justify-center font-medium text-xs">
-                Forgot Password ? <Link to='forgotPassword' className="px-1 cursor-pointer text-[#3d80de] underline"> Click here.</Link>
-              </div>
-
-              <div className="flex flex-col justify-center w-full">
-                <button
-                  type="submit"
-                  className="flex w-full gap-2 h-12 transition-all duration-300 bg-[#359A35] hover:bg-[white] hover:border-2 hover:border-gray-400 hover:text-[#359A35] rounded-xl py-2 px-4 text-white justify-center items-center"
-                >
-                  <div>Sign up</div>
-                </button>
-              </div>
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col justify-between gap-4  w-full"
+        >
+          <div className="relative w-full xx:px-4 sm:px-0 flex flex-col gap-3 mx-auto">
+            <div className="flex flex-col ss:flex-row py-2 gap-3">
+              <input
+                type="text"
+                name="firstName"
+                placeholder="First name"
+                value={formData.firstName}
+                onChange={handleChange}
+                className="border border-gray-400 bg-[#F3F3F3] transition-all duration-300 focus:bg-[#E0EEE0] focus:border-2 focus:border-[#359A35] w-full rounded-xl h-12 text-sm pl-4 text-[#1A0F28] focus:outline-none"
+              />
+              <input
+                type="text"
+                name="lastName"
+                placeholder="Last name"
+                value={formData.lastName}
+                onChange={handleChange}
+                className="border border-gray-400 bg-[#F3F3F3] transition-all duration-300 focus:bg-[#E0EEE0] focus:border-2 focus:border-[#359A35] w-full rounded-xl h-12 text-sm pl-4 text-[#1A0F28] focus:outline-none"
+              />
             </div>
 
-            <div className="px-5">
-              <p className="text-[#1A0F28] text-xs text-center">
-                By signing in, you agree to Cropcrypt’s
-                <a
-                  href="URL"
-                  target="target"
-                  className="text-[#3d80de] underline text-xs"
-                >
-                  {" "}
-                  Terms of Service and Privacy Policy.
-                </a>
-              </p>
-
-              <p className="text-center text-xs py-5 ss:py-3">
-                Have an account?{" "}
-                <Link to="/signin" className="text-[#359A35] underline cursor-pointer text-xs ">
-                  Sign In
-                </Link>
-              </p>
+            <div>
+              <input
+                type="email"
+                name="email"
+                placeholder="Email address"
+                value={formData.email}
+                onChange={handleChange}
+                className="border border-gray-400 transition-all duration-300 bg-[#F3F3F3] focus:bg-[#E0EEE0] focus:border-2 focus:border-[#359A35] w-full rounded-xl h-12 text-sm pl-4 text-[#1A0F28] focus:outline-none"
+              />
             </div>
 
-            <div className="text-center  text-[#00000099] text-base">
-              @2024-2025 Cropcrypt. All rights reserved.
+            <div className="relative">
+              <input
+                type={passwordVisible ? "text" : "password"}
+                name="password"
+                placeholder="Password"
+                value={formData.password}
+                onChange={handleChange}
+                className="border border-gray-400 transition-all duration-300 bg-[#F3F3F3] focus:bg-[#E0EEE0] focus:border-2 focus:border-[#359A35] w-full rounded-xl h-12 text-sm pl-4 text-[#1A0F28] focus:outline-none"
+              />
+              <button
+                type="button"
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-xs text-gray-600"
+                onClick={togglePasswordVisibility}
+              >
+                {passwordVisible ? "Hide" : "Show"}
+              </button>
             </div>
-          </form>
-        </div>
+
+            {error && (
+              <div className="text-red-500 text-xs">{error.message}</div>
+            )}
+
+            <div className="flex px-1 ss:px-0 py-2 ss:py-0 ss:justify-center font-medium text-xs">
+              Forgot Password ?{" "}
+              <Link
+                to="forgotPassword"
+                className="px-1 cursor-pointer text-[#3d80de] underline"
+              >
+                {" "}
+                Click here.
+              </Link>
+            </div>
+
+            <div className="flex flex-col justify-center w-full">
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="flex w-full gap-2 h-12 transition-all duration-300 bg-[#359A35] hover:bg-[white] hover:border-2 hover:border-gray-400 hover:text-[#359A35] rounded-xl py-2 px-4 text-white justify-center items-center"
+              >
+                <div>
+                  {isLoading ? (
+                    <div className="flex justify-center items-center h-64">
+                      <div className="w-14 h-14 border-4 border-t-4 border-gray-200 rounded-full animate-spin border-t-green-500"></div>
+                    </div>
+                  ) : (
+                    "Sign Up"
+                  )}
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <div className="px-5">
+            <p className="text-[#1A0F28] text-xs text-center">
+              By signing in, you agree to Cropcrypt’s
+              <a
+                href="URL"
+                target="target"
+                className="text-[#3d80de] underline text-xs"
+              >
+                {" "}
+                Terms of Service and Privacy Policy.
+              </a>
+            </p>
+
+            <p className="text-center text-xs py-5 ss:py-3">
+              Have an account?{" "}
+              <Link
+                to="/signin"
+                className="text-[#359A35] underline cursor-pointer text-xs "
+              >
+                Sign In
+              </Link>
+            </p>
+          </div>
+
+          <div className="text-center  text-[#00000099] text-base">
+            @2024-2025 Cropcrypt. All rights reserved.
+          </div>
+        </form>
       </div>
     </div>
   );

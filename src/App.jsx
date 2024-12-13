@@ -11,6 +11,7 @@ import NftPortfolio from "./dashboard/NftPortfolio";
 import EditProfile from "./components/EditProfile";
 import { useState } from "react";
 import Signin from "./auth/Signin";
+import VerifyEmail from "./auth/VerifyEmail";
 
 function App() {
   // Simulating authentication state
@@ -26,6 +27,7 @@ function App() {
         />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<Signin />} />
+        <Route path="/verifyemail" element={<VerifyEmail />} />
         <Route path="/invest" element={isLoggedIn ? <InvestPage /> : <Navigate to="/signup" />} />
         <Route path="/asset/:_id" element={isLoggedIn ? <AssetPortfolio /> : <Navigate to="/signup" />} />
         <Route path="/createAsset" element={isLoggedIn ? <CreateAsset /> : <Navigate to="/signup" />} />
