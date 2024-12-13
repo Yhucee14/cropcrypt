@@ -1,25 +1,12 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
+
+const signUp = async (userData) => {
+  const { data } = await axios.post("/api/signup", userData); // Replace with actual endpoint
+  return data;
+};
 
 const useSignUpMutation = () => {
-  // Define the sign-up API call
-  const signUp = async (userData) => {
-    const response = await fetch('/api/signup', { // Replace with your actual API endpoint
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(userData),
-    });
-
-    if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.message || 'Sign-up failed');
-    }
-
-    return response.json();
-  };
-
-  // Use the mutation
   return useMutation(signUp);
 };
 

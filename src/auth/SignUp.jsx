@@ -3,7 +3,7 @@ import AuthNav from "./AuthNav";
 import google from "../assets/google.png";
 import apple from "../assets/apple.png";
 import { Link } from "react-router-dom";
-import { useMutation } from "@tanstack/react-query";
+import useSignUpMutation from "../mutations/useSignUpMutation";
 
 const SignUp = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -23,25 +23,7 @@ const SignUp = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // API call to send sign-up data
-  const signUp = async (data) => {
-    const response = await fetch("/api/signup", {
-      // Replace with your API endpoint
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-
-    if (!response.ok) {
-      throw new Error("Error signing up");
-    }
-
-    return response.json();
-  };
-
-  const { mutate, isLoading, error } = useMutation(signUp);
+  const { mutate, isLoading, error } = useSignUpMutation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -145,7 +127,7 @@ const SignUp = () => {
               <div className="text-red-500 text-xs">{error.message}</div>
             )}
 
-            <div className="flex px-1 ss:px-0 py-2 ss:py-0 ss:justify-center font-medium text-xs">
+            <div className="flex px-1 ss:px-0 py-1 ss:py-0 ss:justify-center font-medium text-xs">
               Forgot Password ?{" "}
               <Link
                 to="forgotPassword"
@@ -155,54 +137,52 @@ const SignUp = () => {
                 Click here.
               </Link>
             </div>
+          </div>
 
-            <div className="flex flex-col justify-center w-full">
-              <button
-                type="submit"
-                disabled={isLoading}
-                className="flex w-full gap-2 h-12 transition-all duration-300 bg-[#359A35] hover:bg-[white] hover:border-2 hover:border-gray-400 hover:text-[#359A35] rounded-xl py-2 px-4 text-white justify-center items-center"
-              >
-                <div>
-                  {isLoading ? (
-                    <div className="flex justify-center items-center h-64">
-                      <div className="w-14 h-14 border-4 border-t-4 border-gray-200 rounded-full animate-spin border-t-green-500"></div>
-                    </div>
-                  ) : (
-                    "Sign Up"
-                  )}
+          <div className="flex flex-col justify-center w-full">
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="flex w-full gap-2 h-12 transition-all duration-300 bg-[#359A35] hover:bg-[white] hover:border-2 hover:border-gray-400 hover:text-[#359A35] rounded-xl py-1 px-4 text-white justify-center items-center"
+            >
+              {isLoading ? (
+                <div className="flex justify-center items-center h-64">
+                  <div className="w-14 h-14 border-4 border-t-4 border-gray-200 rounded-full animate-spin border-t-green-500"></div>
                 </div>
-              </button>
-            </div>
-          </div>
-
-          <div className="px-5">
-            <p className="text-[#1A0F28] text-xs text-center">
-              By signing in, you agree to Cropcrypt’s
-              <a
-                href="URL"
-                target="target"
-                className="text-[#3d80de] underline text-xs"
-              >
-                {" "}
-                Terms of Service and Privacy Policy.
-              </a>
-            </p>
-
-            <p className="text-center text-xs py-5 ss:py-3">
-              Have an account?{" "}
-              <Link
-                to="/signin"
-                className="text-[#359A35] underline cursor-pointer text-xs "
-              >
-                Sign In
-              </Link>
-            </p>
-          </div>
-
-          <div className="text-center  text-[#00000099] text-base">
-            @2024-2025 Cropcrypt. All rights reserved.
+              ) : (
+                "Sign Up"
+              )}
+            </button>
           </div>
         </form>
+
+        <div className="px-5 py-2">
+          <p className="text-[#1A0F28] text-xs text-center">
+            By signing in, you agree to Cropcrypt’s
+            <a
+              href="URL"
+              target="target"
+              className="text-[#3d80de] underline text-xs"
+            >
+              {" "}
+              Terms of Service and Privacy Policy.
+            </a>
+          </p>
+
+          <p className="text-center text-xs py-5 ss:py-3">
+            Have an account?{" "}
+            <Link
+              to="/signin"
+              className="text-[#359A35] underline cursor-pointer text-xs "
+            >
+              Sign In
+            </Link>
+          </p>
+        </div>
+
+        <div className="text-center  text-[#00000099] text-base">
+          @2024-2025 Cropcrypt. All rights reserved.
+        </div>
       </div>
     </div>
   );
