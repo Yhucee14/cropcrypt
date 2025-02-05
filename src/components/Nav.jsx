@@ -27,7 +27,7 @@ const Nav = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); 
+      setIsMobile(window.innerWidth <= 768);
     };
 
     window.addEventListener("resize", handleResize);
@@ -151,7 +151,7 @@ const Nav = () => {
                   </Link>
 
                   <div className="py-2 flex justify-center border">
-                  <ConnectButton />
+                    <ConnectButton />
                   </div>
                 </div>
               </div>
@@ -254,15 +254,15 @@ const Nav = () => {
               </div>
 
               <div className="flex justify-center gap-2 items-center">
-                <img src={blue} alt="home" className="w-10 z-20 h-10" />
+                {/* <img src={blue} alt="home" className="w-10 z-20 h-10" /> */}
 
                 <div
                   className="relative"
                   onMouseEnter={() => setAssetChainDropdownVisible(true)}
                   onMouseLeave={() => setAssetChainDropdownVisible(false)}
                 >
-                  <button className="flex flex-row ml-[-34px] border-2 border-grey bg-green-100 rounded-2xl py-1 px-5 text-deepgreen justify-center items-center">
-                    <div className="px-3 font-bold">Asset Chain</div>
+                  <button className="flex flex-row ml-[-4px] border-2 border-grey bg-green-100 rounded-2xl py-1 px-5 text-deepgreen justify-center items-center">
+                    <div className="px-3 font-bold">Chain</div>
                     <img
                       src={down}
                       alt="home"

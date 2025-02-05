@@ -14,11 +14,10 @@ import Nav from "../Nav";
 import GreenFooter from "../../dashboard/GreenFooter";
 
 const Layout = () => {
-
   return (
     <div className="flex flex-col justify-center ">
       <Nav />
-      
+
       <div className="xx:px-1 md:px-36 lg:px-40">
         <Pop />
         <Hero />
@@ -26,7 +25,7 @@ const Layout = () => {
         <Discover />
         <World />
         <Lock />
-        <Chain />
+        {/* <Chain /> */}
         <Wallet />
         <Unlock />
         <Benefits />

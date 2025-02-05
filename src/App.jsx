@@ -1,6 +1,6 @@
 import "./App.css";
 import Layout from "./components/Layout/Layout";
-import SignUp from './auth/SignUp';
+import SignUp from "./auth/SignUp";
 import InvestPage from "./dashboard/InvestPage";
 import "./index.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
@@ -21,19 +21,19 @@ function App() {
     <BrowserRouter>
       <Routes>
         {/* Redirect to SignUp if not logged in */}
-        <Route
-          path="/"
-          element={isLoggedIn ? <Layout /> : <Navigate to="/signup" />}
-        />
-        <Route path="/signup" element={<SignUp />} />
+
+        <Route path="/" element={<SignUp />} />
+        <Route path="/layout" element={<Layout />} />
+
         <Route path="/signin" element={<Signin />} />
         <Route path="/verifyemail" element={<VerifyEmail />} />
-        <Route path="/invest" element={isLoggedIn ? <InvestPage /> : <Navigate to="/signup" />} />
-        <Route path="/asset/:_id" element={isLoggedIn ? <AssetPortfolio /> : <Navigate to="/signup" />} />
-        <Route path="/createAsset" element={isLoggedIn ? <CreateAsset /> : <Navigate to="/signup" />} />
-        <Route path="/profile" element={isLoggedIn ? <Profile /> : <Navigate to="/signup" />} />
-        <Route path="/nft" element={isLoggedIn ? <NftPortfolio /> : <Navigate to="/signup" />} />
-        <Route path="/editProfile" element={isLoggedIn ? <EditProfile /> : <Navigate to="/signup" />} />
+        <Route path="/layout" element={<Layout />} />
+        <Route path="/invest" element={<InvestPage />} />
+        <Route path="/asset/:_id" element={<AssetPortfolio />} />
+        <Route path="/createAsset" element={<CreateAsset />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/nft" element={<NftPortfolio />} />
+        <Route path="/editProfile" element={<EditProfile />} />
       </Routes>
     </BrowserRouter>
   );

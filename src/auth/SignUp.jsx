@@ -140,19 +140,21 @@ const SignUp = () => {
           </div>
 
           <div className="flex flex-col justify-center w-full">
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="flex w-full gap-2 h-12 transition-all duration-300 bg-[#359A35] hover:bg-[white] hover:border-2 hover:border-gray-400 hover:text-[#359A35] rounded-xl py-1 px-4 text-white justify-center items-center"
-            >
-              {isLoading ? (
-                <div className="flex justify-center items-center h-64">
-                  <div className="w-14 h-14 border-4 border-t-4 border-gray-200 rounded-full animate-spin border-t-green-500"></div>
-                </div>
-              ) : (
-                "Sign Up"
-              )}
-            </button>
+            <Link to="/layout">
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="flex w-full gap-2 h-12 transition-all duration-300 bg-[#359A35] hover:bg-[white] hover:border-2 hover:border-gray-400 hover:text-[#359A35] rounded-xl py-1 px-4 text-white justify-center items-center"
+              >
+                {isLoading ? (
+                  <div className="flex justify-center items-center h-64">
+                    <div className="w-14 h-14 border-4 border-t-4 border-gray-200 rounded-full animate-spin border-t-green-500"></div>
+                  </div>
+                ) : (
+                  "Sign Up"
+                )}
+              </button>
+            </Link>
           </div>
         </form>
 
